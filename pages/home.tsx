@@ -1,7 +1,6 @@
 
 import { css } from "@emotion/css";
 import { NextPage } from "next";
-import { ComponentBox } from "./components/ComponentBox/ComponentBox";
 import TeamsNavigationbar from "./components/TeamsNavigationbar/teamsNavigationbar";
 import BlogPostNavigationbar from "./components/BlogPostNavigationbar/BlogPostNavigationbar";
 import ClubEventsNavigationbar from "./components/ClubEventsNavigationbar/ClubEventsNavigationbar";

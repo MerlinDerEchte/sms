@@ -5,7 +5,7 @@ import { BlogPostBox } from "./BlogPostBox/BlogPostBox";
 import { createBlogPostNavigationbarStyles } from "./BlogPostNavigationbarStyles"
 
 
-const BlogPostNavigationbar: React.FC<{ blogPosts: BlogPost[], limit:number }> = ({ blogPosts, limit =  -1 }) => {
+const BlogPostNavigationbar: React.FC<{ blogPosts: BlogPost[], limit:number }> = ({ blogPosts, limit =  20 }) => {
 
     const BlogPostNavigationbarStyles = createBlogPostNavigationbarStyles();
 
