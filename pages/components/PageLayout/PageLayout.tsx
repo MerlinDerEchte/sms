@@ -1,7 +1,5 @@
-import { NextPage } from "next";
-import react, { useContext } from "react";
+import { useContext } from "react";
 import { GlobalContext } from "../../GlobalContext";
-import { ContentBackground } from "./ContentBackground/ContentBackground";
 import { Footer } from "./Footer/Footer";
 import { Navbar } from "./Navbar/Navbar";
 import { createPageLayoutStyles } from "./PageLayoutStyles";
@@ -23,9 +21,6 @@ export const PageLayout = ({ children }: IPageProps) => {
         <Navbar />
       </header>
       <div className="content-wrapper">
-        {/*  
-        <ContentBackground />
-        */}
         {children}
         <Footer />
       </div>s

@@ -33,7 +33,6 @@ export const createPageLayoutStyles = (params: IcreatePageLayoutStyles) => {
          
         },
 
-
         '.header-wrapper': {
             position: 'absolute',
             height: PageLayoutConstants.HEADER_HEIGHT,
