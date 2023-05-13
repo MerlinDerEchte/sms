@@ -15,12 +15,10 @@ export const createPageLayoutStyles = (params: IcreatePageLayoutStyles) => {
 
 
     return css({
-
         width: screenWidth,
         overflowX: 'hidden',
         overflowY: 'hidden',
         height: screenHeight,
-        background: colors.WHITE,
         scrollbarWidth: 'thin',
         scrollbarColor: colors.LIGHT_BROWN,
         '*::-webkit-scrollbar': {
@@ -44,14 +42,13 @@ export const createPageLayoutStyles = (params: IcreatePageLayoutStyles) => {
             width: '100%',
             zIndex: 1,
         },
-
         '.content-wrapper': {
             position: 'relative',
             height: contentHeight,
+            scrollMargin: 10,
             width: '100%',
             justifyContent: 'center',
             top: PageLayoutConstants.HEADER_HEIGHT,
-            color: colors.DARK_BROWN,
             overflowY: 'auto',
             overflowX: 'hidden',
            

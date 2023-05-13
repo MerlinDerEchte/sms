@@ -31,7 +31,7 @@ export const createClubEventBoxStyles = () => {
                 width: '50%',
                 right:0,
                 height: 60,
-                background: `linear-gradient(170deg, transparent 40%, ${colors.DARK_BROWN} 80%)`,
+                //background: `linear-gradient(170deg, transparent 40%, ${colors.DARK_BROWN} 80%)`,
                 color: colors.WHITE,
                 borderRadius: 5,
                 display:"flex",

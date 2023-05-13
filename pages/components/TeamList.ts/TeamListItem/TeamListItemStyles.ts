@@ -23,7 +23,7 @@ export const createTeamLIstItemStyles = () => {
             alignItems: 'flex-start',
 
             'a':{
-                color:colors.DARK_BROWN,
+                color:colors.DARK_WHITE,
                 textDecoration: 'underline',
             }
         },

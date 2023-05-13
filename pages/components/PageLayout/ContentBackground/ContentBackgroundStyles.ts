@@ -24,12 +24,14 @@ export const createContentBackgroundStyles = (params: IcreateContentBackgroundSt
        
         justifyContent: 'center',
         alignItems: 'center',
-        opacity: 0.3,
+        background: colors.DARK_BROWN,
+        
+       /*  opacity: 0.3,
         backgroundImage: "url('suedHundert.jpg')",
         backgroundAttachment: 'fixed',
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        '::before':{
+        backgroundPosition: 'center', */
+       /*  '::before':{
             content:  '""',
             position:"absolute",
             left: 0,
@@ -46,7 +48,7 @@ export const createContentBackgroundStyles = (params: IcreateContentBackgroundSt
             height: '100%',
             
             background: `linear-gradient(90deg, transparent 0%, ${colors.DARK_WHITE} 50%)`,
-        }
+        } */
 
 
     }))

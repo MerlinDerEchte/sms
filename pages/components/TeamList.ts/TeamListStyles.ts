@@ -7,7 +7,7 @@ export const createTeamListStyles = () => {
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
-        gap: 30,
+        gap: 10,
         
         '.team-list-item-wrapper':{
             

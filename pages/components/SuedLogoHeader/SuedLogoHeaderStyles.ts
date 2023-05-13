@@ -19,7 +19,6 @@ export const createSuedLogoStyles = () => {
             'svg':{
                 width:200,
                 height: 200,
-                fill: colors.DARK_BROWN
             }
         },
         '.sued-text-wrapper':{
@@ -33,7 +32,6 @@ export const createSuedLogoStyles = () => {
             lineHeight: 1.5,
             fontSize: 24,
             fontWeight: 700,
-            color: colors.DARK_BROWN
         }
     })
 }

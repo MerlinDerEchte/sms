@@ -16,7 +16,7 @@ export const SuedLogoHeader = () => {
             <div className="sued-text-wrapper">
                Fussball im Kopf.<br />
             Sendling im Herzen.<br />
-               SC München Süd
+               SC München Süd e.V.
             </div>  
         </div>)
 }
