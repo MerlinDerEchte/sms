@@ -8,20 +8,20 @@ export const HomeSection = ({ }) => {
     const createHomeStyles = () => {
         return css({
             position: "relative",
-            marginTop: 50,
+            paddingTop: 50,
+            paddingBottom: 50,
             marginLeft: `calc(50% - ${PageLayoutConstants.CONTENT_WIDTH / 2}px)`,
             width: PageLayoutConstants.CONTENT_WIDTH,
             display: "flex",
             flexDirection: "column",
             alignItems: "stretch",
-            gap: 100,
+            gap: 50,
         
 
             ".welcome-wrapper": {
                 flex: "1 0",
                 width: "100%",
                 display: "flex",
-            
                 flexDirection: "column",
                 gap: 10,
 
@@ -48,7 +48,7 @@ export const HomeSection = ({ }) => {
 
     const homeStyles = createHomeStyles();
     return (
-        <Section isSecondary={true}>
+        <Section isSecondary={true} sectionId="home">
             <div className={homeStyles}>
                 <div className="sued-logo-wrapper">
                     <SuedLogoHeader />
@@ -75,7 +75,7 @@ export const HomeSection = ({ }) => {
                             <p>
                                 Der SC München Süd ist nicht nur auf dem Platz aktiv, sondern auch abseits des Spielfelds engagiert.
                                 Wir organisieren regelmäßig Veranstaltungen und Aktivitäten, bei denen wir uns besser kennenlernen, Spaß haben und unsere Verbundenheit stärken können.
-                                Egal, ob es das gemeinsame Grillen nach dem Spiel ist oder eine Spendenaktion für einen guten Zweck – wir sind immer füreinander da und unterstützen uns gegenseitig
+                                Egal, ob es das gemeinsame Grillen nach dem Spiel ist oder eine Spendenaktion für einen guten Zweck – wir sind immer füreinander da und unterstützen uns gegenseitig.
                             </p>
                         </div>
                     </div>

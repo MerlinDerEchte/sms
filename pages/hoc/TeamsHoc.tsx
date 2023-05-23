@@ -22,14 +22,15 @@ export function withTeams<T>(Component: ComponentType<T>) {
                 const newTeams: Team[] = [];
                 
                 teamsData.mannschaftCollection.items.forEach((cT: ContentfulTeam) => {
+                    console.log(cT);
+                    const isPersonIdInCTTrainers = (id:string) => cT.trainersCollection.items.some((person) => person.sys.id === id)
+                    const trainers:Person[] = persons.filter(p => isPersonIdInCTTrainers(p.id))
                 
-                    const trainer = persons.find(p => p.id === cT.trainer.sys.id)
-                
-                    if (trainer) {
+                    if (trainers) {
                         newTeams.push({
                             id: cT.id,
                             name: cT.name,
-                            trainer: trainer,
+                            trainers:  trainers,
                             bfvLink: cT.bfvLink,
                             trainingDates: cT.trainingszeiten,
                             hirarchy: cT.hirarchie,

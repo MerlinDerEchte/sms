@@ -1,0 +1,38 @@
+import { BlogPost } from "../../../types/blogPost";
+import { createBlogPostStyles } from "./BlogPostBoxStyles";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { useState } from 'react';
+
+export const BlogPostBox: React.FC<{ blogPost: BlogPost }> = ({ blogPost }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+    const toggleIsExpanded = () => {
+        if (isExpanded) {
+            setIsExpanded(false)
+        } else {
+            setIsExpanded(true)
+        }
+    }
+    const [isFocused, setIsFocused] = useState(false);
+
+    const blogPostStyles = createBlogPostStyles(isExpanded, isFocused);
+    return (
+        <div className={blogPostStyles} onMouseEnter={() => setIsFocused(true)} onMouseLeave={() => setIsFocused(false)} onClick={toggleIsExpanded}>
+             <div className="foto-wrapper">
+                <img src={blogPost.fotoLink}></img>
+            </div>
+            <div className="blog-post-content-wrapper">
+                <div className="blog-post-header">
+                    <h2>{blogPost.title}</h2>
+                </div>
+                <div className="blog-post-text-wrapper">
+                    {documentToReactComponents(blogPost.content)}
+                </div>
+                {!isExpanded && <div className="blog-post-read-more-container">
+                    Mehr lesen...
+                </div>
+                }
+            </div>
+        </div>
+
+    )
+}

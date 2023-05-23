@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { GlobalContext } from "../../GlobalContext";
 import { Footer } from "./Footer/Footer";
-import { Navbar } from "./Navbar/Navbar";
+import { Navbar } from "../Navbar/Navbar";
 import { createPageLayoutStyles } from "./PageLayoutStyles";
 
 interface IPageProps {
@@ -23,7 +23,7 @@ export const PageLayout = ({ children }: IPageProps) => {
       <div className="content-wrapper">
         {children}
         <Footer />
-      </div>s
+      </div>
     </main>
   );
 };

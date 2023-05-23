@@ -1,15 +1,14 @@
 import { gql } from "@apollo/client";
+import { ContentfulPerson } from "./contentfulPerson";
 
 
 export interface ContentfulTeam {
     id: string,
     name: string,
     trainingszeiten: string,
-    trainer: {
-        sys: {
-            id: string,
-        }
-    },
+    trainersCollection: {
+        items:ContentfulPerson[],
+    }
     bfvLink: string,
     hirarchie: number,
     foto: {
@@ -27,9 +26,11 @@ export const TEAMS_QUERY = gql`
                 }
                 name
                 trainingszeiten
-                trainer {
-                    sys {
-                        id
+                trainersCollection {
+                    items {
+                        sys {
+                            id
+                        }
                     }
                 }
                 bfvLink

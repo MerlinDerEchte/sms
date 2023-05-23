@@ -3,7 +3,7 @@ import { Person } from "./person";
 export type Team = {
     id: string,
     name: string, 
-    trainer: Person,
+    trainers: Person[],
     bfvLink: string,
     trainingDates: string ,
     hirarchy: number,
