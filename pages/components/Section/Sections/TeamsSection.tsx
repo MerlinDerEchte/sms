@@ -5,6 +5,7 @@ import { css } from "@emotion/css";
 import { withTeams } from "../../../hoc/TeamsHoc"
 import TeamList from "../../TeamList/TeamList";
 import { colors } from "../../../../styles/colors";
+import { ListSection } from "../ListSection";
 
 export const TeamsSection = () => {
 
@@ -55,7 +56,7 @@ export const TeamsSection = () => {
     }
     const teamStyles = createTeamstyles()
 
-    return (
+   /*  return (
         <Section isSecondary={false} sectionId="teams">
             <div className={teamStyles} id="teamsSection">
                 <div className="left-container">
@@ -70,5 +71,11 @@ export const TeamsSection = () => {
                 </div>
             </div>
         </Section >
+    ) */
+
+    return(
+        <ListSection isSecondary={false} sectionId="teams" caption="Unsere Teams">
+            <TeamList />
+        </ListSection>
     )
 }

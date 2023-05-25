@@ -4,6 +4,7 @@ import { BLOG_POST_QUERY, mapContentfulBlogPosts } from "../api/contentful/conte
 import { BlogPost } from "../types/blogPost";
 
 export function withBlogPosts<T>(Component: ComponentType<T>) {
+    
     return (hocProps: T) => {
         const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
        
@@ -15,12 +16,11 @@ export function withBlogPosts<T>(Component: ComponentType<T>) {
                 setBlogPosts(mapContentfulBlogPosts(data.blogPostCollection.items));
             }
         }, [data])
-
+        
         return (
             <Component
                 {...hocProps}
                 blogPosts={blogPosts}
-
             />)
     }
 } 

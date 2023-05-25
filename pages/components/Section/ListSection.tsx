@@ -1,11 +1,13 @@
-import { Section } from "../Section";
+import { Section } from "./Section";
 import { css } from "@emotion/css";
-import { colors } from "../../../../styles/colors";
-import BlogPostList from "../../BlogPostList/BlogPostList";
-import { ListSection } from "../ListSection";
-export const BlogPostSection = ({ }) => {
+import { useContext, FC, ReactComponentElement, ReactElement, ReactNode } from "react";
+import { GlobalContext } from "../../GlobalContext";
+import { colors } from "../../../styles/colors";
 
-    const createBlogPostsStyles = () => {
+export const ListSection: FC<{ caption: string, isSecondary: Boolean, sectionId: string, children: React.ReactNode }> = ({ caption, children, sectionId, isSecondary }) => {
+
+
+    const createListSectionStyles = () => {
 
         return css({
             paddingBottom: 50,
@@ -15,15 +17,15 @@ export const BlogPostSection = ({ }) => {
             maxWidth: '100vw',
             gap: 100,
 
-            '.left-container': {
+            '.caption-wrapper': {
                 flex: 1,
                 width: '33vw',
                 overflow: 'hidden',
                 '.caption-container': {
                     position: 'relative',
                     display: 'flex',
-                    color: colors.DARK_BROWN,
-                    background: colors.DARK_WHITE,
+                    background: colors.DARK_BROWN,
+                    color: colors.DARK_WHITE,
                     borderRadius: `0px 0px 10px 0px`,
                     width: '100%',
                     height: 50,
@@ -31,7 +33,7 @@ export const BlogPostSection = ({ }) => {
                     alignItems: 'center'
                 },
             },
-            '.right-container': {
+            '.content-container': {
                 flex: 2,
                 width: '66vw',
                 position: 'relative',
@@ -44,28 +46,25 @@ export const BlogPostSection = ({ }) => {
         })
     }
 
-    const blogPostsStyles = createBlogPostsStyles();
+    const listSectionStyles = createListSectionStyles();
 
-    /* return (
-        <Section isSecondary={false} sectionId="blogposts">
-            <div className={blogPostsStyles}>
-                <div className="left-container">
+
+    return (
+        <Section isSecondary={isSecondary} sectionId={sectionId}>
+            <div className={listSectionStyles}>
+                <div className="caption-wrapper">
                     <div className="caption-container">
                         <h2>
-                            Aktuelles
+                            {caption}
                         </h2>
                     </div>
                 </div>
-                <div className="right-container">
-                    <BlogPostList />
+                <div className="content-container">
+                    {children}
                 </div>
             </div>
-        </Section>
-    ) */
 
-    return (
-        <ListSection isSecondary={false} setionId="blogposts" caption="Aktuelles">
-            <BlogPostList />
-        </ListSection>
+
+        </Section>
     )
-} 
+}

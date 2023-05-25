@@ -17,8 +17,8 @@ const TeamsNavigationbar:React.FC<{teams:Team[]}> = ({teams})  => {
             </div>
             <div className="teams-container">
                 {teams.sort((a,b) => a.hirarchy - b.hirarchy)
-                .map(t => (
-                    <div className="team-box-wrapper">
+                .map((t,index) => (
+                    <div className="team-box-wrapper" key={index}>
                         <ComponentBox boxProps={{
                             boxContent: <TeamBox team={t} />,
                             isClickable: true  

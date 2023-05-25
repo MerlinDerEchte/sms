@@ -1,13 +1,15 @@
 import { SuedLogoSvg } from "../../../public/sued-logo";
-import { createSuedLogoStyles } from "./SuedLogoHeaderStyles"
-
+import { GlobalContext } from "../../GlobalContext";
+import { createSuedLogoStyles } from "./SuedLogoHeaderStyles";
+import { useContext } from 'react';
 
 
 
 export const SuedLogoHeader = () => {
 
+    const { isMobile } = useContext(GlobalContext)
+    const containerStyles = createSuedLogoStyles(isMobile);
 
-    const containerStyles = createSuedLogoStyles();
     return (
         <div className={containerStyles}>
             <div className="sued-logo-wrapper">

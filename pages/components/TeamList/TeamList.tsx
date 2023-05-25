@@ -10,8 +10,8 @@ const TeamList:React.FC<{teams:Team[]}> = ({teams}) => {
     return (
         <div className={teamListStyles}>
             {teams.sort((a, b) => a.hirarchy - b.hirarchy)
-            .map(t =>
-                <TeamListItem team={t} />
+            .map((t, index) =>
+                <TeamListItem team={t} key={index} />
             )}
         </div>
     )

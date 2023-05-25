@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { GlobalContext } from "../../GlobalContext";
 import { Footer } from "./Footer/Footer";
-import { Navbar } from "../Navbar/Navbar";
+import { Navbar } from "./Navbar/Navbar";
 import { createPageLayoutStyles } from "./PageLayoutStyles";
 
 interface IPageProps {
@@ -9,17 +9,15 @@ interface IPageProps {
 }
 
 export const PageLayout = ({ children }: IPageProps) => {
-  const { screenHeight, screenWidth } = useContext(GlobalContext);
-  const pageLayoutStyles = createPageLayoutStyles({
-    screenHeight,
-    screenWidth,
-  });
+  const { screenHeight, screenWidth, isMobile } = useContext(GlobalContext);
+  const pageLayoutStyles = createPageLayoutStyles({ screenHeight, screenWidth, isMobile });
 
   return (
     <main className={pageLayoutStyles} id="main">
-      <header className="header-wrapper">
+      {!isMobile && <header className="header-wrapper">
         <Navbar />
       </header>
+      }
       <div className="content-wrapper">
         {children}
         <Footer />

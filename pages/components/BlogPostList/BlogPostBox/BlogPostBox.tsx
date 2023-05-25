@@ -2,6 +2,7 @@ import { BlogPost } from "../../../types/blogPost";
 import { createBlogPostStyles } from "./BlogPostBoxStyles";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export const BlogPostBox: React.FC<{ blogPost: BlogPost }> = ({ blogPost }) => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -18,7 +19,7 @@ export const BlogPostBox: React.FC<{ blogPost: BlogPost }> = ({ blogPost }) => {
     return (
         <div className={blogPostStyles} onMouseEnter={() => setIsFocused(true)} onMouseLeave={() => setIsFocused(false)} onClick={toggleIsExpanded}>
              <div className="foto-wrapper">
-                <img src={blogPost.fotoLink}></img>
+                <img src={blogPost.fotoLink} alt={`foto_${blogPost.title}`}></img>
             </div>
             <div className="blog-post-content-wrapper">
                 <div className="blog-post-header">

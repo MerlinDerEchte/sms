@@ -4,6 +4,8 @@ import { PageLayoutConstants } from "../../../constants/PageLayoutConstants";
 import { colors } from "../../../../styles/colors";
 import ClubEventList from "../../ClubEventList/ClubEventList";
 import BlogPostList from "../../BlogPostList/BlogPostList";
+import { ListSection } from "../ListSection";
+
 export const ClubEventSection = ({ }) => {
 
     const createEventsStyles = () => {
@@ -47,7 +49,7 @@ export const ClubEventSection = ({ }) => {
 
     const eventsStyles = createEventsStyles();
 
-    return (
+    /* return (
         <Section isSecondary={true} sectionId="news">
             <div className={eventsStyles}>
                 <div className="left-container">
@@ -62,5 +64,11 @@ export const ClubEventSection = ({ }) => {
                 </div>
             </div>
         </Section>
+    ) */
+
+    return(
+        <ListSection isSecondary={true} sectionId="news" caption="Events">
+            <ClubEventList />
+        </ListSection>
     )
 } 

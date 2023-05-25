@@ -13,16 +13,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [screenWidth, setScreenWidth] = useState(0);
   const [screenHeight, setScreenHeight] = useState(0);
   const [appStatus, setAppStatus] = useState(EAppStatus.NONE);
-  const isInit = getIsInit(appStatus);
-  const isStart = getIsStart(appStatus);
-  const isRun = getIsRun(appStatus);
 
   const globalContextValue = {
-    screenWidth,
-    screenHeight,
-    isInit,
-    isStart,
-    isRun,
+    isMobile: screenWidth < 800,
+    sreenWidth: screenWidth,
+    screenHeight: screenHeight
   };
   const httpLink = createHttpLink({
     uri: "https://graphql.contentful.com/content/v1/spaces/6rtrkvbq91ik",
@@ -43,18 +38,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   })
 
 
-
   const handleResize = (): void => {
     setScreenHeight(window.innerHeight);
     setScreenWidth(window.innerWidth);
 
   };
 
-  
-
   // init method
   useEffect(() => {
-    setAppStatus(EAppStatus.INIT);
     setScreenHeight(window.innerHeight);
     setScreenWidth(window.innerWidth);
     const body = document.querySelector('body');

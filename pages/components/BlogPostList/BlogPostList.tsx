@@ -16,7 +16,7 @@ const BlogPostList: React.FC<{ blogPosts: BlogPost[] }> = ({ blogPosts }) => {
             gap: 30,
             color: colors.DARK_WHITE,
             alignItems: 'stretch',
-            'a': {
+            'a': {  
                 textDecoration: 'underline'
             },
         })
@@ -28,8 +28,8 @@ const BlogPostList: React.FC<{ blogPosts: BlogPost[] }> = ({ blogPosts }) => {
     return (
         <div className={blogPostListStyles}>
             {
-                blogPosts.map(bP =>
-                    <BlogPostBox blogPost={bP} />
+                blogPosts.map((bP,index) =>
+                    <BlogPostBox blogPost={bP} key={index} />
                 )
             }
 

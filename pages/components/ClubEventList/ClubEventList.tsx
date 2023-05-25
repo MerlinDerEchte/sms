@@ -27,8 +27,8 @@ const ClubEventList: React.FC<{ clubEvents: ClubEvent[] }> = ({ clubEvents }) =>
         <div className={clubEventListStyles}>
             {
                 clubEvents.sort((a, b) => a.date - b.date)
-                    .map(cE =>
-                        <ClubEventBox clubEvent={cE} />
+                    .map((cE,index) =>
+                        <ClubEventBox clubEvent={cE} key={index} />
                     )
             }
         </div>

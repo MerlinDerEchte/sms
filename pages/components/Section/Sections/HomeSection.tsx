@@ -1,22 +1,25 @@
 import { Section } from "../Section";
 import { css } from "@emotion/css";
-import { PageLayoutConstants } from "../../../constants/PageLayoutConstants";
+import { PageLayoutConstants, PageLayoutConstantsMobile } from "../../../constants/PageLayoutConstants";
 import { SuedLogoHeader } from "../../SuedLogoHeader/SuedLogoHeader";
+import { useContext } from "react";
+import { GlobalContext } from "../../../GlobalContext";
 
 export const HomeSection = ({ }) => {
+    const { isMobile } = useContext(GlobalContext)
+    const createHomeStyles = (isMobile: Boolean) => {
 
-    const createHomeStyles = () => {
+        const homeContentMargin = isMobile ? 50 : 200;
         return css({
             position: "relative",
-            paddingTop: 50,
+            paddingTop: isMobile ? 150 : 50,
             paddingBottom: 50,
-            marginLeft: `calc(50% - ${PageLayoutConstants.CONTENT_WIDTH / 2}px)`,
-            width: PageLayoutConstants.CONTENT_WIDTH,
+            marginLeft: homeContentMargin,
+            marginRight: homeContentMargin,
             display: "flex",
             flexDirection: "column",
             alignItems: "stretch",
-            gap: 50,
-        
+            gap: isMobile ? 100 : 50,
 
             ".welcome-wrapper": {
                 flex: "1 0",
@@ -46,7 +49,7 @@ export const HomeSection = ({ }) => {
         });
     }
 
-    const homeStyles = createHomeStyles();
+    const homeStyles = createHomeStyles(isMobile);
     return (
         <Section isSecondary={true} sectionId="home">
             <div className={homeStyles}>

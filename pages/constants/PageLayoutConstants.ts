@@ -9,5 +9,5 @@ export const PageLayoutConstantsMobile = {
     HEADER_HEIGHT: 50,
     FOOTER_HEIGHT: 120,
     CONTENT_BACKGROUND_HORIZONTAL_MARGIN: 100,
-    CONTENT_WIDTH: 400
+    CONTENT_WIDTH: 300
 }
