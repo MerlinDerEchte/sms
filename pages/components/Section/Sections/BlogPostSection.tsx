@@ -64,7 +64,7 @@ export const BlogPostSection = ({ }) => {
     ) */
 
     return (
-        <ListSection isSecondary={false} setionId="blogposts" caption="Aktuelles">
+        <ListSection isSecondary={false} sectionId="blogposts" caption="Aktuelles">
             <BlogPostList />
         </ListSection>
     )
