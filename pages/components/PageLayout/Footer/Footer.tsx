@@ -1,10 +1,11 @@
-import React from "react"
+import {useContext,FC } from "react"
 import { SuedLogoSvg } from "../../../../public/sued-logo";
 import { createFooterStyles } from "./FooterStyles"
+import { GlobalContext } from "../../../GlobalContext";
 
-export const Footer: React.FC<{}> = () => {
-
-    const footerStyles = createFooterStyles();
+export const Footer: FC<{}> = () => {
+    const { isMobile } = useContext(GlobalContext)
+    const footerStyles = createFooterStyles(isMobile);
 
     return (
         <div className={footerStyles}>

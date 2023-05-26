@@ -1,21 +1,21 @@
 import { Section } from "../Section";
 import { css } from "@emotion/css";
-import { PageLayoutConstants, PageLayoutConstantsMobile } from "../../../constants/PageLayoutConstants";
 import { SuedLogoHeader } from "../../SuedLogoHeader/SuedLogoHeader";
 import { useContext } from "react";
 import { GlobalContext } from "../../../GlobalContext";
+import { ESectionId } from "../../../enums/sectionIds";
+import { PageLayoutConstantsMobile } from "../../../constants/PageLayoutConstants";
 
-export const HomeSection = ({ }) => {
+export const IntroSection = ({ }) => {
     const { isMobile } = useContext(GlobalContext)
-    const createHomeStyles = (isMobile: Boolean) => {
+    const createIntroStyles = (isMobile: Boolean) => {
 
-        const homeContentMargin = isMobile ? 50 : 200;
         return css({
             position: "relative",
             paddingTop: isMobile ? 150 : 50,
             paddingBottom: 50,
-            marginLeft: homeContentMargin,
-            marginRight: homeContentMargin,
+            marginLeft: isMobile ? PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : 200,
+            marginRight: isMobile ? PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN  : 200,
             display: "flex",
             flexDirection: "column",
             alignItems: "stretch",
@@ -42,17 +42,18 @@ export const HomeSection = ({ }) => {
 
                     ".welcome-content": {
                         textAlign: "left",
-                        padding: "20px 20px",
+                        paddingTop: 20,
+                        paddingBottom: 20,
                     },
                 },
             },
         });
     }
 
-    const homeStyles = createHomeStyles(isMobile);
+    const introStyles = createIntroStyles(isMobile);
     return (
-        <Section isSecondary={true} sectionId="home">
-            <div className={homeStyles}>
+        <Section isSecondary={false} sectionId={ESectionId.Intro}>
+            <div className={introStyles}>
                 <div className="sued-logo-wrapper">
                     <SuedLogoHeader />
                 </div>

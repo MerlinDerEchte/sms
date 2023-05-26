@@ -1,16 +1,16 @@
 import { css } from "@emotion/css"
 import { colors } from "../../../../styles/colors"
+import { PageLayoutConstantsMobile } from "../../../constants/PageLayoutConstants";
 
-export const createBlogPostStyles = (isExpanded:Boolean, isFocused:Boolean) => {
-
+export const createBlogPostStyles = (isExpanded: Boolean, isFocused: Boolean, isMobile: Boolean) => {
 
     return css({
         position: 'relative',
         display: 'flex',
-        flexDirection: 'row',
-        padding: 10,
+        flexDirection: isMobile ? 'column' : 'row',
+        padding: 0,
         paddingBottom: 40,
-        width: 600,
+        width: isMobile ? '100%' : 600,
         overflow: 'hidden',
         alignItems: 'start',
         gap: 20,
@@ -32,12 +32,14 @@ export const createBlogPostStyles = (isExpanded:Boolean, isFocused:Boolean) => {
         '.blog-post-content-wrapper': {
             flex: 2,
             flexDirection: 'column',
+
             '.blog-post-text-wrapper': {
                 position: 'relative',
                 display: 'block',
                 flex: '2 1',
                 overflow: 'hidden',
                 maxHeight: isExpanded ? '100%' : 100,
+
                 '::after': {
                     content: `' '`,
                     position: 'absolute',

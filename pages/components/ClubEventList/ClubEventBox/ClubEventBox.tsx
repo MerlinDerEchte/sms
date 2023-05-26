@@ -2,9 +2,11 @@ import { BlogPost } from "../../../types/blogPost";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { ClubEvent } from "../../../types/clubEvent";
 import { createClubEventBoxStyles } from "./ClubEventBoxStyles";
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { GlobalContext } from "../../../GlobalContext";
 
 export const ClubEventBox: React.FC<{ clubEvent: ClubEvent }> = ({ clubEvent }) => {
+    const { isMobile } = useContext(GlobalContext); 
     const [isExpanded, setIsExpanded] = useState(false);
     const toggleIsExpanded = () => {
         if (isExpanded) {
@@ -16,7 +18,7 @@ export const ClubEventBox: React.FC<{ clubEvent: ClubEvent }> = ({ clubEvent }) 
     const [isFocused, setIsFocused] = useState(false);
 
 
-    const clubEventStyles = createClubEventBoxStyles(isExpanded, isFocused);
+    const clubEventStyles = createClubEventBoxStyles(isExpanded, isFocused, isMobile);
     const date:Date = clubEvent.date;
     const addZeroToMinuteStringIfNeeded = (minuteString:string) => {
         if(minuteString.length === 1){

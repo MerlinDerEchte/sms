@@ -2,16 +2,35 @@ import { css } from "@emotion/css";
 import { colors } from "../../../styles/colors";
 export const createSectionStyles = (isSecondary: Boolean = false) => {
 
+    const getFontAndSvgColor = (isSecondary: Boolean): string => {
+
+        if (isSecondary) {
+            return colors.DARK_WHITE
+        }
+        return colors.DARK_BROWN
+    }
+    const getBackgroundColor = (isSecondary: Boolean) => {
+
+        if (isSecondary) {
+            return colors.DARK_BROWN
+        }
+        return colors.DARK_WHITE
+    }
+
+    const fontColor = getFontAndSvgColor(isSecondary);
+    const svgColor = getFontAndSvgColor(isSecondary);
+    const backgroundColor = getBackgroundColor(isSecondary);
+
     return css({
         width: '100%',
         position: 'relative',
         height: 'auto',
-        background: isSecondary ? colors.DARK_WHITE : colors.DARK_BROWN,
-        color: isSecondary ? colors.DARK_BROWN : colors.DARK_WHITE,
+        background: backgroundColor,
+        color: fontColor,
         svg: {
-            fill: isSecondary ? colors.DARK_BROWN : colors.DARK_WHITE
+            fill: svgColor
         },
-        p:{
+        p: {
             marginTop: 10,
         }
     })

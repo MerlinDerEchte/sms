@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { withClubEvents } from "../../hoc/ClubEventsHoc";
 import { ClubEvent } from "../../types/clubEvent";
 import { ClubEventBox } from "./ClubEventBox/ClubEventBox";
 import { css } from "@emotion/css"
 import { colors } from "../../../styles/colors"
+import { GlobalContext } from "../../GlobalContext";
 
 const ClubEventList: React.FC<{ clubEvents: ClubEvent[] }> = ({ clubEvents }) => {
 
-    const createClubEventListStyles = () => {
+    const { isMobile } = useContext(GlobalContext)
+    const createClubEventListStyles = (isMobile:Boolean) => {
         return css({
             display: 'flex',
             flexDirection: 'column',
-            width: 600,
+            width: isMobile ? '100%' :  600,
             gap: 30,
             color: colors.DARK_BROWN,
             alignItems: 'stretch',
@@ -22,7 +24,7 @@ const ClubEventList: React.FC<{ clubEvents: ClubEvent[] }> = ({ clubEvents }) =>
         })
     }
 
-    const clubEventListStyles = createClubEventListStyles();
+    const clubEventListStyles = createClubEventListStyles(isMobile);
     return (
         <div className={clubEventListStyles}>
             {

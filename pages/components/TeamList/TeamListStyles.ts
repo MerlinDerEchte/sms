@@ -1,14 +1,14 @@
 import { css } from "@emotion/css"
 import { colors } from "../../../styles/colors"
 
-export const createTeamListStyles = () => {
+export const createTeamListStyles = (isMobile:Boolean) => {
 
 
     return css({
         display: 'flex',
         flexDirection: 'column',
-        width: 600,
-        gap: 30,
+        width: isMobile ? '100%' : 600,
+        gap: isMobile ? 80 : 30,
         color: colors.DARK_WHITE,
         alignItems: 'stretch',
         'a':{

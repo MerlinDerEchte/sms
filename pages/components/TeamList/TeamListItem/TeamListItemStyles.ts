@@ -2,38 +2,45 @@ import { css } from "@emotion/css"
 import { colors } from "../../../../styles/colors"
 
 
-export const createTeamLIstItemStyles = () => {
+export const createTeamLIstItemStyles = (isMobile:Boolean) => {
 
 
     return css({
         position: 'relative',
         display: 'flex',
         justifyContent: 'center',
+        flexDirection: isMobile ? 'column' : 'row',
         paddingBottom: 30,
         borderBottom: `3px solid ${colors.DARK_WHITE}`,
+        gap: isMobile ? 30 : 0,
 
         '.team-info-wrapper': {
             flex: 1,
             height: '100%',
             width: '100%',
-            paddingLeft: 20,
+            paddingLeft: isMobile ? 0 : 20,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'start',
             alignItems: 'flex-start',
+            '.team-name-container': {
+                textAlign: 'center',
+                width: '100%',
+                marginBottom: isMobile ? 30 : 0,
+            }
         },
 
         '.team-all-trainers-wrapper': {
             flex: 1,
             height: '100%',
             width: '50%',
-            paddingLeft: 20,
+            paddingLeft: isMobile ? 0 : 20,
             display: 'flex',
             gap: 20,
             flexDirection: 'column',
             '.team-trainer-wrapper': {
                 flex: 0,
-                paddingLeft: 20,
+                paddingLeft: isMobile ? 0 : 20,
                 display: 'flex',
                 gap: 20,
                 flexDirection: 'row', 

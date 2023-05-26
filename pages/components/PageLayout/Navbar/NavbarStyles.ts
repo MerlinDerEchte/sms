@@ -2,12 +2,7 @@ import { css } from "@emotion/css"
 import { colors } from "../../../../styles/colors"
 import { PageLayoutConstants } from "../../../constants/PageLayoutConstants"
 
-export interface IcreateNavbarStyles {
-
-}
-
 export const createNavbarStyles = () => {
-
 
     return css({
         position: 'fixed',

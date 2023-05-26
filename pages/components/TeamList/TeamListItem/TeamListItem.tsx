@@ -1,22 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Team } from "../../../types/team";
 import { ComponentBox } from "../../ComponentBox/ComponentBox";
-import { TeamListItemRow } from "./TeamListItemRow";
+import { TeamListItemWrapper } from "./TeamListItemWrapper";
 import { createTeamLIstItemStyles } from "./TeamListItemStyles";
+import { GlobalContext } from "../../../GlobalContext";
 
 export const TeamListItem: React.FC<{ team: Team }> = ({ team }) => {
 
-    const teamListItemStyles = createTeamLIstItemStyles();
+    const { isMobile } = useContext(GlobalContext);
+    const teamListItemStyles = createTeamLIstItemStyles(isMobile);
 
     return (<div id={team.id} className={teamListItemStyles}>
 
         <div className="team-info-wrapper">
-            <div><h2>{team.name}</h2></div>
-            <TeamListItemRow props={{
+            <div className="team-name-container"><h2>{team.name}</h2></div>
+            <TeamListItemWrapper props={{
                 title: 'BFV - Link',
                 content: <a href={team.bfvLink}>Hier klicken</a>
             }} />
-            <TeamListItemRow props={{
+            <TeamListItemWrapper props={{
                 title: 'Trainingszeiten',
                 content: team.trainingDates
             }} />
@@ -31,11 +33,11 @@ export const TeamListItem: React.FC<{ team: Team }> = ({ team }) => {
                             <img src={trainer.fotoLink} />
                         </div>
                         <div className="team-trainer-info-wrapper">
-                            <TeamListItemRow props={{
+                            <TeamListItemWrapper props={{
                                 title: 'Trainer',
                                 content: trainer.name
                             }} />
-                            <TeamListItemRow props={{
+                            <TeamListItemWrapper props={{
                                 title: 'Kontakt',
                                 content: trainer.contact
                             }} />

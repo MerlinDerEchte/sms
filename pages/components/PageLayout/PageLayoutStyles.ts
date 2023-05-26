@@ -14,7 +14,6 @@ export const createPageLayoutStyles = (params: IcreatePageLayoutStyles) => {
 
     const contentHeight: number = isMobile ? screenHeight : screenHeight - PageLayoutConstants.HEADER_HEIGHT  ;
 
-
     return css({
         width: screenWidth,
         overflowX: 'hidden',
@@ -26,7 +25,7 @@ export const createPageLayoutStyles = (params: IcreatePageLayoutStyles) => {
             width: 8,
         },
         '*::-webkit-scrollbar-track': {
-            background: colors.DARK_WHITE,
+            background: isMobile ? 'transparent' : colors.DARK_WHITE,
         },
         '*::-webkit-scrollbar-thumb': {
             background: colors.LIGHT_BROWN,
@@ -51,7 +50,6 @@ export const createPageLayoutStyles = (params: IcreatePageLayoutStyles) => {
             top: isMobile ? 0 :PageLayoutConstants.HEADER_HEIGHT,
             overflowY: 'auto',
             overflowX: 'hidden',
-           
         },
       
     })

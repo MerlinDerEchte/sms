@@ -1,22 +1,23 @@
 import { css } from "@emotion/css"
 import { colors } from "../../../../styles/colors"
 
-export const createClubEventBoxStyles = (isExpanded: Boolean, isFocused: Boolean) => {
+export const createClubEventBoxStyles = (isExpanded: Boolean, isFocused: Boolean, isMobile: Boolean) => {
 
 
     return css({
         position: 'relative',
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: isMobile ? 'column' : 'row',
         padding: 10,
         paddingBottom: 40,
-        width: 600,
+        width: isMobile ? '100%' : 600,
         overflow: 'hidden',
         alignItems: 'start',
         gap: 20,
+
         '&:hover': {
             cursor: 'pointer',
-            boxShadow: `0px 0px 5px 0px ${colors.DARK_BROWN}`,
+            boxShadow: isMobile ? 'none' :`0px 0px 5px 0px ${colors.DARK_BROWN}`,
         },
 
         '.foto-wrapper': {

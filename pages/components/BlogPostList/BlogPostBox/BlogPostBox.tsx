@@ -1,10 +1,11 @@
 import { BlogPost } from "../../../types/blogPost";
 import { createBlogPostStyles } from "./BlogPostBoxStyles";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { useState } from 'react';
-import Image from 'next/image';
+import { useContext, useState } from 'react';
+import { GlobalContext } from "../../../GlobalContext";
 
 export const BlogPostBox: React.FC<{ blogPost: BlogPost }> = ({ blogPost }) => {
+    const {isMobile} = useContext(GlobalContext)
     const [isExpanded, setIsExpanded] = useState(false);
     const toggleIsExpanded = () => {
         if (isExpanded) {
@@ -15,7 +16,7 @@ export const BlogPostBox: React.FC<{ blogPost: BlogPost }> = ({ blogPost }) => {
     }
     const [isFocused, setIsFocused] = useState(false);
 
-    const blogPostStyles = createBlogPostStyles(isExpanded, isFocused);
+    const blogPostStyles = createBlogPostStyles(isExpanded, isFocused, isMobile);
     return (
         <div className={blogPostStyles} onMouseEnter={() => setIsFocused(true)} onMouseLeave={() => setIsFocused(false)} onClick={toggleIsExpanded}>
              <div className="foto-wrapper">

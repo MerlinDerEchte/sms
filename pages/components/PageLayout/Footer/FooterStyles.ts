@@ -3,7 +3,8 @@ import { relative } from "path"
 import { colors } from "../../../../styles/colors"
 import { PageLayoutConstants } from "../../../constants/PageLayoutConstants"
 
-export const createFooterStyles = () => {
+export const createFooterStyles = (isMobile: Boolean) => {
+
 
     return css({
        
@@ -15,11 +16,11 @@ export const createFooterStyles = () => {
         borderTop: `5px solid  ${colors.LIGHT_BROWN}`,
         display: 'flex',
         justifyContent: 'center',
-        aligntItems: 'center',
+        alignItems: 'center',
         paddingY: 20,
-        gap: 50,
+        gap: isMobile ? 20 : 50,
         '.footer-logo': {
-            flex:1,
+            flex:isMobile ? 2 : 1,
             display: 'flex',
             flexDirection: 'row-reverse',
             alignItems: 'center',
@@ -30,7 +31,7 @@ export const createFooterStyles = () => {
             }
         },
         '.footer-impressum': {
-            flex:1,
+            flex: isMobile ? 3 : 1 ,
             display: 'flex',
             alignItems: 'center',
             'ul': {
