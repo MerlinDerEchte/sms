@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 const isGithubActions = process.env.GITHUB_ACTIONS || false
 let assetPrefix = ''
 let basePath = '/'
@@ -17,7 +16,7 @@ const nextConfig = {
     domains: ['images.ctfassets.net'],
   },
   assetPrefix: assetPrefix,
-  basePath:  basePath,
+  basePath: basePath,
 }
 
 module.exports = nextConfig
