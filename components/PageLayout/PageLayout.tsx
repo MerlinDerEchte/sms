@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { GlobalContext } from "GlobalContext";
 import { Footer } from "./Footer/Footer";
 import { Navbar } from "./Navbar/Navbar";
 import { createPageLayoutStyles } from "./PageLayoutStyles";
+import MobileNavigationButton from "./MobileNavigation/MobileNavigationButton";
 
 interface IPageProps {
   children: React.ReactNode;
@@ -11,6 +12,15 @@ interface IPageProps {
 export const PageLayout = ({ children }: IPageProps) => {
   const { screenHeight, screenWidth, isMobile } = useContext(GlobalContext);
   const pageLayoutStyles = createPageLayoutStyles({ screenHeight, screenWidth, isMobile });
+  const [showNavigationMenu, setShowNavigationMenu] = useState(true);
+
+  const toggleShowNavigationMenu = () => {
+    if(showNavigationMenu){
+      setShowNavigationMenu(false)
+    }else{
+      setShowNavigationMenu(true)
+    }
+  }
 
   return (
     <main className={pageLayoutStyles} id="main">
@@ -18,6 +28,7 @@ export const PageLayout = ({ children }: IPageProps) => {
         <Navbar />
       </header>
       }
+      {isMobile && <MobileNavigationButton showNavigationMenu={showNavigationMenu} toggleShowNavigationMenu={toggleShowNavigationMenu}/>}
       <div className="content-wrapper">
         {children}
         <Footer />
