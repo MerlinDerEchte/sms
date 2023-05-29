@@ -1,10 +1,9 @@
-import '../styles/globals.css'
+import 'styles/globals.css'
 import type { AppProps } from 'next/app'
 import { useEffect, useState } from 'react';
-import { EAppStatus } from './types/appStatus';
-import { getIsInit, getIsRun, getIsStart } from './utils/appStatusUtils';
-import { GlobalContext } from './GlobalContext';
-import { PageLayout } from './components/PageLayout/PageLayout';
+import { EAppStatus } from 'types/appStatus';
+import { GlobalContext } from 'GlobalContext';
+import { PageLayout } from 'components/PageLayout/PageLayout';
 import { ApolloClient, createHttpLink, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { setContext } from "@apollo/client/link/context";
 
@@ -12,12 +11,11 @@ function MyApp({ Component, pageProps }: AppProps) {
  
   const [screenWidth, setScreenWidth] = useState(0);
   const [screenHeight, setScreenHeight] = useState(0);
-  const [appStatus, setAppStatus] = useState(EAppStatus.NONE);
 
   const globalContextValue = {
-    isMobile: screenWidth < 800,
-    sreenWidth: screenWidth,
-    screenHeight: screenHeight
+    isMobile: screenWidth < 1000,
+    screenHeight: screenHeight,
+    screenWidth: screenWidth,
   };
   const httpLink = createHttpLink({
     uri: "https://graphql.contentful.com/content/v1/spaces/6rtrkvbq91ik",
@@ -41,14 +39,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   const handleResize = (): void => {
     setScreenHeight(window.innerHeight);
     setScreenWidth(window.innerWidth);
-
   };
 
   // init method
   useEffect(() => {
     setScreenHeight(window.innerHeight);
     setScreenWidth(window.innerWidth);
-    const body = document.querySelector('body');
     window.addEventListener("resize", () => handleResize());
   }, []);
 
