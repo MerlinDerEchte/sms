@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { createMobileButtonStyles } from './createMobileButtonStyles';
 
-export const MobileNavigationButton:React.FC<{showNavigationMenu: Boolean, toggleShowNavigationMenu: () => void}> = ({showNavigationMenu, toggleShowNavigationMenu}) => {
+export const MobileNavigationButton:React.FC<{showNavigationMenu: Boolean, isInitialRender:Boolean, toggleShowNavigationMenu: () => void}> = ({showNavigationMenu, isInitialRender, toggleShowNavigationMenu}) => {
 
-    const [isFirstRender, setFirstRender] = useState(true);
-    const mobileButtonStyles = createMobileButtonStyles(showNavigationMenu) 
+    const mobileButtonStyles = createMobileButtonStyles(showNavigationMenu, isInitialRender) 
     return (
         <button
             className={mobileButtonStyles}
-            onClick={e => toggleShowNavigationMenu()}
+            onClick={toggleShowNavigationMenu}
         >
 
             <div id="top-bar"></div>

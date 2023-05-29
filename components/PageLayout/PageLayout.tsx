@@ -4,7 +4,7 @@ import { Footer } from "./Footer/Footer";
 import { Navbar } from "./Navbar/Navbar";
 import { createPageLayoutStyles } from "./PageLayoutStyles";
 import MobileNavigationButton from "./MobileNavigation/MobileNavigationButton";
-
+import { MobileNavigationBar } from "./MobileNavigation/MobileNavigationBar";
 interface IPageProps {
   children: React.ReactNode;
 }
@@ -12,9 +12,10 @@ interface IPageProps {
 export const PageLayout = ({ children }: IPageProps) => {
   const { screenHeight, screenWidth, isMobile } = useContext(GlobalContext);
   const pageLayoutStyles = createPageLayoutStyles({ screenHeight, screenWidth, isMobile });
-  const [showNavigationMenu, setShowNavigationMenu] = useState(true);
-
+  const [showNavigationMenu, setShowNavigationMenu] = useState(false);
+  const [isInitialRender, setIsInitialRender] = useState(true);
   const toggleShowNavigationMenu = () => {
+    setIsInitialRender(false)
     if(showNavigationMenu){
       setShowNavigationMenu(false)
     }else{
@@ -28,7 +29,8 @@ export const PageLayout = ({ children }: IPageProps) => {
         <Navbar />
       </header>
       }
-      {isMobile && <MobileNavigationButton showNavigationMenu={showNavigationMenu} toggleShowNavigationMenu={toggleShowNavigationMenu}/>}
+      {isMobile && <MobileNavigationButton showNavigationMenu={showNavigationMenu} isInitialRender={isInitialRender} toggleShowNavigationMenu={toggleShowNavigationMenu}/>}
+      {isMobile && <MobileNavigationBar showNavigationMenu={showNavigationMenu} isInitialRender={isInitialRender}/>}
       <div className="content-wrapper">
         {children}
         <Footer />

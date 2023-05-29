@@ -1,7 +1,7 @@
 import { css, keyframes } from "@emotion/css";
 import { colors } from "styles/colors";
 
-export const createMobileButtonStyles = (showMobileMenu: Boolean) => {
+export const createMobileButtonStyles = (showMobileMenu: Boolean, isInitialRender:Boolean) => {
 
 
 
@@ -9,7 +9,7 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean) => {
 
         top: 5,
         left: 150,
-        animation: `${buttonActiveAnimation} 0.3s 0.1s ease-in-out backwards `,
+        animation: isInitialRender ? 'none' : `${buttonActiveAnimation} 0.3s 0.1s ease-in-out backwards `,
         cursor: 'pointer',
         overflow: 'hidden',
         border: 'none',
@@ -26,7 +26,7 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean) => {
             top: 18,
             left: 2,
             transform: 'rotateZ(45deg)',
-            animation: `${buttonTopBarActiveAnimation} 0.1s 0.2s ease-in-out backwards`,
+            animation:  isInitialRender ? 'none' :  `${buttonTopBarActiveAnimation} 0.1s 0.2s ease-in-out backwards`,
             position: 'absolute',
             width: 36,
             height: 4,
@@ -37,7 +37,7 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean) => {
         '#mid-bar': {
             left: -100,
             top: 18,
-            animation: `${buttonMidBarActiveAnimation} 0.2s 0.2s ease-in-out backwards`,
+            animation:  isInitialRender ? 'none' :  `${buttonMidBarActiveAnimation} 0.2s 0.2s ease-in-out backwards`,
             position: 'absolute',
             width: 32,
             height: 4,
@@ -50,7 +50,7 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean) => {
             left: 2,
             top: 18,
             transform: 'rotateZ(-45deg)',
-            animation: `${buttonBottomBarActiveAnimation}  0.1s 0.2s ease-in-out backwards`,
+            animation:  isInitialRender ? 'none' :  `${buttonBottomBarActiveAnimation}  0.1s 0.2s ease-in-out backwards`,
             position: 'absolute',
             width: 36,
             height: 4,
@@ -63,7 +63,7 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean) => {
     const inActiveStyles = css({
         top: 5,
         left: 5,
-        animation: `${buttonInactiveAnimation} 0.2s ease-in-out backwards`,
+        animation:  isInitialRender ? 'none' :  `${buttonInactiveAnimation} 0.2s ease-in-out backwards`,
         cursor: 'pointer',
         overflow: 'hidden',
         border: 'none',
@@ -77,7 +77,7 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean) => {
         '#top-bar': {
             left: 2,
             top: 10,
-            animation: `${buttonTopBarInactiveAnimation} 0.1s 0.2s ease-in-out backwards`,
+            animation:  isInitialRender ? 'none' :  `${buttonTopBarInactiveAnimation} 0.1s 0.2s ease-in-out backwards`,
             position: 'absolute',
             width: 36,
             height: 4,
@@ -88,7 +88,7 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean) => {
         '#mid-bar': {
             left: 4,
             top: 18,
-            animation: `${buttonMidBarInactiveAnimation} 0.1s 0.2s ease-in-out backwards`,
+            animation:  isInitialRender ? 'none' :  `${buttonMidBarInactiveAnimation} 0.1s 0.2s ease-in-out backwards`,
             position: 'absolute',
             width: 32,
             height: 4,
@@ -99,7 +99,7 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean) => {
         '#bottom-bar': {
             left: 2,
             top: 26,
-            animation: `${buttonBottomBarInactiveAnimation} 0.1s 0.2s ease-in-out backwards`,
+            animation:  isInitialRender ? 'none' :  `${buttonBottomBarInactiveAnimation} 0.1s 0.2s ease-in-out backwards`,
             position: 'absolute',
             width: 36,
             height: 4,
