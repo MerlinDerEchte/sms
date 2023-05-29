@@ -26,7 +26,6 @@ const TeamList: React.FC = () => {
             const newTeams: Team[] = [];
 
             teamsData.mannschaftCollection.items.forEach((cT: ContentfulTeam) => {
-                console.log(cT);
                 const isPersonIdInCTTrainers = (id: string) => cT.trainersCollection.items.some((person) => person.sys.id === id)
                 const trainers: Person[] = persons.filter(p => isPersonIdInCTTrainers(p.id))
 

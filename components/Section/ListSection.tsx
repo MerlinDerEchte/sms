@@ -7,7 +7,7 @@ import { PageLayoutConstantsMobile } from "constants/PageLayoutConstants";
 
 export const ListSection: FC<{ caption: string, isSecondary: Boolean, sectionId: string, children: React.ReactNode }> = ({ caption, children, sectionId, isSecondary }) => {
 
-    const { isMobile } = useContext(GlobalContext)
+    const { isMobile,screenWidth } = useContext(GlobalContext)
 
     const createListSectionStyles = (isMobile:Boolean, isSecondary:Boolean) => {
 
@@ -68,7 +68,7 @@ export const ListSection: FC<{ caption: string, isSecondary: Boolean, sectionId:
             '.content-container': {
                 marginLeft: isMobile ? PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : 0,
                 flex: 2,
-                width: isMobile ? PageLayoutConstantsMobile.CONTENT_WIDTH : '66vw',
+                width: isMobile ? screenWidth - 2 * PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : '66vw',
                 position: 'relative',
                 paddingTop: isMobile ? 20 : 100,
                 display: 'flex',
