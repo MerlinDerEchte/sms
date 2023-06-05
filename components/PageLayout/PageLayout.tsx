@@ -9,7 +9,7 @@ interface IPageProps {
   children: React.ReactNode;
 }
 
-export const PageLayout = ({ children }: IPageProps) => {
+export const PageLayout = ({ children }: IPageProps, showNavigationBar:()=>void) => {
   const { screenHeight, screenWidth, isMobile } = useContext(GlobalContext);
   const pageLayoutStyles = createPageLayoutStyles({ screenHeight, screenWidth, isMobile });
   const [showNavigationMenu, setShowNavigationMenu] = useState(false);
@@ -26,7 +26,7 @@ export const PageLayout = ({ children }: IPageProps) => {
   return (
     <main className={pageLayoutStyles} id="main">
       {!isMobile && <header className="header-wrapper">
-        <Navbar />
+        <Navbar showNavigationBar={showNavigationBar}/>
       </header>
       }
       {isMobile && <MobileNavigationButton showNavigationMenu={showNavigationMenu} isInitialRender={isInitialRender} toggleShowNavigationMenu={toggleShowNavigationMenu}/>}

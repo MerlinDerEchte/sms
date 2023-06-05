@@ -18,8 +18,7 @@ export const Navbar: NextPage = () => {
                 <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Teams)}>Teams</div>
                 <div className="navigation-item"  onClick={() => scrollIntoView(ESectionId.Events)}>Events</div>
                 <div className="navigation-item"  onClick={() => scrollIntoView(ESectionId.News)}>Aktuelles</div>
-                <div className="navigation-item" >Schiedsrichter</div>
-                <div className="navigation-item"  onClick={() => scrollIntoView("news")}>Impressionen</div>
+                <div className="navigation-item"  onClick={() => scrollIntoView(ESectionId.Impressions)}>Impressionen</div>
                 <div className="navigation-item" >Kontakt</div>
             </nav>
         </div>
