@@ -172,7 +172,7 @@ export const Gallery: FC<{
          <p>{impressions[selectedImpressionIndex].description} </p> 
       </div>
 
-      <div className="gallery-close" onClick={closeGallery}>
+      <div className="gallery-close" onClick={closeGallery} onPointerDown={closeGallery}>
         <div className="gallery-close-first-bar gallery-close-bar"></div>
         <div className="gallery-close-second-bar gallery-close-bar"></div>
       </div>
