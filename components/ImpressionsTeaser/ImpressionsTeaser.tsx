@@ -47,7 +47,7 @@ export const ImpressionsTeaser: FC<{
     <div className={impressionsTeaserStyles}>
       {impressions.slice(0, 3).map((impression, index) => {
         return (
-          <div
+          <div key={index}
             className="impression-foto-container"
             onClick={() => setFirstImpressionIndex(index)}
           >
