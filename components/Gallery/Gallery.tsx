@@ -10,7 +10,7 @@ export const Gallery: FC<{
   closeGallery: () => void;
   firstIndex? : number;
 }> = ({ impressions, closeGallery, firstIndex = 0 }) => {
-  const { screenWidth, screenHeight } = useContext(GlobalContext);
+  const { screenWidth, screenHeight, isMobile } = useContext(GlobalContext);
   const [selectedImpressionIndex, setSelectedImpressionIndex] = useState<number>(firstIndex);
 
   const increaseSelectedImpressionIndex = () => {
@@ -28,6 +28,8 @@ export const Gallery: FC<{
   const createGalleryStyles = (screenHeight: number, screenWidth: number) => {
     const imageContainerWidth = screenWidth - 200;
     const imageContainerHeight = screenHeight - 150;
+    const mobileImageContainerWidth = screenWidth;
+    
     return css({
       position: "fixed",
       zIndex: 400,
@@ -41,8 +43,8 @@ export const Gallery: FC<{
       alignItems: "center",
       flexDirection: "column",
       ".gallery-image-container": {
-        boxShadow: `0px 0px 10px ${colors.DARK_BROWN} inset`,
-        width: imageContainerWidth,
+        boxShadow: isMobile ? 'none' :  `0px 0px 10px ${colors.DARK_BROWN} inset`,
+        width: isMobile ? mobileImageContainerWidth : imageContainerWidth,
         opacity: 1,
         height: imageContainerHeight,
         background: colors.DARK_WHITE,
@@ -51,11 +53,11 @@ export const Gallery: FC<{
         alignItems: "center",
         img: {
           maxHeight: imageContainerHeight - 10,
-          maxWidth: imageContainerWidth - 10 ,
+          maxWidth: isMobile ? mobileImageContainerWidth : imageContainerWidth - 10 ,
         },
       },
       ".gallery-impression-text-container": {
-        width: imageContainerWidth,
+        width: isMobile ? mobileImageContainerWidth : imageContainerWidth,
         background: colors.DARK_WHITE,
         color: colors.DARK_BROWN,
         height: 100,    
@@ -73,7 +75,7 @@ export const Gallery: FC<{
         height: 100,
         width: 50,
         position: "absolute",
-        top: (screenHeight - 100) / 2,
+        top: isMobile ? screenHeight - 100 :  (screenHeight - 100) / 2,
         right: 25,
         cursor: "pointer",
         "::before": {
@@ -83,14 +85,14 @@ export const Gallery: FC<{
           right: 15,
           width: 40,
           height: 40,
-          borderRight: `3px solid ${colors.DARK_WHITE}`,
-          borderTop: `3px solid ${colors.DARK_WHITE}`,
+          borderRight: `3px solid ${isMobile ? colors.DARK_BROWN : colors.DARK_WHITE}`,
+          borderTop: `3px solid ${ isMobile ? colors.DARK_BROWN : colors.DARK_WHITE}`,
           transform: "rotate(45deg)",
         },
         ":hover": {
           "::before": {
-            borderRight: `5px solid ${colors.DARK_WHITE}`,
-            borderTop: `5px solid ${colors.DARK_WHITE}`,
+            borderRight: isMobile ? `3px solid ${isMobile ? colors.DARK_BROWN : colors.DARK_WHITE}` : `5px solid ${ colors.DARK_WHITE}`,
+            borderTop: isMobile ? `3px solid ${isMobile ? colors.DARK_BROWN : colors.DARK_WHITE}` : `5px solid ${ colors.DARK_WHITE}`,
           },
         },
       },
@@ -98,7 +100,7 @@ export const Gallery: FC<{
         height: 100,
         width: 50,
         position: "absolute",
-        top: (screenHeight - 100) / 2,
+        top: isMobile ? screenHeight - 100 : (screenHeight - 100) / 2,
         left: 25,
         cursor: "pointer",
         "::before": {
@@ -108,29 +110,30 @@ export const Gallery: FC<{
           left: 15,
           width: 40,
           height: 40,
-          borderLeft: `3px solid ${colors.DARK_WHITE}`,
-          borderBottom: `3px solid ${colors.DARK_WHITE}`,
+          borderLeft: `3px solid ${isMobile ? colors.DARK_BROWN : colors.DARK_WHITE}`,
+          borderBottom: `3px solid ${isMobile ? colors.DARK_BROWN : colors.DARK_WHITE}`,
           transform: "rotate(45deg)",
         },
         ":hover": {
           "::before": {
-            borderLeft: `5px solid ${colors.DARK_WHITE}`,
-            borderBottom: `5px solid ${colors.DARK_WHITE}`,
+            borderLeft: isMobile ? `3px solid ${isMobile ? colors.DARK_BROWN : colors.DARK_WHITE}` : `5px solid ${colors.DARK_WHITE}`,
+            borderBottom: isMobile ? `3px solid ${isMobile ? colors.DARK_BROWN : colors.DARK_WHITE}` : `5px solid ${colors.DARK_WHITE}`,
           },
         },
       },
       ".gallery-close": {
         position: "absolute",
         top: 20,
-        right: 50,
+        right: isMobile ? 20 : 50,
         height: 20,
         width: 20,
+        cursor: 'pointer',
         ":hover": {
-          top: 25,
-          right: 55,
+          top: isMobile ? 0 : 25,
+          right: isMobile ? 0 : 55,
           ".gallery-close-bar": {
-            width: 30,
-            height: 4,
+            width: isMobile ? 20 : 30,
+            height: isMobile ? 3 : 4,
           },
         },
         ".gallery-close-bar": {
@@ -138,7 +141,6 @@ export const Gallery: FC<{
           height: 3,
           background: colors.DARK_WHITE,
           borderRadius: 5,
-          cursor: "pointer",
         },
         ".gallery-close-first-bar": {
           position: "absolute",

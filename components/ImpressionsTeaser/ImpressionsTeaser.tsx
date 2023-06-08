@@ -3,30 +3,35 @@ import { GlobalContext } from "GlobalContext";
 import { useContext, FC } from "react";
 import { Impression } from "types/impression";
 import { colors } from "styles/colors";
+import { Autocomplete } from "@react-google-maps/api";
 
 export const ImpressionsTeaser: FC<{
   impressions: Impression[];
   setFirstImpressionIndex: ( index:number ) => void;
 }> = ({ impressions, setFirstImpressionIndex }) => {
-  const { screenWidth } = useContext(GlobalContext);
+  const { screenWidth, isMobile } = useContext(GlobalContext);
   const imageWidth = 300;
   const imageHeight = 300;
   const imageGap = 20;
   const totalWidth = 3 * imageWidth + 2 * imageGap;
-  const margin = (screenWidth - totalWidth) / 2;
+  const margin = isMobile ? 25 : (screenWidth - totalWidth) / 2;
+  const mobileWidth = screenWidth - 50;
+  const mobileHeight = 3 * imageHeight + 2 * imageGap;
 
   const createImpressionsTeaserStyles = () => {
     return css({
-      width: totalWidth,
-      height: imageHeight,
+      width: isMobile ? mobileWidth : totalWidth,
+      height: isMobile ? mobileHeight : imageHeight,
       marginLeft: margin,
       display: "flex",
+      flexDirection: isMobile ? 'column' : 'row',
       gap: imageGap,
+
       ".impression-foto-container": {
         flex: 1,
         position: "relative",
         overflow: "hidden",
-
+        height: isMobile ? imageHeight : 'auto',
         img: {
           position: "absolute",
           left: "50%",

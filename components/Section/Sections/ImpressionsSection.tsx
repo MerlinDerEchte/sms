@@ -4,16 +4,21 @@ import { Section } from "../Section";
 import { css } from "@emotion/css";
 import { colors } from "styles/colors";
 import { Gallery } from "components/Gallery/Gallery";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Impression } from "types/impression";
 import { useQuery } from "@apollo/client";
-import { IMPRESSIONS_QUERY, mapContentfulImpressions } from "contentful/contentfulImpression";
+import {
+  IMPRESSIONS_QUERY,
+  mapContentfulImpressions,
+} from "contentful/contentfulImpression";
+import { GlobalContext } from "GlobalContext";
 
 export const ImpressionsSection = ({}) => {
+  const { isMobile } = useContext(GlobalContext);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [impressions, setImpressions] = useState<Impression[]>([]);
-  const [ firstImpressionIndex, setFirstImpressionIndex ] = useState(0);
-  
+  const [firstImpressionIndex, setFirstImpressionIndex] = useState(0);
+
   const closeGallery = () => {
     setIsGalleryOpen(false);
   };
@@ -25,19 +30,18 @@ export const ImpressionsSection = ({}) => {
       width: "100%",
 
       ".impression-section-header-wrapper": {
-        
         flex: 0,
-        display: "block",
         height: 50,
-        width: "33vw",
-        textAlign: "center",
-        background: colors.DARK_BROWN,
-        borderRadius: "0 0 15px 0",
-        color: colors.DARK_WHITE,
+        width: isMobile ? ' 100%' : "33vw",
+        display: "flex",
+        justifyContent: 'center',
+        alignItems: "center",
+        background: isMobile ? colors.DARK_WHITE : colors.DARK_BROWN,
+        borderRadius: isMobile ? 'none' : "0 0 15px 0",
+        color: isMobile ? colors.DARK_BROWN : colors.DARK_WHITE,
         marginBottom: 20,
       },
       ".impression-section-content-wrapper": {
-        cursor: "pointer",
         paddingBottom: 20,
       },
     });
@@ -53,7 +57,7 @@ export const ImpressionsSection = ({}) => {
       setImpressions(newImpressions);
     }
   }, [data]);
-  
+
   return (
     <Section isSecondary={false} sectionId={ESectionId.Impressions}>
       <div className={impressionsSectionStyles} onClick={openGallery}>
@@ -61,10 +65,19 @@ export const ImpressionsSection = ({}) => {
           <h2>Impressionen</h2>
         </div>
         <div className="impression-section-content-wrapper">
-          <ImpressionsTeaser impressions={impressions} setFirstImpressionIndex={setFirstImpressionIndex}/>
+          <ImpressionsTeaser
+            impressions={impressions}
+            setFirstImpressionIndex={setFirstImpressionIndex}
+          />
         </div>
       </div>
-      {isGalleryOpen && <Gallery impressions={impressions} closeGallery={closeGallery} firstIndex={firstImpressionIndex}/>}
+      {isGalleryOpen && (
+        <Gallery
+          impressions={impressions}
+          closeGallery={closeGallery}
+          firstIndex={firstImpressionIndex}
+        />
+      )}
     </Section>
   );
 };
