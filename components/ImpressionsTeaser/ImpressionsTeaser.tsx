@@ -56,7 +56,7 @@ export const ImpressionsTeaser: FC<{
         return (
           <div key={index}
             className="impression-foto-container"
-            onPointerDown={(e) => handleImpressionClick(e,index)}
+            onPointerUp={(e) => handleImpressionClick(e,index)}
           >
             <img src={impression.fotoLink}></img>
           </div>
