@@ -26,7 +26,7 @@ export const PageLayout = ({ children }: IPageProps, showNavigationBar:()=>void)
   return (
     <main className={pageLayoutStyles} id="main">
       {!isMobile && <header className="header-wrapper">
-        <Navbar showNavigationBar={showNavigationBar}/>
+        <Navbar />
       </header>
       }
       {isMobile && <MobileNavigationButton showNavigationMenu={showNavigationMenu} isInitialRender={isInitialRender} toggleShowNavigationMenu={toggleShowNavigationMenu}/>}

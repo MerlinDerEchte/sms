@@ -4,11 +4,16 @@ import { Section } from "../Section";
 import { css } from "@emotion/css";
 import { colors } from "styles/colors";
 import { Gallery } from "components/Gallery/Gallery";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Impression } from "types/impression";
+import { useQuery } from "@apollo/client";
+import { IMPRESSIONS_QUERY, mapContentfulImpressions } from "contentful/contentfulImpression";
 
 export const ImpressionsSection = ({}) => {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
-
+  const [impressions, setImpressions] = useState<Impression[]>([]);
+  const [ firstImpressionIndex, setFirstImpressionIndex ] = useState(0);
+  
   const closeGallery = () => {
     setIsGalleryOpen(false);
   };
@@ -33,11 +38,22 @@ export const ImpressionsSection = ({}) => {
       },
       ".impression-section-content-wrapper": {
         cursor: "pointer",
-        marginBottom: 20,
+        paddingBottom: 20,
       },
     });
   };
+
   const impressionsSectionStyles = createImpressionsSectionStyles();
+  const { data } = useQuery(IMPRESSIONS_QUERY);
+  useEffect(() => {
+    if (data?.impressionCollection?.items) {
+      const newImpressions = mapContentfulImpressions(
+        data.impressionCollection.items
+      );
+      setImpressions(newImpressions);
+    }
+  }, [data]);
+  
   return (
     <Section isSecondary={false} sectionId={ESectionId.Impressions}>
       <div className={impressionsSectionStyles} onClick={openGallery}>
@@ -45,10 +61,10 @@ export const ImpressionsSection = ({}) => {
           <h2>Impressionen</h2>
         </div>
         <div className="impression-section-content-wrapper">
-          <ImpressionsTeaser />
+          <ImpressionsTeaser impressions={impressions} setFirstImpressionIndex={setFirstImpressionIndex}/>
         </div>
       </div>
-      {isGalleryOpen && <Gallery closeGallery={closeGallery} />}
+      {isGalleryOpen && <Gallery impressions={impressions} closeGallery={closeGallery} firstIndex={firstImpressionIndex}/>}
     </Section>
   );
 };
