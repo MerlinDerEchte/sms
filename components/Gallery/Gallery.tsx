@@ -25,6 +25,10 @@ export const Gallery: FC<{
         : impressions.length - 1;
     setSelectedImpressionIndex(newSelectedImpressionIndex)
   };
+  const handleCloseGallery = (e:Event) => {
+    e.stopPropagation();
+    closeGallery();
+  }
   const createGalleryStyles = (screenHeight: number, screenWidth: number) => {
     const imageContainerWidth = screenWidth - 200;
     const imageContainerHeight = screenHeight - 150;
@@ -172,7 +176,7 @@ export const Gallery: FC<{
          <p>{impressions[selectedImpressionIndex].description} </p> 
       </div>
 
-      <div className="gallery-close" onClick={closeGallery} onPointerDown={closeGallery}>
+      <div className="gallery-close" onClick={handleCloseGallery} onPointerDown={handleCloseGallery}>
         <div className="gallery-close-first-bar gallery-close-bar"></div>
         <div className="gallery-close-second-bar gallery-close-bar"></div>
       </div>
