@@ -32,7 +32,7 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean, isInitialRende
             height: 4,
             borderRadius: 4,
             background: colors.DARK_WHITE,
-            boxShadow: `1px 1px 1px ${colors.DARK_WHITE}`,
+            //boxShadow: `1px 1px 1px ${colors.DARK_WHITE}`,
         },
         '#mid-bar': {
             left: -100,
@@ -43,7 +43,7 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean, isInitialRende
             height: 4,
             borderRadius: 4,
             background: colors.DARK_WHITE,
-            boxShadow: `1px 1px 1px ${colors.DARK_WHITE}`,
+            //boxShadow: `1px 1px 1px ${colors.DARK_WHITE}`,
         },
 
         '#bottom-bar': {
@@ -56,7 +56,7 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean, isInitialRende
             height: 4,
             borderRadius: 4,
             background: colors.DARK_WHITE,
-            boxShadow: `1px 1px 1px ${colors.DARK_WHITE}`,
+            //boxShadow: `1px 1px 1px ${colors.DARK_WHITE}`,
         }
     })
 
