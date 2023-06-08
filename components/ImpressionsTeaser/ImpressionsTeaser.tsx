@@ -1,14 +1,14 @@
 import { css } from "@emotion/css";
 import { GlobalContext } from "GlobalContext";
-import { useContext, FC } from "react";
+import { useContext, FC, PointerEvent } from "react";
 import { Impression } from "types/impression";
 import { colors } from "styles/colors";
 import { Autocomplete } from "@react-google-maps/api";
 
 export const ImpressionsTeaser: FC<{
   impressions: Impression[];
-  setFirstImpressionIndex: ( index:number ) => void;
-}> = ({ impressions, setFirstImpressionIndex }) => {
+  openGallery: (index:number) => void;
+}> = ({ impressions, openGallery }) => {
   const { screenWidth, isMobile } = useContext(GlobalContext);
   const imageWidth = 300;
   const imageHeight = 300;
@@ -17,7 +17,9 @@ export const ImpressionsTeaser: FC<{
   const margin = isMobile ? 25 : (screenWidth - totalWidth) / 2;
   const mobileWidth = screenWidth - 50;
   const mobileHeight = 3 * imageHeight + 2 * imageGap;
-
+    const handleImpressionClick = (e:PointerEvent, index:number) => {
+        openGallery(index);
+    }
   const createImpressionsTeaserStyles = () => {
     return css({
       width: isMobile ? mobileWidth : totalWidth,
@@ -54,7 +56,7 @@ export const ImpressionsTeaser: FC<{
         return (
           <div key={index}
             className="impression-foto-container"
-            onClick={() => setFirstImpressionIndex(index)}
+            onPointerDown={(e) => handleImpressionClick(e,index)}
           >
             <img src={impression.fotoLink}></img>
           </div>
@@ -62,13 +64,6 @@ export const ImpressionsTeaser: FC<{
       })}
     </div>
   ) : (
-    /*  <div className="impression-foto-container">
-        <img src={impressions[1].fotoLink}></img>
-      </div>
-      <div className="impression-foto-container">
-        <img src={impressions[2].fotoLink}></img>
-      </div>
-   */
     <></>
   );
 };

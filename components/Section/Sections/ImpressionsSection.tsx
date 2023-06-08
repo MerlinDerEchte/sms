@@ -22,8 +22,12 @@ export const ImpressionsSection = ({}) => {
   const closeGallery = () => {
     setIsGalleryOpen(false);
   };
-  const openGallery = () => {
+  const openGallery = (impressionIndex:number = 0) => {
+    if(isGalleryOpen){
+        return
+    }
     setIsGalleryOpen(true);
+    setFirstImpressionIndex(impressionIndex);
   };
   const createImpressionsSectionStyles = () => {
     return css({
@@ -60,14 +64,14 @@ export const ImpressionsSection = ({}) => {
 
   return (
     <Section isSecondary={false} sectionId={ESectionId.Impressions}>
-      <div className={impressionsSectionStyles} onClick={openGallery}>
+      <div className={impressionsSectionStyles}>
         <div className="impression-section-header-wrapper">
           <h2>Impressionen</h2>
         </div>
         <div className="impression-section-content-wrapper">
           <ImpressionsTeaser
             impressions={impressions}
-            setFirstImpressionIndex={setFirstImpressionIndex}
+            openGallery={ openGallery}
           />
         </div>
       </div>
