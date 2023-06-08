@@ -31,8 +31,8 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean, isInitialRende
             width: 36,
             height: 4,
             borderRadius: 4,
-            background: colors.DARK_BROWN,
-            boxShadow: `1px 1px 5px ${colors.DARK_WHITE}`,
+            background: colors.DARK_WHITE,
+            boxShadow: `1px 1px 1px ${colors.DARK_WHITE}`,
         },
         '#mid-bar': {
             left: -100,
@@ -42,8 +42,8 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean, isInitialRende
             width: 32,
             height: 4,
             borderRadius: 4,
-            background: colors.DARK_BROWN,
-            boxShadow: `1px 1px 5px ${colors.DARK_WHITE}`,
+            background: colors.DARK_WHITE,
+            boxShadow: `1px 1px 1px ${colors.DARK_WHITE}`,
         },
 
         '#bottom-bar': {
@@ -55,8 +55,8 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean, isInitialRende
             width: 36,
             height: 4,
             borderRadius: 4,
-            background: colors.DARK_BROWN,
-            boxShadow: `1px 1px 5px ${colors.DARK_WHITE}`,
+            background: colors.DARK_WHITE,
+            boxShadow: `1px 1px 1px ${colors.DARK_WHITE}`,
         }
     })
 
@@ -83,7 +83,7 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean, isInitialRende
             height: 4,
             borderRadius: 4,
             background: colors.DARK_BROWN,
-            boxShadow: `1px 1px 5px ${colors.DARK_WHITE}`,
+            boxShadow: `1px 1px 1px ${colors.DARK_WHITE}`,
         },
         '#mid-bar': {
             left: 4,
@@ -94,7 +94,7 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean, isInitialRende
             height: 4,
             borderRadius: 4,
             background: colors.DARK_BROWN,
-            boxShadow: `1px 1px 5px ${colors.DARK_WHITE}`,
+            boxShadow: `1px 1px 1px ${colors.DARK_WHITE}`,
         },
         '#bottom-bar': {
             left: 2,
@@ -105,7 +105,7 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean, isInitialRende
             height: 4,
             borderRadius: 4,
             background: colors.DARK_BROWN,
-            boxShadow: `1px 1px 5px ${colors.DARK_WHITE}`,
+            boxShadow: `1px 1px 1px ${colors.DARK_WHITE}`,
         }
     });
     if (showMobileMenu) {
@@ -117,32 +117,37 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean, isInitialRende
 
 const buttonActiveAnimation = keyframes`
     0%{left: 5px; }
-    100%{left: 150px;}
+    100%{left: 150px; }
 `
 
 const buttonInactiveAnimation = keyframes`
-    0% {left: 150px; }
-    100%{left: 5px;}
+    0% {left: 150px;  }
+    100%{left: 5px;  }
 `
 
 const buttonTopBarActiveAnimation = keyframes`
     0%{ left:2px;
         top: 8px;
-        transform: rotateZ(0deg)}
+        transform: rotateZ(0deg);
+        background: ${colors.DARK_BROWN};
+    }
     100%{
         top: 18px;
         left:2px;
-        transform: rotateZ(45deg)
+        transform: rotateZ(45deg);
+        background: ${colors.DARK_WHITE};
     }
 `
 const buttonTopBarInactiveAnimation = keyframes`
     0%{
         top: 18px;
         left:2px;
-        transform: rotateZ(45deg)
+        transform: rotateZ(45deg);
+        background: ${colors.DARK_WHITE};
     }
     100%{ left:2px;
         top: 8px;
+        background: ${colors.DARK_BROWN};
     }
 }
 `
@@ -150,11 +155,13 @@ const buttonTopBarInactiveAnimation = keyframes`
 const buttonBottomBarActiveAnimation = keyframes`
     0%{ left:2px;
         top: 26px;
-        transform: rotateZ(0deg)}
+        transform: rotateZ(0deg);
+        background: ${colors.DARK_BROWN};}
     100%{
         top: 18px;
         left:2px;
         transform: rotateZ(-45deg)
+        background: ${colors.DARK_WHITE};
     }
 `
 
@@ -162,26 +169,29 @@ const buttonBottomBarInactiveAnimation = keyframes`
     0%{
         top: 18px;
         left:2px;
-        transform: rotateZ(-45deg)
+        transform: rotateZ(-45deg);
+        background: ${colors.DARK_WHITE};
     }
     100%{ left:2px;
         top: 26px;
-        transform: rotateZ(0deg)}
+        transform: rotateZ(0deg);
+        background: ${colors.DARK_BROWN};}
 `
 
 
 const buttonMidBarActiveAnimation = keyframes`
-    0%{ left:2px;}
+    0%{ left:2px; background: ${colors.DARK_BROWN};}
     100%{
         top: 18px;
         left: -50px;
-        
+        background: ${colors.DARK_WHITE};
     }
 `
 const buttonMidBarInactiveAnimation = keyframes`   
     0%{
         top: 18px;
         left: -50px;
+        background: ${colors.DARK_WHITE};
     }
-    100%{ left:2px;}
+    100%{ left:2px;  background: ${colors.DARK_BROWN};}
 `
