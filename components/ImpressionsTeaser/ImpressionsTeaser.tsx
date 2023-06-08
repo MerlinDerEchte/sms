@@ -34,8 +34,8 @@ export const ImpressionsTeaser: FC<{
           translate: "-50% -50%",
         },
         ":hover": {
-          border: `2px solid ${colors.DARK_BROWN}`,
-          boxShadow: `0px 0px 10px ${colors.DARK_BROWN}`,
+          border: `1px solid ${colors.DARK_BROWN}`,
+          boxShadow: `0px 0px 15px ${colors.DARK_BROWN}`,
         },
       },
     });
