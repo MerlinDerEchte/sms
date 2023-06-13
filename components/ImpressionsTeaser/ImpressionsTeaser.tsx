@@ -7,7 +7,7 @@ import { Autocomplete } from "@react-google-maps/api";
 
 export const ImpressionsTeaser: FC<{
   impressions: Impression[];
-  openGallery: (index:number) => void;
+  openGallery: (index: number) => void;
 }> = ({ impressions, openGallery }) => {
   const { screenWidth, isMobile } = useContext(GlobalContext);
   const imageWidth = 300;
@@ -17,9 +17,9 @@ export const ImpressionsTeaser: FC<{
   const margin = isMobile ? 25 : (screenWidth - totalWidth) / 2;
   const mobileWidth = screenWidth - 50;
   const mobileHeight = 3 * imageHeight + 2 * imageGap;
-    const handleImpressionClick = (e:PointerEvent, index:number) => {
-        openGallery(index);
-    }
+  const handleImpressionClick = (e: PointerEvent, index: number) => {
+    openGallery(index);
+  }
   const createImpressionsTeaserStyles = () => {
     return css({
       width: isMobile ? mobileWidth : totalWidth,
@@ -41,8 +41,9 @@ export const ImpressionsTeaser: FC<{
           translate: "-50% -50%",
         },
         ":hover": {
-          border: `1px solid ${colors.DARK_BROWN}`,
-          boxShadow: `0px 0px 15px ${colors.DARK_BROWN}`,
+          cursor: 'pointer',
+          border: isMobile ? `` : `1px solid ${colors.DARK_WHITE}`,
+          boxShadow: isMobile ? `` : `0px 0px 10px ${colors.DARK_WHITE}`,
         },
       },
     });
@@ -56,7 +57,7 @@ export const ImpressionsTeaser: FC<{
         return (
           <div key={index}
             className="impression-foto-container"
-            onPointerUp={(e) => handleImpressionClick(e,index)}
+            onPointerUp={(e) => handleImpressionClick(e, index)}
           >
             <img src={impression.fotoLink}></img>
           </div>

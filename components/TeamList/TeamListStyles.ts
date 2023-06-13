@@ -8,10 +8,10 @@ export const createTeamListStyles = (isMobile:Boolean) => {
         flexDirection: 'column',
         width: isMobile ? '100%' : 600,
         gap: isMobile ? 80 : 30,
-        color: colors.DARK_WHITE,
+        color: colors.DARK_BROWN,
         alignItems: 'stretch',
         'a':{
-            color: colors.DARK_WHITE,
+            color: colors.DARK_BROWN,
             textDecoration: 'underline'
         },
         '.team-list-item-wrapper':{

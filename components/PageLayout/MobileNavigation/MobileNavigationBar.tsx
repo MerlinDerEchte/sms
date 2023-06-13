@@ -4,7 +4,7 @@ import { css, keyframes } from '@emotion/css';
 import { colors } from 'styles/colors';
 import { useDebugValue, useEffect, useState } from 'react';
 
-export const MobileNavigationBar: React.FC<{ showNavigationMenu: Boolean, isInitialRender:Boolean }> = ({ showNavigationMenu, isInitialRender }) => {
+export const MobileNavigationBar: React.FC<{ showNavigationMenu: Boolean, isInitialRender:Boolean, closeNavigationBar:()=>void }> = ({ showNavigationMenu, isInitialRender, closeNavigationBar }) => {
 
     const navbarActiveAnimation = keyframes`
         0% {left: -200px;}
@@ -34,6 +34,7 @@ export const MobileNavigationBar: React.FC<{ showNavigationMenu: Boolean, isInit
 
             'nav': {
                 position: 'relative',
+                paddingLeft: 20,
                 height: '100%',
                 width: '100%',
                 display: 'flex',
@@ -48,10 +49,12 @@ export const MobileNavigationBar: React.FC<{ showNavigationMenu: Boolean, isInit
     }
 
     const navbarStyles = createNavbarStyles(showNavigationMenu, isInitialRender);
+    
     const scrollIntoView = (id: string) => {
         const el: HTMLElement | null = document.getElementById(id);
         if (el) {
             el.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+            closeNavigationBar()
         }
     }
 
@@ -59,11 +62,11 @@ export const MobileNavigationBar: React.FC<{ showNavigationMenu: Boolean, isInit
         <div className={navbarStyles}>
             <nav className="nav" >
                 <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Intro)}>Home</div>
+                <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Impressions)}>Impressionen</div>
                 <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Teams)}>Teams</div>
                 <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Events)}>Events</div>
                 <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.News)}>Aktuelles</div>
                 <div className="navigation-item" >Schiedsrichter</div>
-                <div className="navigation-item" onClick={() => scrollIntoView("news")}>Impressionen</div>
                 <div className="navigation-item" >Kontakt</div>
             </nav>
         </div>

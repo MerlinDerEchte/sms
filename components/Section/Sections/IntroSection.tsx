@@ -70,12 +70,12 @@ export const IntroSection = ({ }) => {
                                 Wir glauben fest daran, dass der Fußball mehr ist als nur ein Sport.
                                 Es ist eine Leidenschaft, die uns verbindet und uns begeistert.
                             </p>
-                            <p>
+                           {/*  <p>
                                 Unser Verein ist mehr als nur ein Team. Wir sind eine große Familie.
                                 Egal, ob jung oder alt, Anfänger oder erfahrener Spieler, hier ist jeder willkommen und findet seinen Platz.
                                 Gemeinsam schaffen wir eine Atmosphäre, in der sich jeder wohl und akzeptiert fühlt.
                                 Jeder bringt seine individuellen Stärken mit und trägt zum Erfolg des Teams bei.
-                            </p>
+                            </p> */}
                             <p>
                                 Der SC München Süd ist nicht nur auf dem Platz aktiv, sondern auch abseits des Spielfelds engagiert.
                                 Wir organisieren regelmäßig Veranstaltungen und Aktivitäten, bei denen wir uns besser kennenlernen, Spaß haben und unsere Verbundenheit stärken können.

@@ -40,9 +40,9 @@ export const ImpressionsSection = ({}) => {
         display: "flex",
         justifyContent: 'center',
         alignItems: "center",
-        background: isMobile ? colors.DARK_WHITE : colors.DARK_BROWN,
+        background: isMobile ? colors.DARK_BROWN : colors.DARK_WHITE,
         borderRadius: isMobile ? 'none' : "0 0 15px 0",
-        color: isMobile ? colors.DARK_BROWN : colors.DARK_WHITE,
+        color: isMobile ? colors.DARK_WHITE : colors.DARK_BROWN,
         marginBottom: 20,
       },
       ".impression-section-content-wrapper": {
@@ -63,7 +63,7 @@ export const ImpressionsSection = ({}) => {
   }, [data]);
 
   return (
-    <Section isSecondary={false} sectionId={ESectionId.Impressions}>
+    <Section isSecondary={true} sectionId={ESectionId.Impressions}>
       <div className={impressionsSectionStyles}>
         <div className="impression-section-header-wrapper">
           <h2>Impressionen</h2>

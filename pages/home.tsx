@@ -17,10 +17,11 @@ const Home: NextPage = () => {
   return (
     <> 
       <IntroSection />
+      <ImpressionsSection />
       <TeamsSection />
       <ClubEventSection />
       <BlogPostSection />
-      <ImpressionsSection />
+     
     </>
   );
 };

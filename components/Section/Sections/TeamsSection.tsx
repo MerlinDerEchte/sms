@@ -5,7 +5,7 @@ import { ESectionId } from "enums/sectionIds";
 export const TeamsSection = () => {
 
     return(
-        <ListSection isSecondary={true} sectionId={ESectionId.Teams} caption="Unsere Teams">
+        <ListSection isSecondary={false} sectionId={ESectionId.Teams} caption="Unsere Teams">
             <TeamList />
         </ListSection>
     )

@@ -22,6 +22,9 @@ export const PageLayout = ({ children }: IPageProps, showNavigationBar:()=>void)
       setShowNavigationMenu(true)
     }
   }
+  const closeNavigationBar = () => {
+    setShowNavigationMenu(false)
+  }
 
   return (
     <main className={pageLayoutStyles} id="main">
@@ -29,8 +32,8 @@ export const PageLayout = ({ children }: IPageProps, showNavigationBar:()=>void)
         <Navbar />
       </header>
       }
-      {isMobile && <MobileNavigationButton showNavigationMenu={showNavigationMenu} isInitialRender={isInitialRender} toggleShowNavigationMenu={toggleShowNavigationMenu}/>}
-      {isMobile && <MobileNavigationBar showNavigationMenu={showNavigationMenu} isInitialRender={isInitialRender}/>}
+      {isMobile && <MobileNavigationButton showNavigationMenu={showNavigationMenu} isInitialRender={isInitialRender} toggleShowNavigationMenu={toggleShowNavigationMenu} />}
+      {isMobile && <MobileNavigationBar showNavigationMenu={showNavigationMenu} isInitialRender={isInitialRender} closeNavigationBar={closeNavigationBar}/>}
       <div className="content-wrapper">
         {children}
         <Footer />

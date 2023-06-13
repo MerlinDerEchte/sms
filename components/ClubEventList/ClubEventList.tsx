@@ -27,10 +27,10 @@ const ClubEventList: React.FC = () => {
             flexDirection: 'column',
             width: isMobile ? '100%' : 600,
             gap: 30,
-            color: colors.DARK_BROWN,
+            color: colors.DARK_WHITE,
             alignItems: 'stretch',
             'a': {
-                color: colors.DARK_BROWN,
+                color: colors.DARK_WHITE,
                 textDecoration: 'underline'
             },
         })

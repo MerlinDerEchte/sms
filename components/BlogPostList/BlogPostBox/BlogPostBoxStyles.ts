@@ -15,7 +15,7 @@ export const createBlogPostStyles = (isExpanded: Boolean, isFocused: Boolean, is
         gap: 20,
         '&:hover': {
             cursor: 'pointer',
-            boxShadow: `0px 0px 5px 0px ${colors.DARK_WHITE}`,
+            boxShadow: isMobile ? '': `0px 0px 5px 0px ${colors.DARK_BROWN}`,
         },
 
         '.foto-wrapper': {
@@ -46,7 +46,7 @@ export const createBlogPostStyles = (isExpanded: Boolean, isFocused: Boolean, is
                     left: 0,
                     width: isExpanded ? 0 : '100%',
                     height: 20,
-                    background: `linear-gradient(transparent, ${colors.DARK_BROWN})`
+                    background: `linear-gradient(transparent, ${colors.DARK_WHITE})`
                 }
 
             },
@@ -56,8 +56,8 @@ export const createBlogPostStyles = (isExpanded: Boolean, isFocused: Boolean, is
                 paddingLeft: 10,
                 right: 0,
                 height: 20,
-                color: isFocused ? colors.DARK_BROWN : colors.DARK_WHITE,
-                background: isFocused ? colors.DARK_WHITE : 'none',
+                color: isFocused ? colors.DARK_WHITE : colors.DARK_BROWN,
+                background: isFocused ? colors.DARK_BROWN : 'none',
                 borderRadius: 5,
                 display: "flex",
                 justifyContent: 'flex-end',

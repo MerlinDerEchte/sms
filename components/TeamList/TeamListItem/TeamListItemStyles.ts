@@ -9,7 +9,7 @@ export const createTeamLIstItemStyles = (isMobile:Boolean) => {
         justifyContent: 'center',
         flexDirection: isMobile ? 'column' : 'row',
         paddingBottom: 30,
-        borderBottom: `3px solid ${colors.DARK_WHITE}`,
+        borderBottom: `3px solid ${colors.DARK_BROWN}`,
         gap: isMobile ? 30 : 0,
 
         '.team-info-wrapper': {
