@@ -5,17 +5,18 @@ import { useContext } from "react";
 import { GlobalContext } from "GlobalContext";
 import { ESectionId } from "enums/sectionIds";
 import { PageLayoutConstantsMobile } from "constants/PageLayoutConstants";
+import { EAppStatus } from "types/appStatus";
+import Script from 'next/script'
 
 export const IntroSection = ({ }) => {
     const { isMobile } = useContext(GlobalContext)
     const createIntroStyles = (isMobile: Boolean) => {
-
         return css({
             position: "relative",
             paddingTop: isMobile ? 150 : 50,
             paddingBottom: 50,
             marginLeft: isMobile ? PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : 200,
-            marginRight: isMobile ? PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN  : 200,
+            marginRight: isMobile ? PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : 200,
             display: "flex",
             flexDirection: "column",
             alignItems: "stretch",
@@ -41,6 +42,8 @@ export const IntroSection = ({ }) => {
                     textAlign: 'center',
 
                     ".welcome-content": {
+                        display: 'flex',
+                        justifyContent: 'center',
                         textAlign: "left",
                         paddingTop: 20,
                         paddingBottom: 20,
@@ -65,7 +68,7 @@ export const IntroSection = ({ }) => {
                     </div>
                     <div className="welcome-content-wrapper">
                         <div className="welcome-content">
-                            <p>
+                            {/*  <p>
                                 Hier beim SC München Süd dreht sich alles um die Liebe zum Spiel.
                                 Wir glauben fest daran, dass der Fußball mehr ist als nur ein Sport.
                                 Es ist eine Leidenschaft, die uns verbindet und uns begeistert.
@@ -75,12 +78,17 @@ export const IntroSection = ({ }) => {
                                 Egal, ob jung oder alt, Anfänger oder erfahrener Spieler, hier ist jeder willkommen und findet seinen Platz.
                                 Gemeinsam schaffen wir eine Atmosphäre, in der sich jeder wohl und akzeptiert fühlt.
                                 Jeder bringt seine individuellen Stärken mit und trägt zum Erfolg des Teams bei.
-                            </p> */}
+                            </p> 
                             <p>
                                 Der SC München Süd ist nicht nur auf dem Platz aktiv, sondern auch abseits des Spielfelds engagiert.
                                 Wir organisieren regelmäßig Veranstaltungen und Aktivitäten, bei denen wir uns besser kennenlernen, Spaß haben und unsere Verbundenheit stärken können.
                                 Egal, ob es das gemeinsame Grillen nach dem Spiel ist oder eine Spendenaktion für einen guten Zweck – wir sind immer füreinander da und unterstützen uns gegenseitig.
-                            </p>
+                            </p> */}
+
+                            <div id="bfv1694790962920">Laden...</div>
+                            <Script>
+                                {`BFVWidget.HTML5.zeigeVereinSpiele("00ES8GNHD400001CVV0AG08LVUPGND5I", "bfv1694790962920", { height: "550", width: "${isMobile ? 300 : 400}", selectedTab: BFVWidget.HTML5.vereinTabs.spiele, colorResults: "rgb(46, 21, 3)", colorNav: "rgb(250, 249, 246)", colorClubName: "rgb(46, 21, 3)", backgroundNav: "rgb(46, 21, 3)" })`}
+                            </Script>
                         </div>
                     </div>
                 </div>

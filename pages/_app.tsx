@@ -8,7 +8,7 @@ import { ApolloClient, createHttpLink, InMemoryCache, ApolloProvider } from '@ap
 import { setContext } from "@apollo/client/link/context";
 
 function MyApp({ Component, pageProps }: AppProps) {
- 
+
   const [screenWidth, setScreenWidth] = useState(0);
   const [screenHeight, setScreenHeight] = useState(0);
   const [appStatus, setAppStatus] = useState<EAppStatus>(EAppStatus.INIT)
@@ -16,6 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     isMobile: screenWidth < 1000,
     screenHeight: screenHeight,
     screenWidth: screenWidth,
+    appStatus: appStatus
   };
   const httpLink = createHttpLink({
     uri: "https://graphql.contentful.com/content/v1/spaces/6rtrkvbq91ik",
@@ -29,7 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       },
     };
   })
- 
+
   const client = new ApolloClient({
     link: authLink.concat(httpLink),
     cache: new InMemoryCache(),
@@ -42,19 +43,42 @@ function MyApp({ Component, pageProps }: AppProps) {
   };
 
   // init method
+
+  const setRunningApp = () => {
+    setAppStatus(EAppStatus.RUN);
+  }
+
+  const initApp = (): void => {
+    setAppStatus(EAppStatus.START);
+    const runTimeout = setTimeout(() => {
+      setRunningApp();
+    }, 2000);
+    const handleSetAppRunning = () => {
+      clearTimeout(runTimeout);
+      setRunningApp();
+    }
+    window.addEventListener("click", () => {
+      handleSetAppRunning();
+    })
+    window.addEventListener("keydown", () => {
+      handleSetAppRunning();
+    })
+
+  }
   useEffect(() => {
     setScreenHeight(window.innerHeight);
     setScreenWidth(window.innerWidth);
     window.addEventListener("resize", () => handleResize());
+    initApp();
   }, []);
 
   return (
     <ApolloProvider client={client}>
-    <GlobalContext.Provider value={globalContextValue}>
-      <PageLayout>
-        <Component {...pageProps} />
-      </PageLayout>
-    </GlobalContext.Provider>
+      <GlobalContext.Provider value={globalContextValue}>
+        <PageLayout>
+          <Component {...pageProps} />
+        </PageLayout>
+      </GlobalContext.Provider>
     </ApolloProvider>
   )
 }
