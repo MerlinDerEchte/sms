@@ -26,6 +26,7 @@ export const BFVWidgetComponent = () => {
 
 
 	return (<>
+		<Script src="https://widget-prod.bfv.de/widget/widgetresource/widgetjs" strategy="beforeInteractive" />
 
 		<div id="bfv1694863254434">Laden...</div>
 	</>
