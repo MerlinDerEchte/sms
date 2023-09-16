@@ -6,7 +6,7 @@ import { GlobalContext } from 'GlobalContext';
 import { PageLayout } from 'components/PageLayout/PageLayout';
 import { ApolloClient, createHttpLink, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { setContext } from "@apollo/client/link/context";
-
+import Script from "next/script"
 function MyApp({ Component, pageProps }: AppProps) {
 
   const [screenWidth, setScreenWidth] = useState(0);
@@ -74,6 +74,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ApolloProvider client={client}>
+      <Script src="https://widget-prod.bfv.de/widget/widgetresource/widgetjs" strategy="beforeInteractive" />
+
       <GlobalContext.Provider value={globalContextValue}>
         <PageLayout>
           <Component {...pageProps} />

@@ -1,74 +1,78 @@
 import { Section } from "../Section";
 import { css } from "@emotion/css";
 import { SuedLogoHeader } from "components/SuedLogoHeader/SuedLogoHeader";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { GlobalContext } from "GlobalContext";
 import { ESectionId } from "enums/sectionIds";
 import { PageLayoutConstantsMobile } from "constants/PageLayoutConstants";
 import { EAppStatus } from "types/appStatus";
 import Script from 'next/script'
-
+import Head from "next/head";
+import { BFVWidgetComponent } from 'components/BFVWidget'
 export const IntroSection = ({ }) => {
-    const { isMobile } = useContext(GlobalContext)
-    const createIntroStyles = (isMobile: Boolean) => {
-        return css({
-            position: "relative",
-            paddingTop: isMobile ? 150 : 50,
-            paddingBottom: 50,
-            marginLeft: isMobile ? PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : 200,
-            marginRight: isMobile ? PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : 200,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "stretch",
-            gap: isMobile ? 100 : 50,
 
-            ".welcome-wrapper": {
-                flex: "1 0",
-                width: "100%",
-                display: "flex",
-                flexDirection: "column",
-                gap: 10,
+	const { isMobile } = useContext(GlobalContext);
 
-                ".welcome-header-wrapper": {
-                    flex: 0,
-                    height: 40,
-                    width: "100%",
-                    textAlign: 'center',
-                },
-                ".welcome-content-wrapper": {
-                    flex: 1,
-                    position: "relative",
-                    width: "100%",
-                    textAlign: 'center',
+	const createIntroStyles = (isMobile: Boolean) => {
+		return css({
+			position: "relative",
+			paddingTop: isMobile ? 150 : 50,
+			paddingBottom: 50,
+			marginLeft: isMobile ? PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : 200,
+			marginRight: isMobile ? PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : 200,
+			display: "flex",
+			flexDirection: "column",
+			alignItems: "stretch",
+			gap: isMobile ? 100 : 50,
 
-                    ".welcome-content": {
-                        display: 'flex',
-                        justifyContent: 'center',
-                        textAlign: "left",
-                        paddingTop: 20,
-                        paddingBottom: 20,
-                    },
-                },
-            },
-        });
-    }
+			".welcome-wrapper": {
+				flex: "1 0",
+				width: "100%",
+				display: "flex",
+				flexDirection: "column",
+				gap: 10,
 
-    const introStyles = createIntroStyles(isMobile);
-    return (
-        <Section isSecondary={false} sectionId={ESectionId.Intro}>
-            <div className={introStyles}>
-                <div className="sued-logo-wrapper">
-                    <SuedLogoHeader />
-                </div>
-                <div className="welcome-wrapper">
-                    <div className='welcome-header-wrapper'>
-                        <h1>
-                            Herzlich Willkommen beim SC München Süd e.V.
-                        </h1>
-                    </div>
-                    <div className="welcome-content-wrapper">
-                        <div className="welcome-content">
-                            {/*  <p>
+				".welcome-header-wrapper": {
+					flex: 0,
+					height: 40,
+					width: "100%",
+					textAlign: 'center',
+				},
+				".welcome-content-wrapper": {
+					flex: 1,
+					position: "relative",
+					width: "100%",
+					textAlign: 'center',
+
+					".welcome-content": {
+						display: 'flex',
+						justifyContent: 'center',
+						textAlign: "left",
+						paddingTop: 20,
+						paddingBottom: 20,
+					},
+				},
+			},
+		});
+	}
+
+	const introStyles = createIntroStyles(isMobile);
+
+	return (
+		<Section isSecondary={false} sectionId={ESectionId.Intro}>
+			<div className={introStyles}>
+				<div className="sued-logo-wrapper">
+					<SuedLogoHeader />
+				</div>
+				<div className="welcome-wrapper">
+					<div className='welcome-header-wrapper'>
+						<h1>
+							Herzlich Willkommen beim SC München Süd e.V.
+						</h1>
+					</div>
+					<div className="welcome-content-wrapper">
+						<div className="welcome-content">
+							{/*  <p>
                                 Hier beim SC München Süd dreht sich alles um die Liebe zum Spiel.
                                 Wir glauben fest daran, dass der Fußball mehr ist als nur ein Sport.
                                 Es ist eine Leidenschaft, die uns verbindet und uns begeistert.
@@ -85,15 +89,12 @@ export const IntroSection = ({ }) => {
                                 Egal, ob es das gemeinsame Grillen nach dem Spiel ist oder eine Spendenaktion für einen guten Zweck – wir sind immer füreinander da und unterstützen uns gegenseitig.
                             </p> */}
 
-                            <div id="bfv1694790962920">Laden...</div>
-                            <Script>
-                                {`BFVWidget.HTML5.zeigeVereinSpiele("00ES8GNHD400001CVV0AG08LVUPGND5I", "bfv1694790962920", { height: "550", width: "${isMobile ? 300 : 400}", selectedTab: BFVWidget.HTML5.vereinTabs.spiele, colorResults: "rgb(46, 21, 3)", colorNav: "rgb(250, 249, 246)", colorClubName: "rgb(46, 21, 3)", backgroundNav: "rgb(46, 21, 3)" })`}
-                            </Script>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </Section>
-    )
+							<BFVWidgetComponent />
+						</div>
+					</div>
+				</div>
+			</div>
+		</Section>
+	)
 }
 

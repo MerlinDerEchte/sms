@@ -17,7 +17,10 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <script src="https://widget-prod.bfv.de/widget/widgetresource/widgetjs" ></script>
+        <Script
+          src="https://widget-prod.bfv.de/widget/widgetresource/widgetjs"
+          strategy="beforeInteractive" // You can adjust this strategy based on your needs
+        />
       </Head>
       <IntroSection />
       <ImpressionsSection />
