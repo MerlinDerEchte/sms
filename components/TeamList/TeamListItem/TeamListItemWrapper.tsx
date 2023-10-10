@@ -14,7 +14,7 @@ export const TeamListItemWrapper: React.FC<{ props: TeamListItemWrapperProps }> 
             </div>
             <div className="team-list-item-wrapper-content">
                 <p>
-                    {props.content}
+                    <b>{props.content}</b>
                 </p>
             </div>
         </div>

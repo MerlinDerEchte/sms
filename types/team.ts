@@ -7,5 +7,5 @@ export type Team = {
     bfvLink: string,
     trainingDates: string ,
     hirarchy: number,
-    fotoLink: string
+    fotoLink?: string
 }

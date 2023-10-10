@@ -11,7 +11,7 @@ export interface ContentfulPerson {
     foto: {
         url: string
     },
-    kontakt: string,
+    kontakt?: string,
 }
 
 export const PERSONS_QUERY = gql`
@@ -56,7 +56,7 @@ export const mapContentfulPersons = (contentfulPersons:ContentfulPerson[]):Perso
         name: cp.name,
         nickName: cp.spitzname,
         title: cp.title,
-        contact: cp.kontakt,
+        contact: cp.kontakt || undefined,
         fotoLink: cp.foto.url
     }));
     return persons;

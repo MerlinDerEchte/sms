@@ -4,5 +4,5 @@ export type Person = {
     title: string,
     nickName: string, 
     fotoLink: string,
-    contact: string,
+    contact?: string,
 }

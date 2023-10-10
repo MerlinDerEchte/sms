@@ -37,7 +37,7 @@ const TeamList: React.FC = () => {
                         bfvLink: cT.bfvLink,
                         trainingDates: cT.trainingszeiten,
                         hirarchy: cT.hirarchie,
-                        fotoLink: cT.foto.url
+                        fotoLink: cT.foto?.url || undefined
                     })
                 }
             })

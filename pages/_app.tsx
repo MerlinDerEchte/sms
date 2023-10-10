@@ -74,8 +74,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ApolloProvider client={client}>
-      <Script src="https://widget-prod.bfv.de/widget/widgetresource/widgetjs" strategy="beforeInteractive" />
-
       <GlobalContext.Provider value={globalContextValue}>
         <PageLayout>
           <Component {...pageProps} />
