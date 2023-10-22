@@ -29,7 +29,7 @@ export const createTeamLIstItemStyles = (isMobile: Boolean) => {
 
                 position: 'relative',
                 height: '100%',
-                width: '40%',
+                width: isMobile ? '100%' : '40%',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'start',
