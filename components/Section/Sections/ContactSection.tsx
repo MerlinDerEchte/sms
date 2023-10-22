@@ -78,13 +78,13 @@ export const ContactSection: React.FC = () => {
                         <h2 className="contact-item-header">Kontakt</h2>
                         <div className="contact-item">
                             <span>Junioren</span>
-                            <a target='_blank' href="mailto:junioren@scsued.de">
+                            <a target='_blank' rel="noreferrer" href="mailto:junioren@scsued.de">
                                 junioren@scsued.de
                             </a>
                         </div>
                         <div className="contact-item">
                             <span>Senioren</span>
-                            <a target='_blank' href="mailto:kontakt@scsued.de">
+                            <a target='_blank' rel="noreferrer" href="mailto:kontakt@scsued.de">
                                 kontakt@scsued.de
                             </a>
                         </div>
@@ -94,7 +94,7 @@ export const ContactSection: React.FC = () => {
                         <div className="contact-item">
                             <h3>Adresse</h3>
                             <span>Wackersberger Str. 49, 81371 München</span>
-                            <a target='_blank' href="https://www.google.com/maps/place/SC+M%C3%BCnchen-S%C3%BCd+e.V./@48.1151084,11.5463418,17z/data=!3m1!4b1!4m6!3m5!1s0x479ddf35d00f25c5:0x18a924f32f2ae2b0!8m2!3d48.1151084!4d11.5463418!16s%2Fg%2F1td4npd9?entry=ttu">Route Planen</a>
+                            <a target='_blank' rel="noreferrer" href="https://www.google.com/maps/place/SC+M%C3%BCnchen-S%C3%BCd+e.V./@48.1151084,11.5463418,17z/data=!3m1!4b1!4m6!3m5!1s0x479ddf35d00f25c5:0x18a924f32f2ae2b0!8m2!3d48.1151084!4d11.5463418!16s%2Fg%2F1td4npd9?entry=ttu">Route Planen</a>
 
                         </div>
                     </div>

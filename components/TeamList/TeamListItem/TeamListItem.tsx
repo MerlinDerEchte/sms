@@ -20,7 +20,7 @@ export const TeamListItem: React.FC<{ team: Team }> = ({ team }) => {
 
                 {team.bfvLink && <TeamListItemWrapper props={{
                     title: 'BFV - Link',
-                    content: <a target='_blank' href={team.bfvLink} >Hier klicken</a>
+                    content: <a target='_blank' rel="noreferrer" href={team.bfvLink} >Hier klicken</a>
                 }} />
                 }
                 <TeamListItemWrapper props={{

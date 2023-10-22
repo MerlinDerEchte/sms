@@ -52,7 +52,7 @@ export const SponsorsListItem: React.FC<SponsorsListItemProps> = ({ imgSource, s
 
     return (
         <div className={sponsorListItemStyles}>
-            <a target='_blank' href={sponsorLink} className="img-container">
+            <a target='_blank' rel="noreferrer" href={sponsorLink} className="img-container">
                 <img src={imgSource} />
             </a>
             {name && <p> {name}</p>}
