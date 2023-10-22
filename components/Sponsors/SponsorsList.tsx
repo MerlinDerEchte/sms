@@ -26,8 +26,8 @@ export const SponsorsList: React.FC = () => {
     const sponsorsListStyles = createSponsorsListStyles();
     return (
         <div className={sponsorsListStyles}>
-            <LohnerVersicherungen />
             <OberlaenderApotheke />
+            <LohnerVersicherungen />
             <StadtMuenchen />
             <PhysioteamSendling />
             <MaxBauerSachverstaendiger />
