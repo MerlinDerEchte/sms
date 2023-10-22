@@ -7,7 +7,18 @@ import { Team } from "types/team"
 import { TeamListItem } from "./TeamListItem/TeamListItem";
 import { createTeamListStyles } from "./TeamListStyles"
 import { GlobalContext } from "GlobalContext";
+import { TrainerType, getIsRoleTrainerType, getTrainerTypeRank } from "types/trainerTypeEnum";
 
+
+const getSortedTrainers = (trainers: Person[]): Person[] => {
+    return trainers.sort((a, b) => {
+
+        const aRank: number = getTrainerTypeRank(a.title);
+        const bRank: number = getTrainerTypeRank(b.title);
+        return aRank - bRank;
+
+    })
+}
 
 const TeamList: React.FC = () => {
     const { isMobile } = useContext(GlobalContext);
@@ -28,13 +39,13 @@ const TeamList: React.FC = () => {
             teamsData.mannschaftCollection.items.forEach((cT: ContentfulTeam) => {
                 const isPersonIdInCTTrainers = (id: string) => cT.trainersCollection.items.some((person) => person.sys.id === id)
                 const trainers: Person[] = persons.filter(p => isPersonIdInCTTrainers(p.id))
-
-                if (trainers) {
+                const sortedTrainers = getSortedTrainers(trainers)
+                if (sortedTrainers) {
                     newTeams.push({
                         id: cT.id,
                         name: cT.name,
-                        trainers: trainers,
-                        bfvLink: cT.bfvLink,
+                        trainers: sortedTrainers,
+                        bfvLink: cT.bfvLink || undefined,
                         trainingDates: cT.trainingszeiten,
                         hirarchy: cT.hirarchie,
                         fotoLink: cT.foto?.url || undefined

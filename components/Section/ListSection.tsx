@@ -1,36 +1,37 @@
 import { Section } from "./Section";
 import { css } from "@emotion/css";
-import { useContext, FC} from "react";
+import { useContext, FC } from "react";
 import { GlobalContext } from "GlobalContext";
 import { colors } from "styles/colors";
 import { PageLayoutConstantsMobile } from "constants/PageLayoutConstants";
 
 export const ListSection: FC<{ caption: string, isSecondary: Boolean, sectionId: string, children: React.ReactNode }> = ({ caption, children, sectionId, isSecondary }) => {
 
-    const { isMobile,screenWidth } = useContext(GlobalContext)
+    const { isMobile, screenWidth } = useContext(GlobalContext)
+    const containerGap = isMobile ? 50 : 0;
+    const desktopCaptionContainerWidth = 450;
+    const createListSectionStyles = (isMobile: Boolean, isSecondary: Boolean) => {
 
-    const createListSectionStyles = (isMobile:Boolean, isSecondary:Boolean) => {
-
-        const createFontColor = (isSecondary:Boolean, isMobile:Boolean):string => {
-            if( !isMobile && !isSecondary) {
+        const createFontColor = (isSecondary: Boolean, isMobile: Boolean): string => {
+            if (!isMobile && !isSecondary) {
                 return colors.DARK_WHITE
             }
-            if( !isMobile && isSecondary) {
+            if (!isMobile && isSecondary) {
                 return colors.DARK_BROWN
             }
-            if(isMobile && isSecondary){
+            if (isMobile && isSecondary) {
                 return colors.DARK_WHITE
             }
             return colors.DARK_BROWN
         }
-        const createBackgroundColor = (isSecondary:Boolean, isMobile:Boolean):string => {
-            if( !isMobile && !isSecondary) {
+        const createBackgroundColor = (isSecondary: Boolean, isMobile: Boolean): string => {
+            if (!isMobile && !isSecondary) {
                 return colors.DARK_BROWN
             }
-            if( !isMobile && isSecondary) {
+            if (!isMobile && isSecondary) {
                 return colors.DARK_WHITE
             }
-            if(isMobile && isSecondary){
+            if (isMobile && isSecondary) {
                 return colors.DARK_BROWN
             }
             return colors.DARK_WHITE
@@ -45,12 +46,12 @@ export const ListSection: FC<{ caption: string, isSecondary: Boolean, sectionId:
             display: 'flex',
             flexDirection: isMobile ? 'column' : 'row',
             maxWidth: '100vw',
-            gap: isMobile ?  50 : 100,
+            gap: containerGap,
 
             '.caption-wrapper': {
                 position: 'relative',
-                flex: 1,
-                width: isMobile ? 'auto' : '33vw',
+
+                width: isMobile ? 'auto' : desktopCaptionContainerWidth,
                 overflow: 'hidden',
 
                 '.caption-container': {
@@ -67,18 +68,19 @@ export const ListSection: FC<{ caption: string, isSecondary: Boolean, sectionId:
             },
             '.content-container': {
                 marginLeft: isMobile ? PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : 0,
-                flex: 2,
-                width: isMobile ? screenWidth - 2 * PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : '66vw',
+
+                width: isMobile ? screenWidth - 2 * PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : `calc(100% - ${desktopCaptionContainerWidth}px)`,
                 position: 'relative',
                 paddingTop: isMobile ? 20 : 100,
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'start',
+                alignItems: 'start',
+                paddingLeft: isMobile? 0 : 100,
             }
         })
     }
 
-    const listSectionStyles = createListSectionStyles( isMobile, isSecondary);
+    const listSectionStyles = createListSectionStyles(isMobile, isSecondary);
 
 
     return (

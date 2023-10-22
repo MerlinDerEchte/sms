@@ -13,18 +13,19 @@ import {
 } from "contentful/contentfulImpression";
 import { GlobalContext } from "GlobalContext";
 
-export const ImpressionsSection = ({}) => {
+export const ImpressionsSection = ({ }) => {
   const { isMobile } = useContext(GlobalContext);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [impressions, setImpressions] = useState<Impression[]>([]);
   const [firstImpressionIndex, setFirstImpressionIndex] = useState(0);
-
+  const containerGap = isMobile ? 50 : 100;
+  const desktopCaptionContainerWidth = 450;
   const closeGallery = () => {
     setIsGalleryOpen(false);
   };
-  const openGallery = (impressionIndex:number = 0) => {
-    if(isGalleryOpen){
-        return
+  const openGallery = (impressionIndex: number = 0) => {
+    if (isGalleryOpen) {
+      return
     }
     setIsGalleryOpen(true);
     setFirstImpressionIndex(impressionIndex);
@@ -32,21 +33,34 @@ export const ImpressionsSection = ({}) => {
   const createImpressionsSectionStyles = () => {
     return css({
       width: "100%",
+      display: 'flex',
+      flexDirection: isMobile ? 'column' : 'row',
 
       ".impression-section-header-wrapper": {
         flex: 0,
-        height: 50,
-        width: isMobile ? ' 100%' : "33vw",
+        width: isMobile ? '100%' : desktopCaptionContainerWidth,
         display: "flex",
         justifyContent: 'center',
+        height: '50px',
         alignItems: "center",
         background: isMobile ? colors.DARK_BROWN : colors.DARK_WHITE,
         borderRadius: isMobile ? 'none' : "0 0 15px 0",
         color: isMobile ? colors.DARK_WHITE : colors.DARK_BROWN,
         marginBottom: 20,
+        '.impression-section-header-container': {
+          width: isMobile ? '100%' : desktopCaptionContainerWidth,
+          height: 50,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }
       },
       ".impression-section-content-wrapper": {
+        paddingTop: isMobile ? 50 : 100,
         paddingBottom: 20,
+        width: isMobile ? '100%' : `calc(100vw - ${containerGap}px - ${desktopCaptionContainerWidth}px)`,
+        display: 'flex',
+        justifyContent: 'center'
       },
     });
   };
@@ -66,12 +80,14 @@ export const ImpressionsSection = ({}) => {
     <Section isSecondary={true} sectionId={ESectionId.Impressions}>
       <div className={impressionsSectionStyles}>
         <div className="impression-section-header-wrapper">
-          <h2>Impressionen</h2>
+          <div className="impression-section-header-container">
+            <h2>Impressionen</h2>
+          </div>
         </div>
         <div className="impression-section-content-wrapper">
           <ImpressionsTeaser
             impressions={impressions}
-            openGallery={ openGallery}
+            openGallery={openGallery}
           />
         </div>
       </div>

@@ -4,7 +4,7 @@ export type Team = {
     id: string,
     name: string, 
     trainers: Person[],
-    bfvLink: string,
+    bfvLink?: string,
     trainingDates: string ,
     hirarchy: number,
     fotoLink?: string

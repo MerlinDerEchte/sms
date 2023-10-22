@@ -9,7 +9,7 @@ export interface ContentfulTeam {
     trainersCollection: {
         items:ContentfulPerson[],
     }
-    bfvLink: string,
+    bfvLink?: string,
     hirarchie: number,
     foto: {
         url: string

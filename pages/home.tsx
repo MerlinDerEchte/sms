@@ -5,6 +5,9 @@ import { TeamsSection } from "components/Section/Sections/TeamsSection";
 import { ClubEventSection } from "components/Section/Sections/ClubEventsSection";
 import { BlogPostSection } from "components/Section/Sections/BlogPostSection";
 import { ImpressionsSection } from "components/Section/Sections/ImpressionsSection";
+import { SponsorSection } from "components/Section/Sections/SponsorSection"
+import { ContactSection } from "components/Section/Sections/ContactSection";
+
 export interface IcreateHomeStyles {
   screenWidth: number;
   screenHeight: number;
@@ -14,13 +17,13 @@ const Home: NextPage = () => {
 
   return (
     <>
-
       <IntroSection />
-      <ImpressionsSection />
+      <ContactSection />
       <TeamsSection />
+      <ImpressionsSection />
       <ClubEventSection />
       <BlogPostSection />
-
+      <SponsorSection />
     </>
   );
 };

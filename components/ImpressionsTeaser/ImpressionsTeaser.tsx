@@ -24,7 +24,8 @@ export const ImpressionsTeaser: FC<{
     return css({
       width: isMobile ? mobileWidth : totalWidth,
       height: isMobile ? mobileHeight : imageHeight,
-      marginLeft: margin,
+      marginLeft: 'auto',
+      marginRight: 'auto', 
       display: "flex",
       flexDirection: isMobile ? 'column' : 'row',
       gap: imageGap,

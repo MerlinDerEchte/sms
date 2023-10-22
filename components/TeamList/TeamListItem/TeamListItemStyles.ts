@@ -6,34 +6,37 @@ export const createTeamLIstItemStyles = (isMobile: Boolean) => {
     return css({
         display: 'flex',
         gap: 10,
+        width: '100%',
         flexDirection: 'column',
-        '.team-foto-container':{
+        position: 'relative',
+        '.team-foto-container': {
             width: '100%',
             img: {
                 width: '100%'
             }
         },
         '.team-info-wrapper': {
-
             position: 'relative',
             display: 'flex',
-            justifyContent: 'center',
+            width: '100%',
+            justifyContent: 'start',
             flexDirection: isMobile ? 'column' : 'row',
             paddingBottom: 30,
             borderBottom: `3px solid ${colors.DARK_BROWN}`,
             gap: isMobile ? 30 : 0,
 
             '.team-info-general-wrapper': {
-                flex: 1,
+
+                position: 'relative',
                 height: '100%',
-                width: '100%',
-                paddingLeft: isMobile ? 0 : 20,
+                width: '40%',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'start',
-                alignItems: 'flex-start',
+                alignItems: 'start',
                 '.team-name-container': {
-                    textAlign: 'center',
+                    textAlign: 'start',
+                    verticalAlign: 'middle',
                     width: '100%',
                     marginBottom: isMobile ? 30 : 0,
                 },
@@ -44,10 +47,10 @@ export const createTeamLIstItemStyles = (isMobile: Boolean) => {
             },
 
             '.team-all-trainers-wrapper': {
-                flex: 1,
+
                 height: '100%',
-                width: '50%',
-                paddingLeft: isMobile ? 0 : 20,
+                width: '60%',
+                paddingLeft: 0,
                 display: 'flex',
                 gap: 20,
                 flexDirection: 'column',

@@ -15,13 +15,14 @@ export const TeamListItem: React.FC<{ team: Team }> = ({ team }) => {
             {team.fotoLink && <img alt="foto" src={team.fotoLink}></img>}
         </div>
         <div className="team-info-wrapper">
-            <div className="team-general-info-wrapper">
+            <div className="team-info-general-wrapper">
                 <div className="team-name-container"><h2>{team.name}</h2></div>
 
-                <TeamListItemWrapper props={{
+                {team.bfvLink && <TeamListItemWrapper props={{
                     title: 'BFV - Link',
-                    content: <a href={team.bfvLink}>Hier klicken</a>
+                    content: <a target='_blank' href={team.bfvLink} >Hier klicken</a>
                 }} />
+                }
                 <TeamListItemWrapper props={{
                     title: 'Trainingszeiten',
                     content: team.trainingDates
@@ -38,7 +39,7 @@ export const TeamListItem: React.FC<{ team: Team }> = ({ team }) => {
                             </div>
                             <div className="team-trainer-info-wrapper">
                                 <TeamListItemWrapper props={{
-                                    title: 'Trainer',
+                                    title: trainer.title,
                                     content: trainer.name
                                 }} />
                                 {trainer.contact && <TeamListItemWrapper props={{

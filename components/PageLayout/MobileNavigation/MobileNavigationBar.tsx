@@ -1,10 +1,9 @@
-import { NextPage } from 'next';
 import { ESectionId } from 'enums/sectionIds';
 import { css, keyframes } from '@emotion/css';
 import { colors } from 'styles/colors';
-import { useDebugValue, useEffect, useState } from 'react';
 
-export const MobileNavigationBar: React.FC<{ showNavigationMenu: Boolean, isInitialRender:Boolean, closeNavigationBar:()=>void }> = ({ showNavigationMenu, isInitialRender, closeNavigationBar }) => {
+
+export const MobileNavigationBar: React.FC<{ showNavigationMenu: Boolean, isInitialRender: Boolean, closeNavigationBar: () => void }> = ({ showNavigationMenu, isInitialRender, closeNavigationBar }) => {
 
     const navbarActiveAnimation = keyframes`
         0% {left: -200px;}
@@ -15,9 +14,9 @@ export const MobileNavigationBar: React.FC<{ showNavigationMenu: Boolean, isInit
     0% { left: 0px}
     100% {left: -200px;}  
     `
-    
 
-    const createNavbarStyles = (showNavigationMenu: Boolean, isInitialRender:Boolean) => {
+
+    const createNavbarStyles = (showNavigationMenu: Boolean, isInitialRender: Boolean) => {
         return css({
             position: 'absolute',
             left: showNavigationMenu ? 0 : -200,
@@ -30,7 +29,9 @@ export const MobileNavigationBar: React.FC<{ showNavigationMenu: Boolean, isInit
             zIndex: 200,
             paddingTop: 50,
             animation: isInitialRender ? 'none' :
-                showNavigationMenu ? `${navbarActiveAnimation} 0.2s ease-in-out backwards`: `${navbarInActionAnimation} 0.2s ease-in-out backwards`,
+                showNavigationMenu ? `${navbarActiveAnimation} 0.2s ease-in-out backwards` : `${navbarInActionAnimation} 0.2s ease-in-out backwards`,
+
+
 
             'nav': {
                 position: 'relative',
@@ -49,7 +50,7 @@ export const MobileNavigationBar: React.FC<{ showNavigationMenu: Boolean, isInit
     }
 
     const navbarStyles = createNavbarStyles(showNavigationMenu, isInitialRender);
-    
+
     const scrollIntoView = (id: string) => {
         const el: HTMLElement | null = document.getElementById(id);
         if (el) {
@@ -61,13 +62,13 @@ export const MobileNavigationBar: React.FC<{ showNavigationMenu: Boolean, isInit
     return (
         <div className={navbarStyles}>
             <nav className="nav" >
-                <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Intro)}>Home</div>
-                <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Impressions)}>Impressionen</div>
+                <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Kontakt)}>Anfahrt & Kontakt</div>
                 <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Teams)}>Teams</div>
+                <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Impressions)}>Impressionen</div>
                 <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Events)}>Events</div>
                 <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.News)}>Aktuelles</div>
-                <div className="navigation-item" >Schiedsrichter</div>
-                <div className="navigation-item" >Kontakt</div>
+                <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Sponsors)}>Sponsoren</div>
+                <div className="navigation-item" onClick={() => scrollIntoView('impressum')}>Impressum</div>
             </nav>
         </div>
     )

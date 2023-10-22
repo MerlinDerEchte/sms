@@ -8,7 +8,7 @@ export const Footer: FC<{}> = () => {
     const footerStyles = createFooterStyles(isMobile);
 
     return (
-        <div className={footerStyles}>
+        <div className={footerStyles} id="impressum">
 
             <div className="footer-caption-wrapper">
                 <div className="footer-caption-container">

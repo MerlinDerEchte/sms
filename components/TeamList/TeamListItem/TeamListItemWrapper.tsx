@@ -29,11 +29,11 @@ const createTeamListItemWrapperStles = () => {
         width: '100%',
         flexDirection: 'column',
         '.team-list-item-wrapper-header': {
-            flex: 0,
+            flex: 1,
             height: 20
         },
         '.team-list-item-wrapper-content': {
-            flex: 0,
+            flex: 1,
             height: 30
 
         }

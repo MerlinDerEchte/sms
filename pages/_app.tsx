@@ -6,7 +6,10 @@ import { GlobalContext } from 'GlobalContext';
 import { PageLayout } from 'components/PageLayout/PageLayout';
 import { ApolloClient, createHttpLink, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { setContext } from "@apollo/client/link/context";
-import Script from "next/script"
+import Head from 'next/head';
+import Link from 'next/link';
+
+
 function MyApp({ Component, pageProps }: AppProps) {
 
   const [screenWidth, setScreenWidth] = useState(0);
@@ -73,9 +76,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
+
     <ApolloProvider client={client}>
       <GlobalContext.Provider value={globalContextValue}>
         <PageLayout>
+          <Head>
+            <link rel="icon" href="sued-logo.png" />
+          </Head>
           <Component {...pageProps} />
         </PageLayout>
       </GlobalContext.Provider>
