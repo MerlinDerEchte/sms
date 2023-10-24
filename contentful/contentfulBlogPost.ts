@@ -37,7 +37,6 @@ export const BLOG_POST_QUERY = gql`
     }
 `
 export const mapContentfulBlogPosts = (contentfulBlogPosts: ContentfulBlogPost[]): BlogPost[] => {
-    console.log('mapping')
     const blogPosts: BlogPost[] = contentfulBlogPosts.map(cbp => {
         return ({
             id: cbp.sys.id,

@@ -40,7 +40,7 @@ export const createPageLayoutStyles = (params: IcreatePageLayoutStyles) => {
             width: '100%',
             zIndex: 1,
         },
-        '.content-wrapper': {
+        '#page-content-wrapper': {
             position: 'relative',
             height: contentHeight,
             scrollMargin: 10,

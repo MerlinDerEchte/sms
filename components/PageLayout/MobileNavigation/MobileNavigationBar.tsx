@@ -53,9 +53,15 @@ export const MobileNavigationBar: React.FC<{ showNavigationMenu: Boolean, isInit
 
     const scrollIntoView = (id: string) => {
         const el: HTMLElement | null = document.getElementById(id);
-        if (el) {
-            el.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
-            closeNavigationBar()
+        const containerEl: HTMLElement | null = document.getElementById('page-content-wrapper');
+
+        if (el && containerEl) {
+            const topOffset = el.offsetTop - containerEl.offsetTop;
+            containerEl.scrollTo({
+                top: topOffset,
+                behavior: "smooth"
+            })
+            closeNavigationBar() 
         }
     }
 

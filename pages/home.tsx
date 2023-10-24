@@ -16,7 +16,7 @@ export interface IcreateHomeStyles {
 const Home: NextPage = () => {
 
   return (
-    <>
+    <div id="home_scroll_container">
       <IntroSection />
       <ContactSection />
       <TeamsSection />
@@ -24,7 +24,7 @@ const Home: NextPage = () => {
       <ClubEventSection />
       <BlogPostSection />
       <SponsorSection />
-    </>
+    </div>
   );
 };
 export default Home;

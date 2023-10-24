@@ -34,7 +34,7 @@ export const PageLayout = ({ children }: IPageProps, showNavigationBar:()=>void)
       }
       {isMobile && <MobileNavigationButton showNavigationMenu={showNavigationMenu} isInitialRender={isInitialRender} toggleShowNavigationMenu={toggleShowNavigationMenu} />}
       {isMobile && <MobileNavigationBar showNavigationMenu={showNavigationMenu} isInitialRender={isInitialRender} closeNavigationBar={closeNavigationBar}/>}
-      <div className="content-wrapper">
+      <div id="page-content-wrapper">
         {children}
         <Footer />
       </div>
