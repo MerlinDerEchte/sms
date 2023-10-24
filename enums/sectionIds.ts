@@ -5,5 +5,6 @@ export enum ESectionId {
     Events = 'events',
     News = 'aktuelles',
     Impressions = 'impressions',
-    Sponsors='sponsors'
+    Sponsors='sponsors',
+    Impressum="impressum"
 }

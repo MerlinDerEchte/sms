@@ -20,7 +20,7 @@ export const Navbar: NextPage = () => {
                 <div className="navigation-item"  onClick={() => scrollIntoView(ESectionId.Events)}>Events</div>
                 <div className="navigation-item"  onClick={() => scrollIntoView(ESectionId.News)}>Aktuelles</div>
                 <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Sponsors)}>Sponsoren</div> 
-                <div className="navigation-item" onClick={() => scrollIntoView('impressum')}>Impressum</div>
+                <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Impressum)}>Impressum</div>
             </nav>
         </div>
     )
