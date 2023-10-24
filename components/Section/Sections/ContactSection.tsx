@@ -30,14 +30,15 @@ export const ContactSection: React.FC = () => {
 
             '.contact-content': {
                 paddingTop: isMobile ? 50 : 100,
+                paddingLeft: isMobile? 0 : 100,
                 paddingBottom: 20,
                 display: 'flex',
                 flex: 1,
                 flexDirection: isMobile ? 'column' : 'row',
-                width: isMobile ? '100%' : 'calc(100vw - 450px)',
+                width: isMobile ? '100%' :  600,
                 justifyContent: isMobile ? 'center' : 'start',
                 alignItems: isMobile ? 'center' : 'flex-start',
-                gap: isMobile ? 50 : 100,
+                gap: isMobile ? 50 : 0,
 
                 '.contact-wrapper': {
                     width: 300,
