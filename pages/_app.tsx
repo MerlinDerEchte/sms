@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [screenHeight, setScreenHeight] = useState(0);
   const [appStatus, setAppStatus] = useState<EAppStatus>(EAppStatus.INIT)
   const globalContextValue = {
-    isMobile: screenWidth < 1000,
+    isMobile: screenWidth < 1200,
     screenHeight: screenHeight,
     screenWidth: screenWidth,
     appStatus: appStatus

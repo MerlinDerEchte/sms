@@ -49,7 +49,7 @@ export const createTeamLIstItemStyles = (isMobile: Boolean) => {
             '.team-all-trainers-wrapper': {
 
                 height: '100%',
-                width: '60%',
+                width: isMobile? '100%' : '60%',
                 paddingLeft: 0,
                 display: 'flex',
                 gap: 20,
@@ -59,8 +59,10 @@ export const createTeamLIstItemStyles = (isMobile: Boolean) => {
                     paddingLeft: isMobile ? 0 : 20,
                     display: 'flex',
                     gap: 20,
+                    width: '100%',
                     flexDirection: 'row',
                     alignItems: 'stretch',
+                    
 
                     '.team-trainer-foto-wrapper': {
                         flex: 0,

@@ -3,13 +3,13 @@ import Script from "next/script"
 import { useContext, useEffect } from "react";
 export const BFVWidgetComponent = () => {
 
-	const { isMobile } = useContext(GlobalContext)
+	const { isMobile, screenWidth } = useContext(GlobalContext)
 	useEffect(() => {
 		const handleBFVWidget = () => {
 			if (typeof BFVWidget !== 'undefined') {
 				BFVWidget.HTML5.zeigeVereinSpiele("00ES8GNHD400001CVV0AG08LVUPGND5I", "bfv1694863254434", {
 					height: isMobile ? "550px" : "650px",
-					width: isMobile ? "300px" : "1000px",
+					width: isMobile ? `${Math.floor(screenWidth * 0.8)}px` : "1000px",
 					selectedTab: BFVWidget.HTML5.vereinTabs.spiele,
 					colorResults: "rgb(46, 21, 3)",
 					colorNav: "rgb(250, 249, 246)",
@@ -23,7 +23,7 @@ export const BFVWidgetComponent = () => {
 		};
 
 		handleBFVWidget();
-	}, [isMobile]);
+	}, [isMobile, screenWidth]);
 
 
 

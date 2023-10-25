@@ -6,7 +6,6 @@ import { GlobalContext } from "GlobalContext";
 import { colors } from "styles/colors";
 
 export const ContactSection: React.FC = () => {
-    const contentMarginLeft = 'calc(100vw - '
     const { isMobile } = useContext(GlobalContext);
     const createContactSectionStyles = () => {
         return css({
@@ -30,14 +29,14 @@ export const ContactSection: React.FC = () => {
 
             '.contact-content': {
                 paddingTop: isMobile ? 50 : 100,
-                paddingLeft: isMobile? 0 : 100,
+                paddingLeft: isMobile? 50 : 100,
                 paddingBottom: 20,
                 display: 'flex',
                 flex: 1,
                 flexDirection: isMobile ? 'column' : 'row',
                 width: isMobile ? '100%' :  600,
                 justifyContent: isMobile ? 'center' : 'start',
-                alignItems: isMobile ? 'center' : 'flex-start',
+                alignItems: 'flex-start',
                 gap: isMobile ? 50 : 0,
 
                 '.contact-wrapper': {
