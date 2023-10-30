@@ -7,16 +7,20 @@ import { BlogPostSection } from "components/Section/Sections/BlogPostSection";
 import { ImpressionsSection } from "components/Section/Sections/ImpressionsSection";
 import { SponsorSection } from "components/Section/Sections/SponsorSection"
 import { ContactSection } from "components/Section/Sections/ContactSection";
+import { useEffect, useState } from "react";
 
 export interface IcreateHomeStyles {
   screenWidth: number;
   screenHeight: number;
 }
 
+
+
 const Home: NextPage = () => {
 
+ 
   return (
-    <div id="home_scroll_container">
+    <div id="home_scroll_container" >
       <IntroSection />
       <ContactSection />
       <TeamsSection />

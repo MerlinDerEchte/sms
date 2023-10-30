@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { GlobalContext } from "GlobalContext";
 import { Footer } from "./Footer/Footer";
 import { Navbar } from "./Navbar/Navbar";
@@ -25,9 +25,13 @@ export const PageLayout = ({ children }: IPageProps, showNavigationBar:()=>void)
   const closeNavigationBar = () => {
     setShowNavigationMenu(false)
   }
+  const [isInitialLoadingBufferOver, setIsinitialLoadingBufferOver] = useState(false);
+  useEffect(() => {
+    const timeOut = setTimeout(() => setIsinitialLoadingBufferOver(true), 500)
+  }, [])
 
   return (
-    <main className={pageLayoutStyles} id="main">
+    <main className={pageLayoutStyles} id="main" style={isInitialLoadingBufferOver ? { visibility: 'visible' } : { visibility: 'hidden' }}>
       {!isMobile && <header className="header-wrapper">
         <Navbar />
       </header>

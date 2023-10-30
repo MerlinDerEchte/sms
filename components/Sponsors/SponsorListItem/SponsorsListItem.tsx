@@ -12,7 +12,8 @@ interface SponsorsListItemProps {
 }
 
 export const SponsorsListItem: React.FC<SponsorsListItemProps> = ({ imgSource, sponsorLink, name, address, kontakt }) => {
-    const { isMobile } = useContext(GlobalContext)
+    const { isMobile, screenWidth } = useContext(GlobalContext)
+    const sponsorsWidth = isMobile ? screenWidth * 0.8 : 300;
     const createSponsorListItemStyles = () => {
         return css({
             padding: 15,
@@ -20,8 +21,8 @@ export const SponsorsListItem: React.FC<SponsorsListItemProps> = ({ imgSource, s
             flexDirection: 'column',
             justifyContent: 'space-between',
             alignItems: 'center',
-            width: 300,
-            height: 300,
+            width: sponsorsWidth,
+            height: sponsorsWidth,
             position: 'relative',
             borderRadius: 20,
             boxShadow: `0 0 5px ${colors.LIGHT_BROWN}`,
@@ -35,7 +36,7 @@ export const SponsorsListItem: React.FC<SponsorsListItemProps> = ({ imgSource, s
                 flex: 'initial',
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: 200,
+                height: sponsorsWidth * 2 / 3,
                 position: 'relative',
                 overflow: 'hidden',
                 margin: 0,
