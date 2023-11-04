@@ -26,7 +26,7 @@ export const ClubEventBox: React.FC<{ clubEvent: ClubEvent }> = ({ clubEvent }) 
             return minuteString;
         }
     } 
-    const dateAsString:string = `${date.getDate()}.${date.getMonth()}.${date.getFullYear()} - ${date.getHours()}:${addZeroToMinuteStringIfNeeded(date.getMinutes().toString())}`;
+    const dateAsString:string = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()} - ${date.getHours()}:${addZeroToMinuteStringIfNeeded(date.getMinutes().toString())}`;
     return (
         <div className={clubEventStyles} onMouseEnter={() => setIsFocused(true)} onMouseLeave={() => setIsFocused(false)} onClick={toggleIsExpanded}>
             <div className="foto-wrapper">
