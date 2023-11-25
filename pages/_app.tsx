@@ -68,6 +68,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     })
 
   }
+
   useEffect(() => {
     setScreenHeight(window.innerHeight);
     setScreenWidth(window.innerWidth);

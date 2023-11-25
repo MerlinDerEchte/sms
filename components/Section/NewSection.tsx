@@ -102,7 +102,7 @@ export const NewSection: FC<{ caption?: string, isSecondary: boolean, sectionId:
 
     return (
         <SectionContext.Provider value={sectionContextValue} >
-        <div className={listSectionStyles} id={sectionId}>
+        <section className={listSectionStyles} id={sectionId}>
             {hasCaption && <div className="caption-wrapper">
                 <div className="caption-container">
                     <h2>
@@ -114,7 +114,7 @@ export const NewSection: FC<{ caption?: string, isSecondary: boolean, sectionId:
             <div className="content-container">
                 {children}
             </div>
-        </div>
+        </section>
         </SectionContext.Provider>
 
     )
