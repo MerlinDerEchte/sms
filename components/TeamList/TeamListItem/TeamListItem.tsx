@@ -36,23 +36,7 @@ export const TeamListItem: React.FC<{ team: Team }> = ({ team }) => {
             <div className="team-all-trainers-wrapper">
                 {team.trainers.map((trainer) => {
                     return (
-                       /*  <div className="team-trainer-wrapper" key={trainer.id}>
-                            <div className="team-trainer-foto-wrapper">
-                                <img src={trainer.fotoLink} />
-                            </div>
-                            <div className="team-trainer-info-wrapper">
-                                <TeamListItemWrapper props={{
-                                    title: trainer.title,
-                                    content: trainer.name
-                                }} />
-                                {trainer.contact && <TeamListItemWrapper props={{
-                                    title: 'Kontakt',
-                                    content: trainer.contact
-                                }} />
-                                }
-                            </div>
-                        </div> */
-                        <ContactPersonBox person={trainer} />
+                        <ContactPersonBox person={trainer} key={trainer.id}/>
                     )
                 })
                 }

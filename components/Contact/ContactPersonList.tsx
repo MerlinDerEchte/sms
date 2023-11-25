@@ -49,7 +49,7 @@ export const ContactPersonList: React.FC = () => {
         <div className={contactListStyles}>
             {contactPersons.map((cP) => {
                 return (
-                    <div className="contact-person-box-wrapper">
+                    <div className="contact-person-box-wrapper" key={cP.id}>
                         <ContactPersonBox person={cP} />
                     </div>
                 )
