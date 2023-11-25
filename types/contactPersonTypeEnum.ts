@@ -16,6 +16,7 @@ export const mapStringToContactPersonType = (str:string):ContactPersonType|null 
     if(isStringContactPersonType(str)){
         return str as ContactPersonType;
     }
+    return null;
 }
 
 export const getContactPersonTypeRank = (contactPersonType:ContactPersonType):number => {
