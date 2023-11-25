@@ -1,6 +1,5 @@
 import { ESectionId } from "enums/sectionIds";
 import { ImpressionsTeaser } from "components/ImpressionsTeaser/ImpressionsTeaser";
-import { Section } from "../Section";
 import { css } from "@emotion/css";
 import { colors } from "styles/colors";
 import { Gallery } from "components/Gallery/Gallery";
@@ -12,6 +11,7 @@ import {
   mapContentfulImpressions,
 } from "contentful/contentfulImpression";
 import { GlobalContext } from "GlobalContext";
+import { NewSection } from "../Section/NewSection";
 
 export const ImpressionsSection = ({ }) => {
   const { isMobile } = useContext(GlobalContext);
@@ -77,19 +77,12 @@ export const ImpressionsSection = ({ }) => {
   }, [data]);
 
   return (
-    <Section isSecondary={true} sectionId={ESectionId.Impressions}>
-      <div className={impressionsSectionStyles}>
-        <div className="impression-section-header-wrapper">
-          <div className="impression-section-header-container">
-            <h2>Impressionen</h2>
-          </div>
-        </div>
-        <div className="impression-section-content-wrapper">
-          <ImpressionsTeaser
-            impressions={impressions}
-            openGallery={openGallery}
-          />
-        </div>
+    <NewSection isSecondary={true} sectionId={ESectionId.Impressions} caption="Impressionen">
+      <div className="impression-section-content-wrapper">
+        <ImpressionsTeaser
+          impressions={impressions}
+          openGallery={openGallery}
+        />
       </div>
       {isGalleryOpen && (
         <Gallery
@@ -98,6 +91,6 @@ export const ImpressionsSection = ({ }) => {
           firstIndex={firstImpressionIndex}
         />
       )}
-    </Section>
+    </NewSection>
   );
 };

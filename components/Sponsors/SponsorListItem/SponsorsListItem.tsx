@@ -25,9 +25,9 @@ export const SponsorsListItem: React.FC<SponsorsListItemProps> = ({ imgSource, s
             height: sponsorsWidth,
             position: 'relative',
             borderRadius: 20,
-            boxShadow: `0 0 5px ${colors.LIGHT_BROWN}`,
+            boxShadow: `0 0 2px ${colors.LIGHT_BROWN}`,
             ':hover': {
-                boxShadow: `0 0 5px ${colors.DARK_BROWN}`
+                boxShadow: `0 0 5px ${colors.DARK_WHITE}`
             },
             //border: `1px solid ${colors.DARK_BROWN}`,
             '.img-container': {

@@ -1,5 +1,4 @@
 import { createContext } from "react";
-import { Person } from "./types/person";
 import { EAppStatus } from "types/appStatus";
 export const GlobalContext = createContext({
     isMobile: false,

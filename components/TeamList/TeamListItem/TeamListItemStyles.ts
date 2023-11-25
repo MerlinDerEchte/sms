@@ -1,15 +1,18 @@
 import { css } from "@emotion/css"
 import { colors } from "styles/colors"
 
-export const createTeamLIstItemStyles = (isMobile: Boolean) => {
-
+export const createTeamLIstItemStyles = (isMobile: Boolean, isSecondary: Boolean) => {
+    
     return css({
         display: 'flex',
         gap: 10,
         width: '100%',
         flexDirection: 'column',
         position: 'relative',
+
         '.team-foto-container': {
+            borderRadius: 25,
+            overflow:'hidden',
             width: '100%',
             img: {
                 width: '100%'

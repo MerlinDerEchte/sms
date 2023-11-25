@@ -14,11 +14,10 @@ export const Navbar: NextPage = () => {
     return (
         <div className={navbarStyles}>
             <nav className="nav" >
+                <div className="navigation-item"  onClick={() => scrollIntoView(ESectionId.Events)}>Aktuelles</div>
                 <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Kontakt)}>Kontakt & Anfahrt</div>
-                <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Teams)}>Teams</div>
                 <div className="navigation-item"  onClick={() => scrollIntoView(ESectionId.Impressions)}>Impressionen</div>
-                <div className="navigation-item"  onClick={() => scrollIntoView(ESectionId.Events)}>Events</div>
-                <div className="navigation-item"  onClick={() => scrollIntoView(ESectionId.News)}>Aktuelles</div>
+                <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Teams)}>Teams</div>
                 <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Sponsors)}>Sponsoren</div> 
                 <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Impressum)}>Impressum</div>
             </nav>

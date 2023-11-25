@@ -7,8 +7,7 @@ import { Team } from "types/team"
 import { TeamListItem } from "./TeamListItem/TeamListItem";
 import { createTeamListStyles } from "./TeamListStyles"
 import { GlobalContext } from "GlobalContext";
-import { TrainerType, getIsRoleTrainerType, getTrainerTypeRank } from "types/trainerTypeEnum";
-
+import { getTrainerTypeRank } from "types/trainerTypeEnum";
 
 const getSortedTrainers = (trainers: Person[]): Person[] => {
     return trainers.sort((a, b) => {

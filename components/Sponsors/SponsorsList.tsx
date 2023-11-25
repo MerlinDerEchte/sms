@@ -18,9 +18,11 @@ export const SponsorsList: React.FC = () => {
             flexWrap: 'wrap',
             position: 'relative',
             flexDirection: isMobile ? 'column' : 'row',
-            alignItems: 'center', 
-            width: '100%',
-            gap: isMobile ? 30 : 30
+            justifyContent: 'start', 
+            alignItems: 'center',
+            width: isMobile ? '100%' : '90%',
+            gap: 30,
+            /* gap: isMobile ? 30 : 30 */
         })
     }
     const sponsorsListStyles = createSponsorsListStyles();

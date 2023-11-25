@@ -1,12 +1,13 @@
 export enum TrainerType {
     TRAINER = 'Trainer',
+    TRAINERIN = 'Trainerin',
     COTRAINER = 'Co-Trainer'
 }
 
-export const getTrainerTypeRank = (title:string ): number => {
+export const getTrainerTypeRank = (title: string): number => {
 
-    if (title === TrainerType.TRAINER) {
-        return 0
+    if (title === TrainerType.TRAINER || title === TrainerType.TRAINERIN) {
+        return -1
     } else {
         return 1
     }

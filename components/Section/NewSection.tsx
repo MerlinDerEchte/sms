@@ -1,15 +1,28 @@
-import { Section } from "./Section";
 import { css } from "@emotion/css";
-import { useContext, FC } from "react";
+import { useContext, FC, useEffect, useState, useRef } from "react";
 import { GlobalContext } from "GlobalContext";
 import { colors } from "styles/colors";
 import { PageLayoutConstantsMobile } from "constants/PageLayoutConstants";
+import { SectionContext } from "./SectionContext";
 
-export const ListSection: FC<{ caption: string, isSecondary: Boolean, sectionId: string, children: React.ReactNode }> = ({ caption, children, sectionId, isSecondary }) => {
+function isInView(element: HTMLElement): Boolean {
+    const rect = element.getBoundingClientRect();
+    console.log(rect)
+    return (
+        rect.top >= 0 && rect.left >= 0 ||
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
 
+export const NewSection: FC<{ caption?: string, isSecondary: boolean, sectionId: string, children: React.ReactNode, hasCaption?: Boolean }> = ({ caption = "", children, sectionId, isSecondary, hasCaption = true }) => {
+    
+    const sectionContextValue = { isSecondary: isSecondary };
     const { isMobile, screenWidth } = useContext(GlobalContext)
     const containerGap = isMobile ? 50 : 0;
     const desktopCaptionContainerWidth = 450;
+
+
     const createListSectionStyles = (isMobile: Boolean, isSecondary: Boolean) => {
 
         const createFontColor = (isSecondary: Boolean, isMobile: Boolean): string => {
@@ -24,7 +37,7 @@ export const ListSection: FC<{ caption: string, isSecondary: Boolean, sectionId:
             }
             return colors.DARK_BROWN
         }
-        const createBackgroundColor = (isSecondary: Boolean, isMobile: Boolean): string => {
+        const createCaptionBackgroundColor = (isSecondary: Boolean, isMobile: Boolean): string => {
             if (!isMobile && !isSecondary) {
                 return colors.DARK_BROWN
             }
@@ -37,28 +50,32 @@ export const ListSection: FC<{ caption: string, isSecondary: Boolean, sectionId:
             return colors.DARK_WHITE
         }
 
-        const backgroundColor = createBackgroundColor(isSecondary, isMobile)
-        const fontColor = createFontColor(isSecondary, isMobile)
+        const captionBackgroundColor = createCaptionBackgroundColor(isSecondary, isMobile)
+        const captionFontColor = createFontColor(isSecondary, isMobile)
 
         return css({
             paddingBottom: 50,
             position: 'relative',
             display: 'flex',
-            flexDirection: isMobile ? 'column' : 'row',
+            flexDirection: 'column',
             maxWidth: '100vw',
             gap: containerGap,
+            background: isSecondary ? colors.DARK_BROWN : colors.DARK_WHITE,
+            color: isSecondary ? colors.DARK_WHITE : colors.DARK_BROWN,
 
+            svg: {
+                fill: isSecondary ? colors.DARK_WHITE : colors.DARK_BROWN,
+            },
             '.caption-wrapper': {
                 position: 'relative',
-
                 width: isMobile ? 'auto' : desktopCaptionContainerWidth,
                 overflow: 'hidden',
 
                 '.caption-container': {
                     position: 'relative',
                     display: 'flex',
-                    background: backgroundColor,
-                    color: fontColor,
+                    background: captionBackgroundColor,
+                    color: captionFontColor,
                     borderRadius: `0px 0px 10px 0px`,
                     width: '100%',
                     height: 50,
@@ -68,14 +85,14 @@ export const ListSection: FC<{ caption: string, isSecondary: Boolean, sectionId:
             },
             '.content-container': {
                 marginLeft: isMobile ? PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : 0,
-
-                width: isMobile ? screenWidth - 2 * PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : `calc(100% - ${desktopCaptionContainerWidth}px)`,
+                width: isMobile ? screenWidth - 2 * PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : `100%`,
                 position: 'relative',
                 paddingTop: isMobile ? 20 : 100,
                 display: 'flex',
-                flexDirection: 'column',
+                flexDirection: 'row',
+                justifyContent: 'center',
                 alignItems: 'start',
-                paddingLeft: isMobile? 0 : 100,
+                paddingLeft: isMobile ? 0 : 0,
             }
         })
     }
@@ -84,19 +101,21 @@ export const ListSection: FC<{ caption: string, isSecondary: Boolean, sectionId:
 
 
     return (
-        <Section isSecondary={isSecondary} sectionId={sectionId}>
-            <div className={listSectionStyles}>
-                <div className="caption-wrapper">
-                    <div className="caption-container">
-                        <h2>
-                            {caption}
-                        </h2>
-                    </div>
-                </div>
-                <div className="content-container">
-                    {children}
+        <SectionContext.Provider value={sectionContextValue} >
+        <div className={listSectionStyles} id={sectionId}>
+            {hasCaption && <div className="caption-wrapper">
+                <div className="caption-container">
+                    <h2>
+                        {caption}
+                    </h2>
                 </div>
             </div>
-        </Section>
+            }
+            <div className="content-container">
+                {children}
+            </div>
+        </div>
+        </SectionContext.Provider>
+
     )
 }

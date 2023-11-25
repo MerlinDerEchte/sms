@@ -17,7 +17,7 @@ export const createClubEventBoxStyles = (isExpanded: Boolean, isFocused: Boolean
 
         '&:hover': {
             cursor: 'pointer',
-            boxShadow: isMobile ? 'none' :`0px 0px 5px 0px ${colors.DARK_BROWN}`,
+            boxShadow: isMobile ? 'none' :`0px 0px 5px 0px ${colors.DARK_WHITE}`,
         },
 
         '.foto-wrapper': {
@@ -32,7 +32,9 @@ export const createClubEventBoxStyles = (isExpanded: Boolean, isFocused: Boolean
         },
         '.club-event-content-wrapper': {
             flex: 2,
+            display:'flex',
             flexDirection: 'column',
+            gap: 10,
             '.club-event-text-wrapper': {
                 position: 'relative',
                 display: 'block',
@@ -46,8 +48,11 @@ export const createClubEventBoxStyles = (isExpanded: Boolean, isFocused: Boolean
                     left: 0,
                     width: isExpanded ? 0 : '100%',
                     height: 20,
-                    background: `linear-gradient(transparent, ${colors.DARK_WHITE})`
+                    background: `linear-gradient(transparent, ${colors.DARK_BROWN})`
                 }
+
+            },
+            'club-event-date-wrapper':{
 
             },
             '.club-event-read-more-container': {
@@ -56,7 +61,7 @@ export const createClubEventBoxStyles = (isExpanded: Boolean, isFocused: Boolean
                 paddingLeft: 10,
                 right: 0,
                 height: 20,
-                color: isFocused ? colors.DARK_WHITE : colors.DARK_BROWN,
+                color: isFocused ? colors.DARK_BROWN : colors.DARK_WHITE,
                 background: isFocused ? colors.DARK_BROWN : 'none',
                 borderRadius: 5,
                 display: "flex",

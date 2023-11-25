@@ -1,12 +1,11 @@
 import TeamList from "components/TeamList/TeamList";
-import { ListSection } from "../ListSection";
 import { ESectionId } from "enums/sectionIds";
-
+import { NewSection } from "../Section/NewSection";
 export const TeamsSection = () => {
 
     return(
-        <ListSection isSecondary={false} sectionId={ESectionId.Teams} caption="Unsere Teams">
+        <NewSection isSecondary={false} sectionId={ESectionId.Teams} caption="Unsere Teams">
             <TeamList />
-        </ListSection>
+        </NewSection>
     )
 }

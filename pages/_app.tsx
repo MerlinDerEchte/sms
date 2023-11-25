@@ -7,7 +7,6 @@ import { PageLayout } from 'components/PageLayout/PageLayout';
 import { ApolloClient, createHttpLink, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { setContext } from "@apollo/client/link/context";
 import Head from 'next/head';
-import Link from 'next/link';
 
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -15,6 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [screenWidth, setScreenWidth] = useState(0);
   const [screenHeight, setScreenHeight] = useState(0);
   const [appStatus, setAppStatus] = useState<EAppStatus>(EAppStatus.INIT)
+
   const globalContextValue = {
     isMobile: screenWidth < 1200,
     screenHeight: screenHeight,

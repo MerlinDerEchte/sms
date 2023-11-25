@@ -3,11 +3,14 @@ import { Team } from "types/team";
 import { TeamListItemWrapper } from "./TeamListItemWrapper";
 import { createTeamLIstItemStyles } from "./TeamListItemStyles";
 import { GlobalContext } from "GlobalContext";
+import { SectionContext } from "components/Section/SectionContext";
+import { ContactPersonBox } from "components/Contact/ContactPersonBox";
 
 export const TeamListItem: React.FC<{ team: Team }> = ({ team }) => {
 
     const { isMobile } = useContext(GlobalContext);
-    const teamListItemStyles = createTeamLIstItemStyles(isMobile);
+    const { isSecondary } = useContext(SectionContext)
+    const teamListItemStyles = createTeamLIstItemStyles(isMobile, isSecondary);
 
     return (<div id={team.id} className={teamListItemStyles}>
 
@@ -33,7 +36,7 @@ export const TeamListItem: React.FC<{ team: Team }> = ({ team }) => {
             <div className="team-all-trainers-wrapper">
                 {team.trainers.map((trainer) => {
                     return (
-                        <div className="team-trainer-wrapper" key={trainer.id}>
+                       /*  <div className="team-trainer-wrapper" key={trainer.id}>
                             <div className="team-trainer-foto-wrapper">
                                 <img src={trainer.fotoLink} />
                             </div>
@@ -48,7 +51,8 @@ export const TeamListItem: React.FC<{ team: Team }> = ({ team }) => {
                                 }} />
                                 }
                             </div>
-                        </div>
+                        </div> */
+                        <ContactPersonBox person={trainer} />
                     )
                 })
                 }

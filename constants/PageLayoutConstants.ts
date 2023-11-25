@@ -2,7 +2,8 @@ export const PageLayoutConstants = {
     HEADER_HEIGHT: 50,
     FOOTER_HEIGHT: 120,
     CONTENT_BACKGROUND_HORIZONTAL_MARGIN: 100,
-    CONTENT_WIDTH: 800
+    CONTENT_WIDTH: 800,
+    SECTION_CONTEN_SIDE_MARGIN: 0
 }
 
 export const PageLayoutConstantsMobile = {
