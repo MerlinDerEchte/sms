@@ -2,8 +2,6 @@ import { NextPage } from 'next';
 import { createNavbarStyles } from './NavbarStyles';
 import { ESectionId } from 'enums/sectionIds';
 import { NavbarItem } from './NavbarItem';
-import { NavbarItemEvents } from './items/NavbarItemEvents';
-import { NavbarItemTeams } from './items/NavbarItemTeams';
 
 export const Navbar: NextPage = () => {
 

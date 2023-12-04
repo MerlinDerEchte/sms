@@ -8,11 +8,10 @@ import { mapSectionIdToSectionTitle } from "utils/mapSectionIdToSectionTitle";
 
 interface NavbarItemProps {
     sectionId: ESectionId,
-    navbarItemSubitems?: NavbarItemSubItemProps[]
 }
 
 
-export const NavbarItem: React.FC<NavbarItemProps> = ({  sectionId, navbarItemSubitems }) => {
+export const NavbarItem: React.FC<NavbarItemProps> = ({  sectionId }) => {
 
 
     const createNavbarItemStyles = () => {
