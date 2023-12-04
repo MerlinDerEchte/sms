@@ -4,7 +4,7 @@ import { NewSection } from "../Section/NewSection";
 export const TeamsSection = () => {
 
     return(
-        <NewSection isSecondary={false} sectionId={ESectionId.Teams} caption="Unsere Teams">
+        <NewSection isSecondary={false} sectionId={ESectionId.Teams} >
             <TeamList />
         </NewSection>
     )

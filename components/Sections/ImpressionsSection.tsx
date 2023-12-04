@@ -77,7 +77,7 @@ export const ImpressionsSection = ({ }) => {
   }, [data]);
 
   return (
-    <NewSection isSecondary={true} sectionId={ESectionId.Impressions} caption="Impressionen">
+    <NewSection isSecondary={true} sectionId={ESectionId.Impressions} >
       <div className="impression-section-content-wrapper">
         <ImpressionsTeaser
           impressions={impressions}

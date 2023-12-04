@@ -5,7 +5,7 @@ import { NewSection } from "../Section/NewSection";
 export const ClubEventSection = ({ }) => {
 
     return(
-        <NewSection isSecondary={true} sectionId={ESectionId.Events} caption="Aktuelles" >
+        <NewSection isSecondary={true} sectionId={ESectionId.Events}>
             <ClubEventList />
         </NewSection>
     )
