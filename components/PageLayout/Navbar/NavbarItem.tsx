@@ -68,13 +68,6 @@ export const NavbarItem: React.FC<NavbarItemProps> = ({  sectionId, navbarItemSu
                     {mapSectionIdToSectionTitle(sectionId)}
                 </div>
             </div>
-            <div className='navbar-item-subitems-wrapper'>
-                {navbarItemSubitems?.map((nS) => {
-                    return (
-                        <NavbarSubitem title={nS.title} itemId={nS.itemId} />
-                    )
-                })}
-            </div>
         </div>
     )
 }
