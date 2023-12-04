@@ -8,7 +8,7 @@ import { mapSectionIdToSectionTitle } from "utils/mapSectionIdToSectionTitle";
 import { ESectionId } from "enums/sectionIds";
 import { SectionIcon } from "./SectionIcon";
 
-export const NewSection: FC<{ isSecondary: boolean, sectionId: ESectionId, children: React.ReactNode, hasCaption?: Boolean }> = ({ caption = "", children, sectionId, isSecondary, hasCaption = true }) => {
+export const NewSection: FC<{ isSecondary: boolean, sectionId: ESectionId, children: React.ReactNode, hasCaption?: Boolean }> = ({ children, sectionId, isSecondary, hasCaption = true }) => {
 
     const sectionContextValue = { isSecondary: isSecondary };
     const { isMobile, screenWidth } = useContext(GlobalContext)
