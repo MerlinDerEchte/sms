@@ -3,7 +3,7 @@ import { ClubEvent } from "types/clubEvent";
 import { ClubEventBox } from "./ClubEventBox/ClubEventBox";
 import { css } from "@emotion/css"
 import { colors } from "styles/colors"
-import { GlobalContext } from "GlobalContext";
+import { GlobalContext } from "context/GlobalContext";
 import { CLUB_EVENTS_QUERY, mapContentfulEvents } from "contentful/conentfulEvent";
 import { useQuery } from "@apollo/client";
 

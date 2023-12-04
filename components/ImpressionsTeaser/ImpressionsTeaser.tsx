@@ -1,5 +1,5 @@
 import { css } from "@emotion/css";
-import { GlobalContext } from "GlobalContext";
+import { GlobalContext } from "context/GlobalContext";
 import { useContext, FC, PointerEvent } from "react";
 import { Impression } from "types/impression";
 import { colors } from "styles/colors";

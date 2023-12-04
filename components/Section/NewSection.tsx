@@ -1,27 +1,19 @@
 import { css } from "@emotion/css";
-import { useContext, FC, useEffect, useState, useRef } from "react";
-import { GlobalContext } from "GlobalContext";
+import { useContext, FC } from "react";
+import { GlobalContext } from "context/GlobalContext";
 import { colors } from "styles/colors";
 import { PageLayoutConstantsMobile } from "constants/PageLayoutConstants";
 import { SectionContext } from "./SectionContext";
+import { mapSectionIdToSectionTitle } from "utils/mapSectionIdToSectionTitle";
+import { ESectionId } from "enums/sectionIds";
+import { SectionIcon } from "./SectionIcon";
 
-function isInView(element: HTMLElement): Boolean {
-    const rect = element.getBoundingClientRect();
-    console.log(rect)
-    return (
-        rect.top >= 0 && rect.left >= 0 ||
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
+export const NewSection: FC<{ isSecondary: boolean, sectionId: ESectionId, children: React.ReactNode, hasCaption?: Boolean }> = ({ caption = "", children, sectionId, isSecondary, hasCaption = true }) => {
 
-export const NewSection: FC<{ caption?: string, isSecondary: boolean, sectionId: string, children: React.ReactNode, hasCaption?: Boolean }> = ({ caption = "", children, sectionId, isSecondary, hasCaption = true }) => {
-    
     const sectionContextValue = { isSecondary: isSecondary };
     const { isMobile, screenWidth } = useContext(GlobalContext)
     const containerGap = isMobile ? 50 : 0;
     const desktopCaptionContainerWidth = 450;
-
 
     const createListSectionStyles = (isMobile: Boolean, isSecondary: Boolean) => {
 
@@ -71,16 +63,33 @@ export const NewSection: FC<{ caption?: string, isSecondary: boolean, sectionId:
                 width: isMobile ? 'auto' : desktopCaptionContainerWidth,
                 overflow: 'hidden',
 
+
                 '.caption-container': {
                     position: 'relative',
                     display: 'flex',
+                    flexDirection: 'row',
                     background: captionBackgroundColor,
                     color: captionFontColor,
                     borderRadius: `0px 0px 10px 0px`,
-                    width: '100%',
                     height: 50,
                     justifyContent: 'center',
-                    alignItems: 'center'
+                    alignItems: 'center',
+                    gap: 10,
+                    '.caption-title-container': {
+                        flex: 0,
+
+                    },
+                    '.caption-icon-container': {
+                        flex: 0,
+                        height: 40,
+                        width: 40,
+                        'svg': {
+                            stroke: colors.DARK_WHITE,
+                            fill: colors.DARK_BROWN,
+                            height: 40,
+                            width: 40
+                        }
+                    }
                 },
             },
             '.content-container': {
@@ -102,19 +111,25 @@ export const NewSection: FC<{ caption?: string, isSecondary: boolean, sectionId:
 
     return (
         <SectionContext.Provider value={sectionContextValue} >
-        <section className={listSectionStyles} id={sectionId}>
-            {hasCaption && <div className="caption-wrapper">
-                <div className="caption-container">
-                    <h2>
-                        {caption}
-                    </h2>
+            <section className={listSectionStyles} id={sectionId}>
+                {hasCaption && <div className="caption-wrapper">
+                    <div className="caption-container">
+                        <div className="caption-icon-container">
+                            <SectionIcon sectionId={sectionId} />
+                        </div>
+                        <div className="caption-title-container">
+                            <h2>
+                                {mapSectionIdToSectionTitle(sectionId)}
+                            </h2>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
-            }
-            <div className="content-container">
-                {children}
-            </div>
-        </section>
+                }
+                <div className="content-container">
+                    {children}
+                </div>
+            </section>
         </SectionContext.Provider>
 
     )

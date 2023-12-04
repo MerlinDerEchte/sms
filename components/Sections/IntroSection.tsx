@@ -1,7 +1,7 @@
 import { css } from "@emotion/css";
 import { SuedLogoHeader } from "components/SuedLogoHeader/SuedLogoHeader";
 import { useContext, useEffect } from "react";
-import { GlobalContext } from "GlobalContext";
+import { GlobalContext } from "context/GlobalContext";
 import { ESectionId } from "enums/sectionIds";
 import { PageLayoutConstantsMobile } from "constants/PageLayoutConstants";
 import { BFVWidgetComponent } from 'components/BFVWidget'

@@ -2,7 +2,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { ClubEvent } from "types/clubEvent";
 import { createClubEventBoxStyles } from "./ClubEventBoxStyles";
 import { useContext, useState } from 'react';
-import { GlobalContext } from "GlobalContext";
+import { GlobalContext } from "context/GlobalContext";
 
 export const ClubEventBox: React.FC<{ clubEvent: ClubEvent }> = ({ clubEvent }) => {
     const { isMobile } = useContext(GlobalContext); 

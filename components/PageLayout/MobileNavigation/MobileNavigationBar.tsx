@@ -1,6 +1,7 @@
 import { ESectionId } from 'enums/sectionIds';
 import { css, keyframes } from '@emotion/css';
 import { colors } from 'styles/colors';
+import { MobileNavigationItem } from './MobileNavigationItem';
 
 
 export const MobileNavigationBar: React.FC<{ showNavigationMenu: Boolean, isInitialRender: Boolean, closeNavigationBar: () => void }> = ({ showNavigationMenu, isInitialRender, closeNavigationBar }) => {
@@ -19,9 +20,9 @@ export const MobileNavigationBar: React.FC<{ showNavigationMenu: Boolean, isInit
     const createNavbarStyles = (showNavigationMenu: Boolean, isInitialRender: Boolean) => {
         return css({
             position: 'absolute',
-            left: showNavigationMenu ? 0 : -200,
+            left: showNavigationMenu ? 0 : -250,
             right: 0,
-            width: 200,
+            width: 250,
             height: '100vh',
             background: colors.DARK_BROWN,
             color: colors.DARK_WHITE,
@@ -31,49 +32,46 @@ export const MobileNavigationBar: React.FC<{ showNavigationMenu: Boolean, isInit
             animation: isInitialRender ? 'none' :
                 showNavigationMenu ? `${navbarActiveAnimation} 0.2s ease-in-out backwards` : `${navbarInActionAnimation} 0.2s ease-in-out backwards`,
 
-
-
-            'nav': {
+            '.nav': {
                 position: 'relative',
-                paddingLeft: 20,
+                paddingLeft: 10,
+                paddingRight: 10,
                 height: '100%',
                 width: '100%',
                 display: 'flex',
-                gap: 30,
+                gap: 10,
                 flexDirection: 'column',
                 fontSize: 25,
-                'navigation-item': {
-                    flex: 1
-                }
+                justifyContent: 'start'
             }
         })
     }
 
     const navbarStyles = createNavbarStyles(showNavigationMenu, isInitialRender);
 
-    const scrollIntoView = (id: string) => {
-        const el: HTMLElement | null = document.getElementById(id);
-        const containerEl: HTMLElement | null = document.getElementById('page-content-wrapper');
-
-        if (el && containerEl) {
-            const topOffset = el.offsetTop - containerEl.offsetTop;
-            containerEl.scrollTo({
-                top: topOffset,
-                behavior: "smooth"
-            })
-            closeNavigationBar()
-        }
-    }
+    /*   const scrollIntoView = (id: string) => {
+          const el: HTMLElement | null = document.getElementById(id);
+          const containerEl: HTMLElement | null = document.getElementById('page-content-wrapper');
+  
+          if (el && containerEl) {
+              const topOffset = el.offsetTop - containerEl.offsetTop;
+              containerEl.scrollTo({
+                  top: topOffset,
+                  behavior: "smooth"
+              })
+              closeNavigationBar()
+          }
+      } */
 
     return (
         <div className={navbarStyles}>
             <nav className="nav" >
-                <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Kontakt)}>Anfahrt & Kontakt</div>
-                <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Events)}>Aktuelles</div>
-                <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Impressions)}>Impressionen</div>
-                <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Teams)}>Teams</div>
-                <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Sponsors)}>Sponsoren</div>
-                <div className="navigation-item" onClick={() => scrollIntoView(ESectionId.Impressum)}>Impressum</div>
+                <MobileNavigationItem sectionId={ESectionId.Events} navCallback={closeNavigationBar} />
+                <MobileNavigationItem sectionId={ESectionId.Kontakt} navCallback={closeNavigationBar} />
+                <MobileNavigationItem sectionId={ESectionId.Impressions} navCallback={closeNavigationBar} />
+                <MobileNavigationItem sectionId={ESectionId.Teams} navCallback={closeNavigationBar} />
+                <MobileNavigationItem sectionId={ESectionId.Sponsors} navCallback={closeNavigationBar} />
+                <MobileNavigationItem sectionId={ESectionId.Impressum} navCallback={closeNavigationBar} />
             </nav>
         </div>
     )

@@ -11,6 +11,7 @@ export interface IcreateHomeStyles {
   screenWidth: number;
   screenHeight: number;
 }
+
 const Home: NextPage = () => {
 
   return (

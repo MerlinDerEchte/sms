@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { GlobalContext } from "GlobalContext";
+import { GlobalContext } from "context/GlobalContext";
 import { Footer } from "./Footer/Footer";
 import { Navbar } from "./Navbar/Navbar";
 import { createPageLayoutStyles } from "./PageLayoutStyles";

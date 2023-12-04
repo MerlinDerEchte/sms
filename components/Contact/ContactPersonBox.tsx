@@ -1,5 +1,5 @@
 import { css } from "@emotion/css"
-import { GlobalContext } from "GlobalContext"
+import { GlobalContext } from "context/GlobalContext"
 import { SectionContext } from "components/Section/SectionContext";
 import { useContext } from "react"
 import { colors } from "styles/colors";

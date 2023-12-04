@@ -1,5 +1,5 @@
 import { SuedLogoSvg } from "public/sued-logo";
-import { GlobalContext } from "GlobalContext";
+import { GlobalContext } from "context/GlobalContext";
 import { createSuedLogoStyles } from "./SuedLogoHeaderStyles";
 import { useContext } from 'react';
 import { EAppStatus } from "types/appStatus";

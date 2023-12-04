@@ -1,5 +1,5 @@
 import { css } from "@emotion/css";
-import { GlobalContext } from "GlobalContext"
+import { GlobalContext } from "context/GlobalContext"
 import { useContext } from "react"
 import { OberlaenderApotheke } from "./SponsorListItem/OberlaenderApotheke";
 import { StadtMuenchen } from "./SponsorListItem/StadtMuenchen";
@@ -18,7 +18,7 @@ export const SponsorsList: React.FC = () => {
             flexWrap: 'wrap',
             position: 'relative',
             flexDirection: isMobile ? 'column' : 'row',
-            justifyContent: 'start', 
+            justifyContent: 'center', 
             alignItems: 'center',
             width: isMobile ? '100%' : '90%',
             gap: 30,

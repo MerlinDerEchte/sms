@@ -1,6 +1,6 @@
 import { css } from "@emotion/css"
 import { useContext } from "react";
-import { GlobalContext } from "GlobalContext";
+import { GlobalContext } from "context/GlobalContext";
 import { ContactPersonList } from "./ContactPersonList";
 
 export const ContactTable: React.FC = () => {

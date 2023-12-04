@@ -1,4 +1,4 @@
-import { GlobalContext } from "GlobalContext";
+import { GlobalContext } from "context/GlobalContext";
 import Script from "next/script"
 import { useContext, useEffect } from "react";
 export const BFVWidgetComponent = () => {

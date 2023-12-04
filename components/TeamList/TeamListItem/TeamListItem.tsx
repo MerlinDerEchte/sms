@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Team } from "types/team";
 import { TeamListItemWrapper } from "./TeamListItemWrapper";
 import { createTeamLIstItemStyles } from "./TeamListItemStyles";
-import { GlobalContext } from "GlobalContext";
+import { GlobalContext } from "context/GlobalContext";
 import { SectionContext } from "components/Section/SectionContext";
 import { ContactPersonBox } from "components/Contact/ContactPersonBox";
 

@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { css } from "@emotion/css";
-import { GlobalContext } from "GlobalContext";
+import { GlobalContext } from "context/GlobalContext";
 import { mapContentfulBlogPosts } from "contentful/contentfulBlogPost";
 import { PERSONS_QUERY, mapContentfulPersons } from "contentful/contentfulPerson";
 import { useContext, useEffect, useState } from "react";

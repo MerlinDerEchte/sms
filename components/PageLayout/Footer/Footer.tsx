@@ -1,7 +1,7 @@
 import { useContext, FC } from "react"
 import { SuedLogoSvg } from "public/sued-logo";
 import { createFooterStyles } from "./FooterStyles"
-import { GlobalContext } from "GlobalContext";
+import { GlobalContext } from "context/GlobalContext";
 import { ESectionId } from "enums/sectionIds";
 
 export const Footer: FC<{}> = () => {

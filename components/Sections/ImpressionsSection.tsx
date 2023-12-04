@@ -10,7 +10,7 @@ import {
   IMPRESSIONS_QUERY,
   mapContentfulImpressions,
 } from "contentful/contentfulImpression";
-import { GlobalContext } from "GlobalContext";
+import { GlobalContext } from "context/GlobalContext";
 import { NewSection } from "../Section/NewSection";
 
 export const ImpressionsSection = ({ }) => {

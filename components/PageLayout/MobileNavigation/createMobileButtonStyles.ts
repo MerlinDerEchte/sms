@@ -8,7 +8,7 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean, isInitialRende
     const activeStles = css({
 
         top: 5,
-        left: 150,
+        left: 200,
         animation: isInitialRender ? 'none' : `${buttonActiveAnimation} 0.3s 0.1s ease-in-out backwards `,
         cursor: 'pointer',
         overflow: 'hidden',
@@ -117,11 +117,11 @@ export const createMobileButtonStyles = (showMobileMenu: Boolean, isInitialRende
 
 const buttonActiveAnimation = keyframes`
     0%{left: 5px; }
-    100%{left: 150px; }
+    100%{left: 200px; }
 `
 
 const buttonInactiveAnimation = keyframes`
-    0% {left: 150px;  }
+    0% {left: 200px;  }
     100%{left: 5px;  }
 `
 
