@@ -32,36 +32,13 @@ export const ImpressionsSection = ({ }) => {
   };
   const createImpressionsSectionStyles = () => {
     return css({
-      width: "100%",
-      display: 'flex',
-      flexDirection: isMobile ? 'column' : 'row',
 
-      ".impression-section-header-wrapper": {
-        flex: 0,
-        width: isMobile ? '100%' : desktopCaptionContainerWidth,
-        display: "flex",
-        justifyContent: 'center',
-        height: '50px',
-        alignItems: "center",
-        background: isMobile ? colors.DARK_BROWN : colors.DARK_WHITE,
-        borderRadius: isMobile ? 'none' : "0 0 15px 0",
-        color: isMobile ? colors.DARK_WHITE : colors.DARK_BROWN,
-        marginBottom: 20,
-        '.impression-section-header-container': {
-          width: isMobile ? '100%' : desktopCaptionContainerWidth,
-          height: 50,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }
-      },
-      ".impression-section-content-wrapper": {
-        paddingTop: isMobile ? 50 : 100,
-        paddingBottom: 20,
-        width: isMobile ? '100%' : `calc(100vw - ${containerGap}px - ${desktopCaptionContainerWidth}px)`,
-        display: 'flex',
-        justifyContent: 'center'
-      },
+      paddingTop: isMobile ? 50 : 50,
+      paddingBottom: 20,
+      width: isMobile ? '100%' : `calc(100vw - ${containerGap}px - ${desktopCaptionContainerWidth}px)`,
+      display: 'flex',
+      justifyContent: 'center'
+
     });
   };
 
@@ -78,7 +55,7 @@ export const ImpressionsSection = ({ }) => {
 
   return (
     <NewSection isSecondary={true} sectionId={ESectionId.Impressions} >
-      <div className="impression-section-content-wrapper">
+      <div className={impressionsSectionStyles}>
         <ImpressionsTeaser
           impressions={impressions}
           openGallery={openGallery}
