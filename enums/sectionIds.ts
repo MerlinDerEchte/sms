@@ -3,7 +3,7 @@ export enum ESectionId {
     Kontakt = 'kontakt',
     Teams = 'teams',
     Events = 'aktuelles',
-    Impressions = 'impressions',
+    Impressions = 'impressionen',
     Sponsors = 'sponsors',
     Impressum = 'impressum'
 }
