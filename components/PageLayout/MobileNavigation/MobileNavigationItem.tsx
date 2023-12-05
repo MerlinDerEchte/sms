@@ -40,7 +40,7 @@ export const MobileNavigationItem: React.FC<{ sectionId: ESectionId, navCallback
     const navigationItemStyles = createNavigationItemStyles();
 
     return (
-        <div className={navigationItemStyles} onClick={handleItemClick}>
+        <div className={navigationItemStyles} onClick={handleItemClick} onPointerDown={handleItemClick}>
             <div className="mobile-navigation-item-svg-container">
                 <SectionIcon sectionId={sectionId} /> 
             </div>
