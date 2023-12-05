@@ -35,7 +35,7 @@ export const MobileNavigationItem: React.FC<{ sectionId: ESectionId, navCallback
         })
     }
     const handleItemClick = () => {
-        scrollIntoView(sectionId, navCallback());
+        scrollIntoView(sectionId, navCallback);
     }
     const navigationItemStyles = createNavigationItemStyles();
 
