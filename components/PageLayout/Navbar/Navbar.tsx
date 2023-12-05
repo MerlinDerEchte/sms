@@ -6,12 +6,7 @@ import { NavbarItem } from './NavbarItem';
 export const Navbar: NextPage = () => {
 
     const navbarStyles = createNavbarStyles();
-    const scrollIntoView = (id: string) => {
-        const el: HTMLElement | null = document.getElementById(id);
-        if (el) {
-            el.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
-        }
-    }
+ 
     return (
         <div className={navbarStyles}>
             <nav className="nav" >

@@ -49,20 +49,6 @@ export const MobileNavigationBar: React.FC<{ showNavigationMenu: Boolean, isInit
 
     const navbarStyles = createNavbarStyles(showNavigationMenu, isInitialRender);
 
-    /*   const scrollIntoView = (id: string) => {
-          const el: HTMLElement | null = document.getElementById(id);
-          const containerEl: HTMLElement | null = document.getElementById('page-content-wrapper');
-  
-          if (el && containerEl) {
-              const topOffset = el.offsetTop - containerEl.offsetTop;
-              containerEl.scrollTo({
-                  top: topOffset,
-                  behavior: "smooth"
-              })
-              closeNavigationBar()
-          }
-      } */
-
     return (
         <div className={navbarStyles}>
             <nav className="nav" >
