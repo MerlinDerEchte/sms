@@ -5,6 +5,7 @@ import { NavbarItemSubItemProps, NavbarSubitem } from "./NavbarSubitem";
 import { colors } from "styles/colors";
 import { SectionIcon } from "components/Section/SectionIcon";
 import { mapSectionIdToSectionTitle } from "utils/mapSectionIdToSectionTitle";
+import { mapSectionIdToStringId } from "utils/mapSectionIdToStringId";
 
 interface NavbarItemProps {
     sectionId: ESectionId,
@@ -59,7 +60,7 @@ export const NavbarItem: React.FC<NavbarItemProps> = ({  sectionId }) => {
     const navbarItemStyles = createNavbarItemStyles();
     return (
         <div className={navbarItemStyles}>
-            <div className='navbar-item-header' onClick={() => scrollIntoView(sectionId)}>
+            <div className='navbar-item-header' onClick={() => scrollIntoView(mapSectionIdToStringId(sectionId))}>
                 <div className='navbar-item-header-icon'>
                     <SectionIcon sectionId={sectionId} />
                 </div>

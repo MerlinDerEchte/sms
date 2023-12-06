@@ -7,6 +7,7 @@ import { SectionContext } from "./SectionContext";
 import { mapSectionIdToSectionTitle } from "utils/mapSectionIdToSectionTitle";
 import { ESectionId } from "enums/sectionIds";
 import { SectionIcon } from "./SectionIcon";
+import { mapSectionIdToStringId } from "utils/mapSectionIdToStringId";
 
 export const NewSection: FC<{ isSecondary: boolean, sectionId: ESectionId, children: React.ReactNode, hasCaption?: Boolean }> = ({ children, sectionId, isSecondary, hasCaption = true }) => {
 
@@ -111,7 +112,7 @@ export const NewSection: FC<{ isSecondary: boolean, sectionId: ESectionId, child
 
     return (
         <SectionContext.Provider value={sectionContextValue} >
-            <section className={listSectionStyles} id={sectionId}>
+            <section className={listSectionStyles} id={mapSectionIdToStringId(sectionId)}>
                 {hasCaption && <div className="caption-wrapper">
                     <div className="caption-container">
                         <div className="caption-icon-container">

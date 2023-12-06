@@ -3,6 +3,7 @@ import { SectionIcon } from "components/Section/SectionIcon"
 import { ESectionId } from "enums/sectionIds"
 import { colors } from "styles/colors"
 import { mapSectionIdToNavTitle } from "utils/mapSectionIdToNavTitle"
+import { mapSectionIdToStringId } from "utils/mapSectionIdToStringId"
 import { scrollIntoView } from "utils/scrollUtil"
 
 export const MobileNavigationItem: React.FC<{ sectionId: ESectionId, navCallback: () => void }> = ({ sectionId, navCallback }) => {
@@ -35,7 +36,7 @@ export const MobileNavigationItem: React.FC<{ sectionId: ESectionId, navCallback
         })
     }
     const handleItemClick = () => {
-        scrollIntoView(sectionId, navCallback);
+        scrollIntoView(mapSectionIdToStringId(sectionId), navCallback);
     }
     const navigationItemStyles = createNavigationItemStyles();
 
