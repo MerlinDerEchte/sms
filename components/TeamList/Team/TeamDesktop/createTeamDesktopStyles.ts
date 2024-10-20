@@ -24,6 +24,7 @@ export const createTeamDesktopStyles = () => {
             alignItems: 'center',
             height: 50,
             borderBottom: `3px solid ${colors.DARK_BROWN}`,
+            cursor: 'pointer',
         },
 
         '.team-content-container': {
