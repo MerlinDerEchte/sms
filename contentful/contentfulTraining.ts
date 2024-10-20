@@ -26,7 +26,6 @@ export const TRAININGS_QUERY = gql`
 `
 
 export const mapContentfulTraining = (contentfulTraining: ContentfulTraining): Training => {
-    console.log(contentfulTraining)
     return ({
         id: contentfulTraining.sys.id,
         dateAndTime: contentfulTraining.dateAndTime,
