@@ -3,6 +3,8 @@ import { ContentfulPerson } from "./contentfulPerson";
 import { Team } from "types/team";
 import { Person } from "types/person";
 import { getTrainerTypeRank } from "types/trainerTypeEnum";
+import { Training } from "types/training";
+import { ContentfulTraining } from "./contentfulTraining";
 
 
 export interface ContentfulTeam {
@@ -17,36 +19,45 @@ export interface ContentfulTeam {
     foto: {
         url: string
     }
-
+    trainingsCollection:{
+        items: ContentfulTraining[]
+    } 
 }
-
 export const TEAMS_QUERY = gql`
-    query {
-        mannschaftCollection {
-            items {
-                sys {
-                    id
-                }
-                name
-                trainingszeiten
-                trainersCollection {
-                    items {
-                        sys {
-                            id
-                        }
-                    }
-                }
-                bfvLink
-                hirarchie
-                foto {
-                    url
-                }
-            }
+  query {
+    mannschaftCollection(limit:20) {
+      items {
+        sys {
+          id
         }
+        name
+        trainingszeiten
+        trainersCollection {
+          items {
+            sys {
+              id
+            }
+          }
+        }
+        bfvLink
+        hirarchie
+        foto {
+          url
+        }
+        trainingsCollection(limit:50) {
+          items {
+            sys {
+              id
+            }
+          }
+        }
+      }
     }
-`
+  }
+`;
 
-export const mapContentfulTeam = (contentfulTeam: ContentfulTeam, persons: Person[]): Team | null => {
+
+export const mapContentfulTeam = (contentfulTeam: ContentfulTeam, persons: Person[], trainings:Training[]): Team | null => {
 
     const getSortedTrainers = (trainers: Person[]): Person[] => {
         return trainers.sort((a, b) => {
@@ -57,9 +68,14 @@ export const mapContentfulTeam = (contentfulTeam: ContentfulTeam, persons: Perso
 
         })
     }
+   
     const isPersonIdInCTTrainers = (id: string) => contentfulTeam.trainersCollection.items.some((person) => person.sys.id === id)
-    const trainers: Person[] = persons.filter(p => isPersonIdInCTTrainers(p.id))
-    const sortedTrainers = getSortedTrainers(trainers);
+    const isTrainingIdInCTTrainings = (id:string) => contentfulTeam.trainingsCollection.items.some((training) => training.sys.id === id)
+    
+    
+    const filteredTrainers: Person[] = persons.filter(p => isPersonIdInCTTrainers(p.id))
+    const filteredTrainings: Training[] =  trainings.filter(t => isTrainingIdInCTTrainings(t.id)) 
+    const sortedTrainers = getSortedTrainers(filteredTrainers);
     if (sortedTrainers) {
         return ({
             id: contentfulTeam.id,
@@ -68,7 +84,8 @@ export const mapContentfulTeam = (contentfulTeam: ContentfulTeam, persons: Perso
             bfvLink: contentfulTeam.bfvLink || undefined,
             trainingDates: contentfulTeam.trainingszeiten,
             hirarchy: contentfulTeam.hirarchie,
-            fotoLink: contentfulTeam.foto?.url || undefined
+            fotoLink: contentfulTeam.foto?.url || undefined,
+            trainings: filteredTrainings
         })
     }
     return null;

@@ -3,7 +3,6 @@ import { GlobalContext } from "context/GlobalContext";
 import { useContext, FC, PointerEvent } from "react";
 import { Impression } from "types/impression";
 import { colors } from "styles/colors";
-import { Autocomplete } from "@react-google-maps/api";
 
 export const ImpressionsTeaser: FC<{
   impressions: Impression[];

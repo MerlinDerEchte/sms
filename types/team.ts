@@ -1,5 +1,5 @@
 import { Person } from "./person";
-
+import { Training } from "./training"
 export type Team = {
     id: string,
     name: string, 
@@ -7,5 +7,6 @@ export type Team = {
     bfvLink?: string,
     trainingDates: string ,
     hirarchy: number,
-    fotoLink?: string
+    fotoLink?: string,
+    trainings: Training[],
 }

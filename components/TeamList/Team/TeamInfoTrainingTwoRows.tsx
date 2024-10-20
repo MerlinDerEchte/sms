@@ -1,20 +1,20 @@
 import { css } from "@emotion/css"
 
-export interface TeamListItemWrapperProps {
-    title: React.ReactNode,
-    content: React.ReactNode
+export interface TeamInfoTrainingsTwoRowsProps {
+    dateAndTime: React.ReactNode,
+    address: React.ReactNode
 }
 
-export const TeamListItemWrapper: React.FC<{ props: TeamListItemWrapperProps }> = ({ props }) => {
-    const teamListItemWrapperStles = createTeamListItemWrapperStles();
+export const TeamInfoTrainingsTwoRows: React.FC<{ props: TeamInfoTrainingsTwoRowsProps }> = ({ props }) => {
+    const TeamInfoTwoRowsStles = createTeamInfoTrainingsTwoRowsStyles();
     return (
-        <div className={teamListItemWrapperStles}>
+        <div className={TeamInfoTwoRowsStles}>
             <div className="team-list-item-wrapper-header">
-                <p>{props.title}:</p>
+                <p><b>{props.dateAndTime}</b></p>
             </div>
             <div className="team-list-item-wrapper-content">
                 <p>
-                    <b>{props.content}</b>
+                    {props.address}
                 </p>
             </div>
         </div>
@@ -22,10 +22,9 @@ export const TeamListItemWrapper: React.FC<{ props: TeamListItemWrapperProps }> 
 }
 
 
-const createTeamListItemWrapperStles = () => {
+const createTeamInfoTrainingsTwoRowsStyles = () => {
     return css({
         display: 'flex',
-        height: 50,
         width: '100%',
         flexDirection: 'column',
         '.team-list-item-wrapper-header': {
@@ -35,7 +34,6 @@ const createTeamListItemWrapperStles = () => {
         '.team-list-item-wrapper-content': {
             flex: 1,
             height: 30
-
         }
     })
 }

@@ -7,7 +7,7 @@ export const createTeamListStyles = (isMobile:Boolean) => {
         display: 'flex',
         flexDirection: 'column',
         width: isMobile ? '100%' : 600,
-        gap: isMobile ? 80 : 30,
+        gap: isMobile ? 0 : 0,
         color: colors.DARK_BROWN,
         alignItems: 'stretch',
         'a':{
