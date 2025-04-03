@@ -55,7 +55,7 @@ export const NewSection: FC<{ isSecondary: boolean, sectionId: ESectionId, child
             gap: containerGap,
             background: isSecondary ? colors.DARK_BROWN : colors.DARK_WHITE,
             color: isSecondary ? colors.DARK_WHITE : colors.DARK_BROWN,
-
+            marginBottom: isMobile ? 0 : 0,
             svg: {
                 fill: isSecondary ? colors.DARK_WHITE : colors.DARK_BROWN,
             },
@@ -63,6 +63,8 @@ export const NewSection: FC<{ isSecondary: boolean, sectionId: ESectionId, child
                 position: 'relative',
                 width: isMobile ? 'auto' : desktopCaptionContainerWidth,
                 overflow: 'hidden',
+                paddingTop:  isMobile ? 10 :0,
+                paddingBottom: 20,
 
 
                 '.caption-container': {
@@ -73,6 +75,7 @@ export const NewSection: FC<{ isSecondary: boolean, sectionId: ESectionId, child
                     color: captionFontColor,
                     borderRadius: `0px 0px 10px 0px`,
                     height: 50,
+                    whiteSpace: "nowrap",
                     justifyContent: 'center',
                     alignItems: 'center',
                     gap: 10,
@@ -84,9 +87,7 @@ export const NewSection: FC<{ isSecondary: boolean, sectionId: ESectionId, child
                         flex: 0,
                         height: 40,
                         width: 40,
-                        'svg': {
-                            stroke: colors.DARK_WHITE,
-                            fill: colors.DARK_BROWN,
+                        'svg': {  
                             height: 40,
                             width: 40
                         }
@@ -97,7 +98,7 @@ export const NewSection: FC<{ isSecondary: boolean, sectionId: ESectionId, child
                 marginLeft: isMobile ? PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : 0,
                 width: isMobile ? screenWidth - 2 * PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : `100%`,
                 position: 'relative',
-                paddingTop: isMobile ? 20 : 100,
+                /* paddingTop: isMobile ? 20 : 100, */
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'center',

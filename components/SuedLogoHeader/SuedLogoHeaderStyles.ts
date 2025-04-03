@@ -1,12 +1,38 @@
-import { css } from "@emotion/css"
+import { css, keyframes } from "@emotion/css"
 import { colors } from "styles/colors"
+
+
+const fadeZoomIn = keyframes`
+0% {
+  opacity: 0;
+  transform: scale(0.5);
+}
+100% {
+  opacity: 1;
+  transform: scale(1);
+}
+`;
+
+  const fadeInText = keyframes`
+0% {
+  opacity: 0;
+  transform: translateX(50px);
+  
+}
+50% {
+    opacity: 0
+}
+100% {
+  opacity: 1;
+  transform:  translateX(0px);
+  
+}
+`;
 
 export const createSuedLogoStyles = (isMobile:Boolean) => {
 
-
     return css({
-        width: '100%',
-        height: '100%',
+        
         display: 'flex',
         flexDirection: isMobile ? 'column' : 'row',
         gap: isMobile ? 50 : 0,
@@ -20,6 +46,7 @@ export const createSuedLogoStyles = (isMobile:Boolean) => {
             'svg':{
                 width:200,
                 height: 200,
+                animation: ` ${fadeZoomIn} 0.8s 0.1s ease-out`,
             }
         },
         '.sued-text-wrapper':{
@@ -32,8 +59,10 @@ export const createSuedLogoStyles = (isMobile:Boolean) => {
             textAlign: isMobile ? 'center' : 'inherit', 
             alignItems: 'center',
             lineHeight: 1.5,
+            opacity: 0,
             fontSize: 24,
             fontWeight: 700,
+            animation: `${fadeInText} 0.5s 0.4s  ease-out forwards`
         }
     })
 }

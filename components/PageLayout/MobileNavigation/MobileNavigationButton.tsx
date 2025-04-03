@@ -9,7 +9,6 @@ export const MobileNavigationButton:React.FC<{showNavigationMenu: Boolean, isIni
             className={mobileButtonStyles}
             onClick={toggleShowNavigationMenu}
         >
-
             <div id="top-bar"></div>
             <div id="mid-bar"></div>
             <div id="bottom-bar"></div>

@@ -8,6 +8,7 @@ export const mapSectionIdToNavTitle = (sectionId: ESectionId) => {
         case ESectionId.Impressions: return 'Impressionen';
         case ESectionId.Sponsors: return 'Sponsoren';
         case ESectionId.Impressum: return 'Impressum';
+        case ESectionId.NextGames: return 'Nächste Spiele'
         default: return 'Impressum';
     }
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Team } from "types/team";
 import { TeamInfoTwoRows } from "../TeamInfoTwoRows";
 import { ContactPersonBox } from "components/Contact/ContactPersonBox";
@@ -7,10 +7,11 @@ import { TeamInfoOneRowHeader } from "../TeamInfoOneRowHeader";
 import { TeamInfoTrainingsTwoRows } from "../TeamInfoTrainingTwoRows";
 import { createTeamMobileStyles } from "./createTeamMobileStyles";
 import { BFVButton } from "../BFVButton";
+import { SectionContext } from "components/Section/SectionContext";
 export const TeamMobileComponent: React.FC<{ team: Team, selectedTeamName: string, setSelectedTeamName: (teamName: string) => void }> = ({ team, selectedTeamName, setSelectedTeamName }) => {
-
+    const { isSecondary } = useContext(SectionContext);
     const isSelectedTeam = selectedTeamName === team.name
-    const teamMobileStyles = createTeamMobileStyles(isSelectedTeam);
+    const teamMobileStyles = createTeamMobileStyles(isSecondary);
     const sortedTrainings = sortTrainings(team.trainings)
 
 

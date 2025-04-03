@@ -13,7 +13,7 @@ import {
 import { GlobalContext } from "context/GlobalContext";
 import { NewSection } from "../Section/NewSection";
 
-export const ImpressionsSection = ({ }) => {
+export const ImpressionsSection:React.FC<{isSecondary:boolean}> = ({ isSecondary }) => {
   const { isMobile } = useContext(GlobalContext);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [impressions, setImpressions] = useState<Impression[]>([]);
@@ -33,7 +33,7 @@ export const ImpressionsSection = ({ }) => {
   const createImpressionsSectionStyles = () => {
     return css({
 
-      paddingTop: isMobile ? 50 : 50,
+      paddingTop: 50,
       paddingBottom: 20,
       width: isMobile ? '100%' : `calc(100vw - ${containerGap}px - ${desktopCaptionContainerWidth}px)`,
       display: 'flex',
@@ -54,7 +54,7 @@ export const ImpressionsSection = ({ }) => {
   }, [data]);
 
   return (
-    <NewSection isSecondary={true} sectionId={ESectionId.Impressions} >
+    <NewSection isSecondary={isSecondary} sectionId={ESectionId.Impressions} >
       <div className={impressionsSectionStyles}>
         <ImpressionsTeaser
           impressions={impressions}

@@ -2,10 +2,10 @@
 import { ESectionId } from "enums/sectionIds";
 import { NewSection } from "../Section/NewSection";
 import { ContactTable } from "components/Contact/ContactTable";
-export const ContactSection: React.FC = () => {
+export const ContactSection:React.FC<{isSecondary:boolean}> = ({isSecondary}) =>{
    
     return (
-        <NewSection isSecondary={false} sectionId={ESectionId.Kontakt} >
+        <NewSection isSecondary={isSecondary} sectionId={ESectionId.Kontakt} >
            <ContactTable />
         </NewSection>
     )

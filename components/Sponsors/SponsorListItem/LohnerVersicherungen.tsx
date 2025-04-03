@@ -4,6 +4,6 @@ export const LohnerVersicherungen:React.FC = () => {
 
 
     return(
-        <SponsorsListItem imgSource="lohner.jpg"  sponsorLink="https://www.vkb.de/content/aussendienst/l/lohner/" name="Versicherungsagentur Stefan Lohner"/>
+        <SponsorsListItem imgSource="LohnerVersicherungen.jpg"  sponsorLink="https://www.vkb.de/content/aussendienst/l/lohner/" name="Versicherungsagentur Stefan Lohner"/>
     )
 }

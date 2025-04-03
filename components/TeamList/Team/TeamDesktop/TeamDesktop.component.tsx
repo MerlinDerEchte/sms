@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Team } from "types/team";
 import { TeamInfoTwoRows } from "../TeamInfoTwoRows";
 import { ContactPersonBox } from "components/Contact/ContactPersonBox";
@@ -7,8 +7,10 @@ import { TeamInfoOneRowHeader } from "../TeamInfoOneRowHeader";
 import { TeamInfoTrainingsTwoRows } from "../TeamInfoTrainingTwoRows";
 import { createTeamDesktopStyles } from "./createTeamDesktopStyles";
 import { BFVButton } from "../BFVButton";
+import { SectionContext } from "components/Section/SectionContext";
 export const TeamDesktopComponent: React.FC<{ team: Team, selectedTeamName: string, setSelectedTeamName: (team: string) => void }> = ({ team, selectedTeamName, setSelectedTeamName }) => {
-    const teamDesktopStyles = createTeamDesktopStyles();
+    const { isSecondary } = useContext(SectionContext); 
+    const teamDesktopStyles = createTeamDesktopStyles(isSecondary);
     const sortedTrainings = sortTrainings(team.trainings);
     const isSelectedTeam = team.name === selectedTeamName
 

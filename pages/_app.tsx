@@ -18,7 +18,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     isMobile: screenWidth < 1200,
     screenHeight: screenHeight,
     screenWidth: screenWidth,
-    appStatus: appStatus
+    appStatus: appStatus,
+    isFirstPage: true,
   };
 
   const httpLink = createHttpLink({

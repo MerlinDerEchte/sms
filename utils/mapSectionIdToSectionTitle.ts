@@ -8,6 +8,7 @@ export const mapSectionIdToSectionTitle = (sectionId: ESectionId) => {
         case ESectionId.Impressum: return 'Impressum';
         case ESectionId.Sponsors: return 'Sponsoren & Förderer';
         case ESectionId.Teams: return 'Teams';
+        case ESectionId.NextGames: return 'Nächste Spiele';
         default: return '';
     }
 }

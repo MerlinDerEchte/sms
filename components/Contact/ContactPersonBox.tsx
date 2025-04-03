@@ -15,6 +15,7 @@ export const ContactPersonBox: React.FC<{ person: Person }> = ({ person }) => {
         return css({
             boxShadow: `0px 0px 5px ${isSecondary ? colors.DARK_WHITE : colors.DARK_BROWN}`,
             color: isSecondary ? colors.DARK_WHITE : colors.DARK_BROWN,
+            backgroundColor: colors.DARK_WHITE,
             borderRadius: 25,
             padding: 10,
             minHeight: 150,

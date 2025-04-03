@@ -1,4 +1,4 @@
-import { css } from "@emotion/css";
+import { css, keyframes } from "@emotion/css";
 import { SuedLogoHeader } from "components/SuedLogoHeader/SuedLogoHeader";
 import { useContext, useEffect } from "react";
 import { GlobalContext } from "context/GlobalContext";
@@ -6,35 +6,42 @@ import { ESectionId } from "enums/sectionIds";
 import { PageLayoutConstantsMobile } from "constants/PageLayoutConstants";
 import { BFVWidgetComponent } from 'components/BFVWidget'
 import { NewSection } from "../Section/NewSection";
-export const IntroSection = ({ }) => {
+import { scrollIntoView } from "utils/scrollUtil";
+
+export const IntroSection: React.FC<{ isSecondary: boolean }> = ({ isSecondary }) => {
 
 	const { isMobile } = useContext(GlobalContext);
+	const animateMarginTop = keyframes`
+0% {
+  margin-top: 400px; /* Start with a large margin */
+}
+100% {
+  margin-top: 70px;  /* Shrink to smaller margin */
+}
+`;
 
 	const createIntroStyles = (isMobile: Boolean) => {
 		return css({
 			position: "relative",
-			paddingTop: isMobile ? 150 : 50,
+			paddingTop: isMobile ? 0 : 0,
 			paddingBottom: 50,
+			minHeight: 'calc(100vh - 50px)',
 			marginLeft: isMobile ? PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : 200,
 			marginRight: isMobile ? PageLayoutConstantsMobile.SECTION_CONTENT_SIDE_MARGIN : 200,
 			display: "flex",
 			flexDirection: "column",
+			justifyContent: "center",
 			alignItems: "stretch",
-			gap: isMobile ? 100 : 50,
 
-			".welcome-wrapper": {
+			".next-games-wrapper": {
+				marginTop: isMobile ? 400 : 800,
 				flex: "1 0",
 				width: "100%",
 				display: "flex",
 				flexDirection: "column",
 				gap: 10,
+				animation: `${animateMarginTop} 0.5s 1.5s ease-out forwards`,
 
-				".welcome-header-wrapper": {
-					flex: 0,
-					height: 40,
-					width: "100%",
-					textAlign: 'center',
-				},
 				".bfv-widget-wrapper": {
 					flex: 1,
 					position: "relative",
@@ -56,22 +63,12 @@ export const IntroSection = ({ }) => {
 	const introStyles = createIntroStyles(isMobile);
 
 	return (
-		<NewSection isSecondary={false} sectionId={ESectionId.Intro} hasCaption={false}>
+		<NewSection isSecondary={isSecondary} sectionId={ESectionId.Intro} hasCaption={false}>
 			<div className={introStyles}>
 				<div className="sued-logo-wrapper">
 					<SuedLogoHeader />
 				</div>
-				<div className="welcome-wrapper">
-					<div className='welcome-header-wrapper'>
-						<h1>
-							Herzlich Willkommen beim SC München Süd e.V.
-						</h1>
-					</div>
-					<div className="bfv-widget-wrapper">
-						<div className="bfv-widget">
-							<BFVWidgetComponent />
-						</div>
-					</div>
+				<div className="start-actions-wrapper">
 				</div>
 			</div>
 		</NewSection>

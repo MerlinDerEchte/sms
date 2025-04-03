@@ -10,7 +10,7 @@ const expandContentAnimation = keyframes`
 `
 
 
-export const createTeamMobileStyles = (isSelected:boolean) => {
+export const createTeamMobileStyles = (isSecondary:Boolean) => {
     
     return css({
         display: 'flex',
@@ -25,7 +25,7 @@ export const createTeamMobileStyles = (isSelected:boolean) => {
             justifyContent: 'space-between',
             alignItems: 'center',
             height: 50,
-            borderBottom: `3px solid ${colors.DARK_BROWN}`,
+            borderBottom: `3px solid ${isSecondary ? colors.DARK_WHITE : colors.DARK_BROWN}`,
         },
         '.team-info-wrapper': {
             paddingTop:20,

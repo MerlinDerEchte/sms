@@ -1,7 +1,7 @@
 import { css, keyframes } from "@emotion/css"
 import { colors } from "styles/colors"
 
-export const createTeamDesktopStyles = () => {
+export const createTeamDesktopStyles = (isSecondary:boolean) => {
     const maxHeight: number = 2000;
 
 
@@ -23,7 +23,7 @@ export const createTeamDesktopStyles = () => {
             justifyContent: 'space-between',
             alignItems: 'center',
             height: 50,
-            borderBottom: `3px solid ${colors.DARK_BROWN}`,
+            borderBottom: `3px solid ${isSecondary ? colors.DARK_WHITE : colors.DARK_BROWN}`,
             cursor: 'pointer',
         },
 
@@ -31,8 +31,9 @@ export const createTeamDesktopStyles = () => {
             display: 'flex',
             flexDirection: 'column',
             gap: 20,
-            animation: `${expandContentAnimation} 0.4s ease-in-out backwards`,
-
+            overflowY: 'hidden',
+            maxHeight: 1000,
+            animation: `${expandContentAnimation} 2s ease-in-out backwards`,
             '.team-foto-container': {
                 borderRadius: 25,
                 overflow: 'hidden',

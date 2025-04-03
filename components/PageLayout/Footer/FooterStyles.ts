@@ -10,6 +10,7 @@ export const createFooterStyles = (isMobile: Boolean) => {
         flexDirection:'column',
         borderTop: `5px solid  ${colors.LIGHT_BROWN}`,
         background: colors.WHITE,
+        paddingBottom: isMobile ? 0 : 150,
         '.footer-caption-wrapper':{
             
             flex: 0,

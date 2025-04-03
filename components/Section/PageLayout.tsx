@@ -15,7 +15,6 @@ export const PageLayout = ({ children }: IPageProps, showNavigationBar:()=>void)
   const [showNavigationMenu, setShowNavigationMenu] = useState(false);
   const [isInitialRender, setIsInitialRender] = useState(true);
   const toggleShowNavigationMenu = () => {
-    
     setIsInitialRender(false)
     if(showNavigationMenu){
       setShowNavigationMenu(false)
@@ -27,20 +26,12 @@ export const PageLayout = ({ children }: IPageProps, showNavigationBar:()=>void)
     setShowNavigationMenu(false)
   }
   const [isInitialLoadingBufferOver, setIsinitialLoadingBufferOver] = useState(false);
-
   useEffect(() => {
-    const timeOut = setTimeout(() => {
-      setIsinitialLoadingBufferOver(true);
-    }, 100);
-
-  }, []);
-
+    const timeOut = setTimeout(() => setIsinitialLoadingBufferOver(true), 500)
+  }, [])
   useEffect(() => {
-    const timeOut = setTimeout(() => {
-      toggleShowNavigationMenu();
-    }, 1500)
-  }, []);
-
+    setTimeout(() => toggleShowNavigationMenu(),1500)
+  },[])
   return (
     <main className={pageLayoutStyles} id="main" style={isInitialLoadingBufferOver ? { visibility: 'visible' } : { visibility: 'hidden' }}>
       {!isMobile && <header className="header-wrapper">

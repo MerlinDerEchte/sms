@@ -12,7 +12,7 @@ interface NavbarItemProps {
 }
 
 
-export const NavbarItem: React.FC<NavbarItemProps> = ({  sectionId }) => {
+export const NavbarItem: React.FC<NavbarItemProps> = ({ sectionId }) => {
 
 
     const createNavbarItemStyles = () => {
@@ -21,6 +21,10 @@ export const NavbarItem: React.FC<NavbarItemProps> = ({  sectionId }) => {
             justifyContent: 'center',
             alignItems: 'start',
             position: 'relative',
+            height: 50,
+            paddingLeft: 10,
+            paddingRight: 10,
+            borderBottom: `1px solid ${colors.DARK_WHITE}`,
 
             '.navbar-item-header': {
                 display: 'flex',
@@ -28,7 +32,7 @@ export const NavbarItem: React.FC<NavbarItemProps> = ({  sectionId }) => {
                 alignItems: 'center',
                 height: '100%',
                 cursor: 'pointer',
-                gap:5,
+                gap: 5,
                 '.navbar-item-header-title': {
                     flex: 0
                 },
@@ -38,15 +42,15 @@ export const NavbarItem: React.FC<NavbarItemProps> = ({  sectionId }) => {
                         height: 30,
                         width: 30,
                         fill: colors.DARK_WHITE,
-                        stroke: colors.DARK_BROWN,
+                        stroke: colors.DARK_WHITE,
                         strokeWidth: 1,
                     }
                 },
                 ':hover': {
                     textDecoration: 'underline',
-                    'svg':{
-                        fill: colors.DARK_BROWN,
+                    'svg': {
                         stroke: colors.DARK_WHITE,
+                        fill: colors.DARK_WHITE,
                     }
                 },
 

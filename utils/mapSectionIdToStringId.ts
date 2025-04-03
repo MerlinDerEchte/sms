@@ -9,5 +9,6 @@ export const mapSectionIdToStringId = (sectionId:ESectionId) => {
         case ESectionId.Kontakt: return 'kontakt';
         case ESectionId.Sponsors: return 'sponsors';
         case ESectionId.Teams: return 'teams';
+        case ESectionId.NextGames: return 'next-games'
     }
 }

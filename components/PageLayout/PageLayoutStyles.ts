@@ -11,7 +11,7 @@ export interface IcreatePageLayoutStyles {
 export const createPageLayoutStyles = (params: IcreatePageLayoutStyles) => {
     const { screenHeight, screenWidth, isMobile } = params;
 
-    const contentHeight: number = isMobile ? screenHeight : screenHeight - PageLayoutConstants.HEADER_HEIGHT  ;
+    const contentHeight: number = isMobile ? screenHeight : screenHeight;
 
     return css({
         width: screenWidth,
@@ -46,7 +46,7 @@ export const createPageLayoutStyles = (params: IcreatePageLayoutStyles) => {
             scrollMargin: 10,
             width: '100%',
             justifyContent: 'center',
-            top: isMobile ? 0 :PageLayoutConstants.HEADER_HEIGHT,
+            top: 0,
             overflowY: 'auto',
             overflowX: 'hidden',
         },

@@ -13,24 +13,24 @@ export const MobileNavigationItem: React.FC<{ sectionId: ESectionId, navCallback
             /*  flex: 1, */
             height: 50,
             display: 'flex',
-            gap:10,
+            gap: 10,
             '.mobile-navigation-item-title-container': {
                 flex: 0,
                 display: 'flex',
                 justifyContent: 'center',
-                alignItems:'center',
+                alignItems: 'center',
             },
             '.mobile-navigation-item-svg-container': {
                 flex: 0,
                 height: '100%',
                 display: 'flex',
                 justifyContent: 'center',
-                alignItems:'center',
-                'svg':{
-                    height:40,
+                alignItems: 'center',
+                'svg': {
+                    height: 40,
                     width: 40,
                     stroke: colors.DARK_WHITE,
-                    fill: colors.DARK_BROWN
+                    fill: colors.DARK_WHITE,
                 }
             }
         })
@@ -43,7 +43,7 @@ export const MobileNavigationItem: React.FC<{ sectionId: ESectionId, navCallback
     return (
         <div className={navigationItemStyles} onClick={handleItemClick} onPointerDown={handleItemClick}>
             <div className="mobile-navigation-item-svg-container">
-                <SectionIcon sectionId={sectionId} /> 
+                <SectionIcon sectionId={sectionId} />
             </div>
             <div className="mobile-navigation-item-title-container">
                 {mapSectionIdToNavTitle(sectionId)}

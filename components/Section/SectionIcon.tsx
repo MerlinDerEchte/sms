@@ -5,6 +5,7 @@ import { GroupIcon } from "icons/GroupIcon";
 import { PaperClipIcon } from "icons/PaperClipIcon";
 import { SponsorIcon } from "icons/SponsorIcon";
 import { UserIdIcon } from "icons/UserIdIcon";
+import { FussballIcon } from "icons/FussballIcon"
 
 const sectionMapToIcon = (sectionId: ESectionId) => {
     switch (sectionId) {
@@ -14,6 +15,7 @@ const sectionMapToIcon = (sectionId: ESectionId) => {
         case ESectionId.Kontakt: return <UserIdIcon />;
         case ESectionId.Sponsors: return <SponsorIcon />;
         case ESectionId.Teams: return <GroupIcon />;
+        case ESectionId.NextGames: return <FussballIcon />
         default: return <></>
     }
 }

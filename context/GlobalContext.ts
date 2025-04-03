@@ -4,5 +4,6 @@ export const GlobalContext = createContext({
     isMobile: false,
     screenHeight:0,
     screenWidth:0,
-    appStatus: EAppStatus.INIT
+    appStatus: EAppStatus.INIT,
+    isFirstPage: true,
 })

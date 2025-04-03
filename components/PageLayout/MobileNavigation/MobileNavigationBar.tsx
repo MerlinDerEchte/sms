@@ -26,6 +26,7 @@ export const MobileNavigationBar: React.FC<{ showNavigationMenu: Boolean, isInit
             height: '100vh',
             background: colors.DARK_BROWN,
             color: colors.DARK_WHITE,
+            opacity: 0.95,
             borderRight: `1px solid ${colors.LIGHT_BROWN}`,
             zIndex: 200,
             paddingTop: 50,
@@ -52,6 +53,7 @@ export const MobileNavigationBar: React.FC<{ showNavigationMenu: Boolean, isInit
     return (
         <div className={navbarStyles}>
             <nav className="nav" >
+                <MobileNavigationItem sectionId={ESectionId.NextGames} navCallback={closeNavigationBar} />
                 <MobileNavigationItem sectionId={ESectionId.Events} navCallback={closeNavigationBar} />
                 <MobileNavigationItem sectionId={ESectionId.Kontakt} navCallback={closeNavigationBar} />
                 <MobileNavigationItem sectionId={ESectionId.Impressions} navCallback={closeNavigationBar} />
