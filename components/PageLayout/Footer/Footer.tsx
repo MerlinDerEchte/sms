@@ -28,19 +28,16 @@ export const Footer: FC<{}> = () => {
                             SC München Süd e.V.
                         </li>
                         <li>
-                            Wolfratshauser Str.11
+                           Wackersberger Str.49
                         </li>
                         <li>
-                            82049 Pullach i. Isartal
+                            81371 München
                         </li>
                         <li>
-                            1.Vorstand: Georg Bauer
+                            Vorstand: Ludwig Lohner
                         </li>
                         <li>
-                            Tel.: 089/7251752
-                        </li>
-                        <li>
-                            1.vorstand@scsued.de
+                            1.vorstand@scsued.de 
                         </li>
                     </ul>
                 </div>
