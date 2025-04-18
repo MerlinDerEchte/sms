@@ -37,7 +37,7 @@ export const createSuedLogoStyles = (isMobile: Boolean) => {
 
     display: 'flex',
     flexDirection: isMobile ? 'column' : 'row',
-    gap: isMobile ? 50 : 0,
+    gap: isMobile ? 20 : 0,
     '.sued-logo-wrapper': {
       flex: 1,
       display: 'flex',
