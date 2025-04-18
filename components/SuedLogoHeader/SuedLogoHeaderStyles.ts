@@ -5,7 +5,7 @@ import { colors } from "styles/colors"
 const fadeZoomIn = keyframes`
 0% {
   opacity: 0;
-  transform: scale(0.5);
+  transform: scale(0.9);
 }
 100% {
   opacity: 1;
@@ -13,7 +13,7 @@ const fadeZoomIn = keyframes`
 }
 `;
 
-  const fadeInText = keyframes`
+const fadeInText = keyframes`
 0% {
   opacity: 0;
   transform: translateX(50px);
@@ -29,40 +29,54 @@ const fadeZoomIn = keyframes`
 }
 `;
 
-export const createSuedLogoStyles = (isMobile:Boolean) => {
 
-    return css({
-        
-        display: 'flex',
-        flexDirection: isMobile ? 'column' : 'row',
-        gap: isMobile ? 50 : 0,
-        '.sued-logo-wrapper':{
-            flex: 1,
-            display: 'flex',
-            justifyContent: isMobile ? 'center' : 'flex-end',
-            alignItems: 'center',
-            paddingRight: isMobile? 0 : 30,
-            
-            'svg':{
-                width:200,
-                height: 200,
-                animation: ` ${fadeZoomIn} 0.8s 0.1s ease-out`,
-            }
-        },
-        '.sued-text-wrapper':{
-           
-            display: 'flex',
-            borderLeft: isMobile ? 'none' : `1px solid ${colors.DARK_BROWN}`,
-            flex: 1,
-            paddingLeft: isMobile ? 0 : 30,
-            justifyContent: isMobile ? 'center' : 'flex-start',
-            textAlign: isMobile ? 'center' : 'inherit', 
-            alignItems: 'center',
-            lineHeight: 1.5,
-            opacity: 0,
-            fontSize: 24,
-            fontWeight: 700,
-            animation: `${fadeInText} 0.5s 0.4s  ease-out forwards`
-        }
-    })
+
+export const createSuedLogoStyles = (isMobile: Boolean) => {
+
+  return css({
+
+    display: 'flex',
+    flexDirection: isMobile ? 'column' : 'row',
+    gap: isMobile ? 50 : 0,
+    '.sued-logo-wrapper': {
+      flex: 1,
+      display: 'flex',
+
+      justifyContent: isMobile ? 'center' : 'flex-end',
+      alignItems: 'center',
+      paddingRight: isMobile ? 0 : 30,
+
+      'svg': {
+        width: 200,
+        height: 200,
+        opacity: 0,
+        animation: ` ${fadeZoomIn} 0.5s 2s ease-out forwards`,
+      }
+    },
+    '.sued-text-wrapper': {
+
+      display: 'flex',
+      flexDirection: 'column',
+      
+      flex: 1,
+      paddingLeft: isMobile ? 0 : 30,
+      justifyContent: 'center',
+      alignItems: isMobile ? 'center' : 'flex-start',
+      gap: isMobile ? 15 : 10,
+      fontSize: 24,
+      fontWeight: 700,
+      
+
+      '.first-text': {
+        opacity: 0,
+        animation: `${fadeInText} 0.5s 0.4s  ease-out forwards `,
+        whiteSpace: 'nowrap',
+      },
+      '.second-text': {
+        opacity: 0,
+        animation: `${fadeInText} 0.5s 1.1s  ease-out forwards `,
+        whiteSpace: 'nowrap',
+      }
+    }
+  })
 }

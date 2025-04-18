@@ -9,16 +9,17 @@ interface IPageProps {
   children: React.ReactNode;
 }
 
-export const PageLayout = ({ children }: IPageProps, showNavigationBar:()=>void) => {
+export const PageLayout = ({ children }: IPageProps, showNavigationBar: () => void) => {
   const { screenHeight, screenWidth, isMobile } = useContext(GlobalContext);
   const pageLayoutStyles = createPageLayoutStyles({ screenHeight, screenWidth, isMobile });
   const [showNavigationMenu, setShowNavigationMenu] = useState(false);
   const [isInitialRender, setIsInitialRender] = useState(true);
   const toggleShowNavigationMenu = () => {
+
     setIsInitialRender(false)
-    if(showNavigationMenu){
+    if (showNavigationMenu) {
       setShowNavigationMenu(false)
-    }else{
+    } else {
       setShowNavigationMenu(true)
     }
   }
@@ -27,11 +28,8 @@ export const PageLayout = ({ children }: IPageProps, showNavigationBar:()=>void)
   }
   const [isInitialLoadingBufferOver, setIsinitialLoadingBufferOver] = useState(false);
   useEffect(() => {
-    const timeOut = setTimeout(() => setIsinitialLoadingBufferOver(true), 500)
+    const timeOut = setTimeout(() => setIsinitialLoadingBufferOver(true), 100)
   }, [])
-  useEffect(() => {
-    setTimeout(() => toggleShowNavigationMenu(),1500)
-  },[])
   return (
     <main className={pageLayoutStyles} id="main" style={isInitialLoadingBufferOver ? { visibility: 'visible' } : { visibility: 'hidden' }}>
       {!isMobile && <header className="header-wrapper">
@@ -39,7 +37,7 @@ export const PageLayout = ({ children }: IPageProps, showNavigationBar:()=>void)
       </header>
       }
       {isMobile && <MobileNavigationButton showNavigationMenu={showNavigationMenu} isInitialRender={isInitialRender} toggleShowNavigationMenu={toggleShowNavigationMenu} />}
-      {isMobile && <MobileNavigationBar showNavigationMenu={showNavigationMenu} isInitialRender={isInitialRender} closeNavigationBar={closeNavigationBar}/>}
+      {isMobile && <MobileNavigationBar showNavigationMenu={showNavigationMenu} isInitialRender={isInitialRender} closeNavigationBar={closeNavigationBar} />}
       <div id="page-content-wrapper">
         {children}
         <Footer />

@@ -10,7 +10,7 @@ export const createNavbarStyles = (screenHeight:number) => {
 
     return css({
         position: 'fixed',
-        animation: `${slideIn} 0.5s 1.0s ease-in-out backwards`,
+        animation: `${slideIn} 0.5s 2.0s ease-in-out backwards`,
         top: screenHeight - 100,
         left: 0,
         display: 'flex',

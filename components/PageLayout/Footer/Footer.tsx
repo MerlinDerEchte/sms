@@ -18,14 +18,13 @@ export const Footer: FC<{}> = () => {
 
             </div>
             <div className="footer-content-wrapper">
-
                 <div className="footer-logo">
                     <SuedLogoSvg />
                 </div>
                 <div className="footer-impressum">
                     <ul>
                         <li>
-                            SC München Süd e.V.
+                           SC München Süd e.V.
                         </li>
                         <li>
                            Wackersberger Str.49
