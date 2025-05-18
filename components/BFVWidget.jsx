@@ -21,7 +21,7 @@ export const BFVWidgetComponent = () => {
 				setTimeout(handleBFVWidget, 100); // Retry after 100 milliseconds
 			}
 		};
-
+		
 		handleBFVWidget();
 	}, [isMobile, screenWidth]);
 

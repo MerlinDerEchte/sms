@@ -27,7 +27,7 @@ const ClubEventList: React.FC = () => {
             flexDirection: 'column',
             width: isMobile ? '100%' : 600,
             gap: 30,
-           
+
             alignItems: 'stretch',
             'a': {
                 color: colors.DARK_BROWN,
@@ -40,7 +40,7 @@ const ClubEventList: React.FC = () => {
     return (
         <div className={clubEventListStyles}>
             {
-                clubEvents.sort((a, b) => a.date.getTime() - b.date.getTime())
+                clubEvents.sort((a, b) => b.date.getTime() - a.date.getTime())
                     .map((cE, index) =>
                         <ClubEventBox clubEvent={cE} key={index} />
                     )
