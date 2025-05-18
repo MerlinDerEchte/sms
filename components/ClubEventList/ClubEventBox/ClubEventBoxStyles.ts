@@ -40,16 +40,7 @@ export const createClubEventBoxStyles = (isExpanded: Boolean, isFocused: Boolean
                 display: 'block',
                 flex: '2 1',
                 overflow: 'hidden',
-                maxHeight: isExpanded ? '100%' : 100,
-                '::after': {
-                    content: `' '`,
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    width: isExpanded ? 0 : '100%',
-                    height: 20,
-                    background: `linear-gradient(transparent, ${colors.DARK_BROWN})`
-                }
+                maxHeight: isExpanded ? '100%' : 100
 
             },
             'club-event-date-wrapper':{

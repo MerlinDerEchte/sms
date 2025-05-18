@@ -5,7 +5,7 @@ import { useContext, useState } from 'react';
 import { GlobalContext } from "context/GlobalContext";
 
 export const ClubEventBox: React.FC<{ clubEvent: ClubEvent }> = ({ clubEvent }) => {
-    const { isMobile } = useContext(GlobalContext); 
+    const { isMobile } = useContext(GlobalContext);
     const [isExpanded, setIsExpanded] = useState(false);
     const toggleIsExpanded = () => {
         if (isExpanded) {
@@ -18,15 +18,15 @@ export const ClubEventBox: React.FC<{ clubEvent: ClubEvent }> = ({ clubEvent }) 
 
 
     const clubEventStyles = createClubEventBoxStyles(isExpanded, isFocused, isMobile);
-    const date:Date = clubEvent.date;
-    const addZeroToMinuteStringIfNeeded = (minuteString:string) => {
-        if(minuteString.length === 1){
+    const date: Date = clubEvent.date;
+    const addZeroToMinuteStringIfNeeded = (minuteString: string) => {
+        if (minuteString.length === 1) {
             return 0 + minuteString;
-        }else{
+        } else {
             return minuteString;
         }
-    } 
-    const dateAsString:string = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()} - ${date.getHours()}:${addZeroToMinuteStringIfNeeded(date.getMinutes().toString())}`;
+    }
+    const dateAsString: string = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()} - ${date.getHours()}:${addZeroToMinuteStringIfNeeded(date.getMinutes().toString())}`;
     return (
         <div className={clubEventStyles} onMouseEnter={() => setIsFocused(true)} onMouseLeave={() => setIsFocused(false)} onClick={toggleIsExpanded}>
             <div className="foto-wrapper">
@@ -36,14 +36,10 @@ export const ClubEventBox: React.FC<{ clubEvent: ClubEvent }> = ({ clubEvent }) 
                 <div className="club-event-header">
                     <h2>{clubEvent.title}</h2>
                 </div>
-                <div className="club-event-date-wrapper">{dateAsString} </div> 
+                <div className="club-event-date-wrapper">{dateAsString} </div>
                 <div className="club-event-text-wrapper">
                     {documentToReactComponents(clubEvent.content)}
                 </div>
-                {!isExpanded && <div className="club-event-read-more-container">
-                    Mehr lesen...
-                </div>
-                }
 
             </div>
         </div>
