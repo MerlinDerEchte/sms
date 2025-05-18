@@ -7,6 +7,7 @@ import { LohnerVersicherungen } from "./SponsorListItem/LohnerVersicherungen";
 import { PhysioteamSendling } from "./SponsorListItem/PhysioTeamSendling";
 import { MaxBauerSachverstaendiger } from "./SponsorListItem/MaxBauerSachverstaendiger";
 import { FahrschuleRiek } from "./SponsorListItem/FahrschuleRiek";
+import { Hofbauer } from "./SponsorListItem/Hofbauer";
 
 export const SponsorsList: React.FC = () => {
 
@@ -34,6 +35,7 @@ export const SponsorsList: React.FC = () => {
             <PhysioteamSendling />
             <MaxBauerSachverstaendiger />
             <FahrschuleRiek />
+            <Hofbauer />
         </div>
     )
 
